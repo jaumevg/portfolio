@@ -1,100 +1,316 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work in Progress | Jaume Vidal</title>
+    <title>🚧 In Development | Jaume Vidal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: var(--background-color, #000000);
-            color: var(--text-color, #ffffff);
-            font-family: var(--font-body, Arial, sans-serif);
+        :root {
+            --primary-color: #ff1744;
+            --secondary-color: #ff0000;
+            --background-color: #000000;
+            --text-color: #ffffff;
+            --soft-text-color: #e2e8f0;
+            --card-background: rgba(18, 18, 18, 0.7);
+            --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --neon-glow: 0 0 10px var(--primary-color),
+                        0 0 20px var(--primary-color),
+                        0 0 30px var(--primary-color);
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            min-height: 100%;
             text-align: center;
-            background: var(--alt-section-background, #000000);
+            position: relative;
+            line-height: 1.6;
+            overflow: hidden;
+            opacity: 1;
+        }
+
+        /* Grid Background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(18, 18, 43, 0.9) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(18, 18, 43, 0.9) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -3;
+            opacity: 0.3;
+        }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -2;
+            background: var(--alt-section-background, linear-gradient(135deg, #000000, #121212));
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .bg-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(5, 217, 232, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 42, 109, 0.05) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .bg-dots {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.5;
         }
 
         .container {
-            padding: 2rem;
-            max-width: 600px;
-            background: rgba(18, 18, 18, 0.7);
-            border-radius: 15px;
+            padding: 2.5rem;
+            max-width: 500px;
+            background: var(--card-background);
+            border-radius: 12px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 23, 68, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(255, 23, 68, 0.1);
+            border: 1px solid rgba(255, 23, 68, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 23, 68, 0.1);
+            margin: 2rem;
+            position: relative;
+            z-index: 10;
+            transition: var(--transition);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary-color);
+            animation: borderGrow 1s ease-out forwards;
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+
+        @keyframes borderGrow {
+            0% { width: 0; opacity: 0; }
+            100% { width: 100%; opacity: 1; }
+        }
+
+        .container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px -15px rgba(5, 217, 232, 0.2);
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
         .icon {
             font-size: 4rem;
-            color: var(--primary-color, #ff1744);
-            margin-bottom: 1.5rem;
-            animation: bounce 2s infinite;
-            text-shadow: 0 0 10px var(--primary-color, #ff1744);
+            color: var(--primary-color);
+            margin: 0 auto 1.5rem;
+            position: relative;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 23, 68, 0.1);
+            border: 1px solid rgba(255, 23, 68, 0.2);
+            box-shadow: var(--neon-glow);
+            transition: var(--transition);
+        }
+
+        .icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: var(--primary-color);
+            border-right-color: var(--secondary-color);
+            animation: spin 8s linear infinite;
+            filter: blur(1px);
+        }
+
+        .icon i {
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+        
+        .icon i {
+            animation: hammerHit 2s ease-in-out infinite;
+        }
+
+        @keyframes hammerHit {
+            0%, 100% { transform: rotate(-15deg); }
+            50% { transform: rotate(15deg); }
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin: 2rem auto 1.5rem;
+            text-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
+            display: block;
+            text-align: center;
+            width: fit-content;
+            padding: 0 1rem;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -55%) rotate(-10deg); }
+            50% { transform: translate(-50%, -45%) rotate(-8deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         h1 {
-            color: var(--primary-color, #ff1744);
+            color: var(--text-color);
             font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-family: var(--font-display, sans-serif);
-            text-shadow: 0 0 5px var(--primary-color, #ff1744);
+            margin: 0 0 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+            display: block;
+            text-align: center;
+        }
+
+        h1::after {
+            content: '🚧';
+            position: absolute;
+            top: -15px;
+            right: -40px;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
         }
 
         p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            color: var(--soft-text-color, #e2e8f0);
-            max-width: 80%;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.25rem;
+            line-height: 1.7;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 85%;
+            font-weight: 400;
+            letter-spacing: 0.2px;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.8rem 1.8rem;
-            background: transparent;
-            color: var(--primary-color, #ff1744);
-            border: 2px solid var(--primary-color, #ff1744);
+            padding: 0.8rem 2rem;
+            background: rgba(255, 23, 68, 0.1);
+            color: var(--text-color);
+            border: 1px solid var(--primary-color);
             border-radius: 30px;
             text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition, all 0.3s ease);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.95rem;
             position: relative;
             overflow: hidden;
             z-index: 1;
+            margin-top: 1rem;
         }
 
         .btn::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: var(--primary-color, #ff1744);
-            transition: 0.5s;
+            background: var(--primary-color);
             z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .btn:hover {
-            color: #000;
-            transform: translateY(-2px);
-            box-shadow: 0 0 15px var(--primary-color, #ff1744);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px var(--primary-color);
+            border-color: transparent;
         }
 
         .btn:hover::before {
-            left: 0;
+            opacity: 1;
+        }
+
+        .btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover i {
+            transform: translateX(-3px);
         }
 
         @keyframes bounce {
@@ -120,19 +336,26 @@
     </style>
 </head>
 <body>
+    <div class="grid-bg"></div>
+    <div class="bg-pattern"></div>
+    
     <div class="container">
         <div class="icon">
-            <i class="fas fa-tools"></i>
+            <i class="fas fa-hammer"></i>
         </div>
-        <h1>En Construcción</h1>
-        <p>
-            Este proyecto está en desarrollo. Estoy trabajando en algo increíble.
-            ¡Vuelve pronto para ver los avances!
-        </p>
+        <h1>Under Construction</h1>
+        <p>This project is currently in development</p>
+        <div class="highlight">Launching Soon</div>
         <a href="../index.html" class="btn">
-            <i class="fas fa-arrow-left"></i> Volver al Inicio
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
         </a>
     </div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script>
+        // Efecto de texto que aparece
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = '1';
+        });
+    </script>
 </body>
 </html>
