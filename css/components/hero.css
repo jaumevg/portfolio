@@ -1,0 +1,209 @@
+@import '../base/variables.css';
+
+/* Hero Section */
+#home.hero {
+    height: 85vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: #0a0a0a;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding-top: var(--nav-height);
+}
+
+/* Background gradient effect */
+.spotlight {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    z-index: 1;
+    background: 
+        linear-gradient(
+            125deg,
+            rgba(255, 23, 68, 0.08) 0%,
+            rgba(255, 23, 68, 0.05) 15%,
+            rgba(255, 23, 68, 0.02) 35%,
+            transparent 60%
+        ),
+        linear-gradient(
+            45deg,
+            transparent 30%,
+            rgba(255, 23, 68, 0.04) 50%,
+            rgba(255, 23, 68, 0.02) 70%,
+            transparent 85%
+        ),
+        linear-gradient(
+            to right,
+            #0a0a0a,
+            rgba(10, 10, 10, 0.95) 45%,
+            rgba(10, 10, 10, 0.97) 55%,
+            #0a0a0a
+        );
+    opacity: 1;
+    animation: floatGradient 12s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes floatGradient {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    33% {
+        transform: translate(-1%, -1%);
+    }
+    66% {
+        transform: translate(1%, 1%);
+    }
+}
+
+/* Mesh overlay para dar textura */
+#home.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    z-index: 2;
+    pointer-events: none;
+}
+
+#home .hero-content {
+    width: min(90%, 800px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+    z-index: 3;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
+
+.hero-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    line-height: 1.2;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-title .greeting {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--text-color);
+    font-weight: normal;
+}
+
+.hero-title .name {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--primary-color);
+    font-weight: bold;
+    text-shadow: 
+        0 0 20px rgba(255, 23, 68, 0.3),
+        0 0 40px rgba(255, 23, 68, 0.15);
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards 0.2s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Down Button */
+#home .scroll-down {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home .scroll-down i {
+    color: var(--primary-color);
+    font-size: 2rem;
+    display: inline-block;
+    animation: float 2s ease-in-out infinite;
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+#home .scroll-down:hover i {
+    animation-duration: 1s;
+    text-shadow: 
+        0 0 10px var(--primary-color),
+        0 0 20px var(--primary-color);
+}
+
+/* Star Canvas */
+#home #starCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#home .nav-links a[href="certifications.html"]::after {
+    content: '→';
+    display: inline-block;
+    margin-left: 2px;
+    position: relative;
+    top: -1px;
+    font-size: 1.1em;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+#home .nav-links a[href="certifications.html"]:hover::after {
+    transform: translateX(4px);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    #home.hero {
+        height: 90vh;
+    }
+}

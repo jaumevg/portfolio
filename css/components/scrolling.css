@@ -1,0 +1,127 @@
+/* Modern minimal scrollbar */
+:root {
+    --scrollbar-width: 5px;
+    --scrollbar-color: rgba(255, 23, 68, 0.3);
+    --scrollbar-hover-color: rgba(255, 23, 68, 0.5);
+    --scrollbar-track-color: transparent;
+    --progress-color: #ff1744;
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--scrollbar-color) var(--scrollbar-track-color) !important;
+}
+
+/* Chrome/Safari/Edge scrollbar */
+::-webkit-scrollbar {
+    width: var(--scrollbar-width) !important;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-track-color) !important;
+    border: none !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color) !important;
+    border-radius: 10px !important;
+    border: none !important;
+    transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-hover-color) !important;
+}
+
+/* Hide scrollbar corner */
+::-webkit-scrollbar-corner {
+    background: transparent !important;
+}
+
+/* Modern Scroll Progress Indicator */
+body > .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    height: 3px;
+    background: var(--primary-color);
+    z-index: 9999;
+    pointer-events: none;
+    transition: width 0.2s ease;
+    box-shadow: 0 0 10px var(--primary-color);
+    opacity: 1;
+}
+
+/* Modern minimal scrollbar */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 23, 68, 0.7);
+    border-radius: 20px;
+    border: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 23, 68, 1);
+}
+
+/* Hide scrollbar buttons and corner */
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner {
+    display: none !important;
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 23, 68, 0.7) transparent;
+}
+
+body {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 23, 68, 0.7) transparent;
+    overflow-x: hidden;
+}
+
+/* Modern Scroll Progress Indicator */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    z-index: 1001;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px var(--glow-color);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 0;
+    overflow-x: hidden;
+}
+
+main {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+section {
+    scroll-margin-top: 0;
+}
+
+#home {
+    margin-top: 0;
+    scroll-margin-top: 0;
+}

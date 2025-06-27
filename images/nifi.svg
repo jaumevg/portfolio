@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Hexágono exterior -->
+    <path d="M75 15L120 40V90L75 115L30 90V40L75 15Z" fill="#728E9B"/>
+    <!-- Flecha -->
+    <path d="M60 55H90L75 75L60 55Z" fill="white"/>
+    <path d="M67 75H83L75 90L67 75Z" fill="white"/>
+</svg>

@@ -1,0 +1,104 @@
+/* Modern minimal scrollbar */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 23, 68, 0.7);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 23, 68, 1);
+}
+
+/* Hide scrollbar buttons and corner */
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner {
+    display: none !important;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 23, 68, 0.7) transparent;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 23, 68, 0.7) transparent;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Background Image and Pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: 
+        radial-gradient(circle at 100% 0%, var(--primary-color-transparent) 0%, transparent 50%),
+        radial-gradient(circle at 0% 100%, var(--secondary-color) 0%, transparent 50%),
+        repeating-linear-gradient(
+            45deg,
+            transparent 0,
+            transparent 10px,
+            var(--primary-color-transparent) 10px,
+            var(--primary-color-transparent) 11px
+        );
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+/* Links */
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+}
+
+/* Section Base */
+section {
+    padding: 90px 0 2.5rem 0;
+    position: relative;
+    background-color: var(--section-background);
+    margin: 0;
+    scroll-margin-top: 120px;
+    min-height: 100vh;
+}
+
+section:nth-child(even) {
+    background: var(--alt-section-background);
+}
+
+/* Theme transition */
+.theme-transition {
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}

@@ -1,0 +1,221 @@
+/* Projects Section */
+.projects {
+    padding: 8rem 0;
+    background: linear-gradient(
+        to right,
+        var(--background) 0%,
+        var(--background-alt) 100%
+    );
+    position: relative;
+}
+
+/* Eliminamos la transición about-projects ya que usaremos el mismo color */
+.section-transition.about-to-projects {
+    display: none;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--text-color);
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 4px;
+    opacity: 0.9;
+    box-shadow: none;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: var(--card-background);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(var(--primary-color-rgb), 0.1);
+}
+
+.project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.project-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(var(--primary-color-rgb), 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-icon i {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 0.25rem 0.75rem;
+    background: rgba(var(--primary-color-rgb), 0.1);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.project-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.tech-stack {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    justify-content: flex-start;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.6rem;
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.tech-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+}
+
+.tech-item i,
+.tech-item img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.tech-item img[alt="Azure"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    display: inline-block;
+}
+
+.tech-item .fa-aws {
+    color: #FF9900;
+}
+
+.tech-item .fa-python {
+    color: #3776AB;
+}
+
+.tech-item .fa-docker {
+    color: #2496ED;
+}
+
+.project-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.project-link i {
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover {
+    opacity: 0.9;
+}
+
+.project-link:hover i {
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .projects {
+        padding: 4rem 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        max-width: 100%;
+    }
+}

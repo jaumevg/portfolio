@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaume Vidal - Personal Portfolio</title>
+    <link rel="stylesheet" href="css/base/theme.css">
+    <link rel="stylesheet" href="css/base/reset.css">
+    <link rel="stylesheet" href="css/base/animations.css">
+    <link rel="stylesheet" href="css/base/base.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/navigation.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/about.css">
+    <link rel="stylesheet" href="css/components/experience.css">
+    <link rel="stylesheet" href="css/components/projects.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/components/scrolling.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;700&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+</head>
+<body>
+    <div class="scroll-progress"></div>
+    <nav>
+        <a href="#" class="logo">Jaume Vidal</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+            </ul>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    
+    <main>
+        <section id="home" class="hero">
+            <div class="spotlight"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="greeting">Hi, I'm</span>
+                    <span class="name">Jaume Vidal</span>
+                </h1>
+                <p class="hero-subtitle">Architecting the future of data in the cloud</p>
+            </div>
+            <button class="scroll-down" aria-label="Scroll down" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </section>
+        
+        <section id="about" class="about section">
+            <div class="container">
+                <div class="about-grid">
+                    <!-- Profile Section -->
+                    <div class="profile-section" data-aos="fade-right">
+                        <div class="profile-content">
+                            <div class="profile-image-container">
+                                <img src="images/profile.png" alt="Jaume Vidal's Profile Picture" loading="lazy">
+                                <div class="profile-backdrop"></div>
+                            </div>
+                            <div class="profile-info">
+                                <div class="profile-subtitle">
+                                    <span>Cloud & Data Engineer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bio Section -->
+                    <div class="bio-section" data-aos="fade-left">
+                        <div class="bio-content">
+                            <p class="bio-highlight">Transforming data into actionable insights through cloud-native solutions.</p>
+                            <p>I specialize in designing and implementing scalable data pipelines and cloud architectures, focusing on solutions that drive business value through efficient data processing and analytics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Journey -->
+                <div class="experience-timeline" data-aos="fade-up">
+                    <h2 class="section-title">Professional Journey</h2>
+
+                    
+                    <!-- Current Position -->
+                    <div class="experience-card" data-aos="fade-up">
+                        <div class="experience-header">
+                            <img src="images/ntt-data.png" alt="NTT DATA Logo" class="company-logo">
+                            <div class="experience-title">
+                                <span class="duration">2024 - Present</span>
+                                <h4>Data Engineer</h4>
+                                <p class="company">NTT DATA (Zurich Insurance)</p>
+                            </div>
+                        </div>
+                        <div class="experience-details">
+                            <p>Promoted to Data Engineer role at NTT DATA, working as a technology consultant for Zurich Insurance's data platform.</p>
+                            <ul>
+                                <li>Lead maintenance and development of the client's AWS Data Lake environment</li>
+                                <li>Manage code promotions and deployments ensuring data pipeline stability</li>
+                                <li>Design and implement new ETL processes for the insurance data platform</li>
+                                <li>Research and propose innovative solutions for platform evolution while optimizing existing pipelines</li>
+                            </ul>
+                            <div class="experience-tech-stack">
+                                <div class="tech-icons">
+                                    <div class="tech-icon">
+                                        <i class="fab fa-aws"></i>
+                                        <span>AWS Cloud</span>
+                                    </div>
+                                    <div class="tech-icon">
+                                        <i class="fab fa-gitlab"></i>
+                                        <span>GitLab CI/CD</span>
+                                    </div>
+                                    <div class="tech-icon">
+                                        <img src="images/python-5.svg" alt="Python">
+                                        <span>Python</span>
+                                    </div>
+                                    <div class="tech-icon">
+                                        <img src="images/apache.svg" alt="Apache">
+                                        <span>NiFi</span>
+                                    </div>
+                                    <div class="tech-icon">
+                                        <img src="images/apache.svg" alt="Apache">
+                                        <span>HBase</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Previous Position -->
+                    <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="experience-header">
+                            <img src="images/ntt-data.png" alt="NTT DATA Logo" class="company-logo">
+                            <div class="experience-title">
+                                <span class="duration">2021 - 2024</span>
+                                <h4>Junior Data Engineer</h4>
+                                <p class="company">NTT DATA</p>
+                            </div>
+                        </div>
+                        <div class="experience-details">
+                            <p>Started my journey as Junior Data Engineer at NTT DATA, providing consulting services for Zurich Insurance's AWS data platform.</p>
+                            <ul>
+                                <li>Developed and maintained ETL pipelines for the company Data Lake using Python and Glue</li>
+                                <li>Applied data modeling concepts to structure and organize Data Lake architecture</li>
+                                <li>Implemented data quality checks and automated testing processes</li>
+                                <li>Optimized Spark SQL queries for efficient data processing and analysis</li>
+                            </ul>
+                            <div class="experience-tech-stack">
+                                <div class="tech-icons">
+                                    <div class="tech-icon">
+                                        <img src="images/python-5.svg" alt="Python">
+                                        <span>Python</span>
+                                    </div>
+                                    <div class="tech-icon">
+                                        <i class="fab fa-aws"></i>
+                                        <span>Glue</span>
+                                    </div>
+                                    <div class="tech-icon">
+                                        <i class="fab fa-aws"></i>
+                                        <span>Athena</span>
+                                    </div>
+                                    <div class="tech-icon">
+                                        <img src="images/spark.svg" alt="Spark">
+                                        <span>Spark SQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                                    <!-- Certifications Preview -->
+                    <div class="certifications-preview">
+                        <h3 class="section-title" data-aos="fade-up">Cloud Certifications</h3>
+                        <div class="cert-cards">
+                            <div class="cert-preview-card aws-cert" data-aos="fade-up">
+                                <img src="images/AWS-Certified-Cloud-Practitioner_badge.png" alt="AWS Cloud Practitioner">
+                                <h4>AWS Certified</h4>
+                                <p>Cloud Practitioner</p>
+                            </div>
+                            <div class="cert-preview-card azure-cert" data-aos="fade-up" data-aos-delay="100">
+                                <img src="images/az-900-badge.png" alt="Azure Fundamentals">
+                                <h4>Microsoft Certified</h4>
+                                <p>Azure Fundamentals</p>
+                            </div>
+                        </div>
+                        <div class="cta-container" data-aos="fade-up" data-aos-delay="200">
+                            <a href="certifications.html" class="cta-button">
+                                <span class="cta-text">View All Certifications</span>
+                                <span class="cta-icon">
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects section">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+                    <p class="section-subtitle" data-aos="fade-up">Exploring cloud-native solutions and data engineering</p>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- Data Pipeline Project -->
+                    <div class="project-card" data-aos="fade-up">
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">AWS</span>
+                                    <span class="tag">Data Engineering</span>
+                                </div>
+                            </div>
+                            <h3>Real-time Data Pipeline</h3>
+                            <p>Serverless ETL pipeline processing real-time data using AWS Kinesis, Lambda, and Redshift. Implements data quality checks and automated alerting.</p>
+                            <div class="tech-stack">
+                                <span class="tech-item"><i class="fab fa-aws"></i> Kinesis</span>
+                                <span class="tech-item"><i class="fab fa-aws"></i> Lambda</span>
+                                <span class="tech-item"><img src="images/python-5.svg" alt="Python">
+                                <span>Python</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="projects/data-pipeline.html" class="project-link">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- ML Platform Project -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">AWS</span>
+                                    <span class="tag">Machine Learning</span>
+                                </div>
+                            </div>
+                            <h3>ML Model Training Platform</h3>
+                            <p>Scalable platform for training and deploying machine learning models using AWS SageMaker and containerized environments.</p>
+                            <div class="tech-stack">
+                                <span class="tech-item"><i class="fab fa-aws"></i> SageMaker</span>
+                                <span class="tech-item"><i class="fab fa-docker"></i> Docker</span>
+                                <span class="tech-item"><i class="fab fa-python"></i> PyTorch</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="projects/ml-platform.html" class="project-link">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Data Analytics Project -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">AWS</span>
+                                    <span class="tag">Analytics</span>
+                                </div>
+                            </div>
+                            <h3>Data Analytics Dashboard</h3>
+                            <p>Interactive analytics dashboard built with AWS QuickSight and Athena, providing real-time insights from data lake sources.</p>
+                            <div class="tech-stack">
+                                <span class="tech-item"><i class="fab fa-aws"></i> QuickSight</span>
+                                <span class="tech-item"><i class="fab fa-aws"></i> Athena</span>
+                                <span class="tech-item"><i class="fas fa-database"></i> SQL</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="projects/analytics-dashboard.html" class="project-link">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-cta">
+                        <h3>Ready to collaborate?</h3>
+                        <a href="mailto:jaumevg@proton.me" class="cta-link">
+                            <span>jaumevg@proton.me</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="links-column">
+                            <h4>Navigation</h4>
+                            <a href="#home">Home</a>
+                            <a href="#about">About</a>
+                            <a href="#projects">Projects</a>
+                            <a href="certifications.html">Certifications</a>
+                        </div>
+                        <div class="links-column">
+                            <h4>Connect</h4>
+                            <a href="https://github.com/Jaume Vidal" target="_blank" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/jaume-vidal-gonzalez/" target="_blank" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://bsky.app/profile/Jaume Vidal.bsky.social" target="_blank" aria-label="Bluesky">
+                                <i class="fas fa-cloud"></i>
+                                <span>Bluesky</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="footer-info">
+                        <span class="highlight">Jaume Vidal</span>
+                        <span class="separator">·</span>
+                        <span class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Castelló, Spain
+                        </span>
+                        <span class="separator">·</span>
+                        <span>2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="js/scrolling.js"></script>
+    <script src="js/spotlight.js"></script>
+    <script src="js/url-updater.js"></script>
+    <script type="module" src="js/script.js"></script>
+    <script type="module">
+        import { initNavigation, initMobileMenu, initFloatingNav } from './js/navigation.js';
+        initNavigation();
+        initMobileMenu();
+        initFloatingNav();
+    </script>
+</body>
+</html>

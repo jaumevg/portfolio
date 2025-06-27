@@ -1,0 +1,30 @@
+:root {
+    /* Colors */
+    --primary-color: #FF1744;  /* Rojo neón */
+    --primary-color-rgb: 255, 23, 68;  /* Valores RGB del color primario */
+    --bg-color: #000000;  /* Negro puro */
+    --background: #0a0a0a;  /* Negro muy suave para el fondo */
+    --background-rgb: 10, 10, 10;  /* Valores RGB del fondo */
+    --background-alt: #0c0c0c;  /* Contraste sutil y profesional */
+    --text-color: #8892b0;
+    --heading-color: #ccd6f6;
+    --card-bg: rgba(17, 17, 17, 0.5);  /* Fondo de tarjetas más sutil */
+    --nav-bg: rgba(0, 0, 0, 0.85);
+    
+    /* Typography */
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-heading: 'Outfit', sans-serif;
+    
+    /* Spacing */
+    --section-padding: 100px 0;
+    --container-padding: 0 20px;
+    --nav-height: 80px;
+    
+    /* Transitions */
+    --transition: all 0.3s ease;
+    
+    /* Z-indices */
+    --z-nav: 1000;
+    --z-modal: 2000;
+}

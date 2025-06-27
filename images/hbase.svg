@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Cilindro superior -->
+    <path d="M35 45C35 35 75 25 115 45C115 55 75 65 35 55C35 45 35 45 35 45Z" fill="#BA1A5E"/>
+    <!-- Cilindro cuerpo -->
+    <path d="M35 45V95C35 105 75 115 115 95V45" stroke="#BA1A5E" stroke-width="10"/>
+    <!-- H -->
+    <path d="M65 50V80M85 50V80M65 65H85" stroke="white" stroke-width="6"/>
+</svg>

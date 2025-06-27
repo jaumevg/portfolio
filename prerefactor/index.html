@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaume Vidal - Personal Portfolio</title>
+    <link rel="stylesheet" href="css/base/theme.css">
+    <link rel="stylesheet" href="css/base/reset.css">
+    <link rel="stylesheet" href="css/base/animations.css">
+    <link rel="stylesheet" href="css/base/base.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/navigation.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/about.css">
+    <link rel="stylesheet" href="css/components/projects.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/components/scrolling.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;700&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/components/hero-fix.css">
+</head>
+<body>
+    <div class="scroll-progress"></div>
+    <nav>
+        <a href="#" class="logo">Jaume Vidal</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+            </ul>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    
+    <main>
+        <section id="home" class="hero">
+            <div id="particles-container"></div>
+            <div class="hero-content">
+                <div class="typing-container">
+                    <span class="typing-text"></span>
+                </div>
+            </div>
+            <button class="scroll-down" aria-label="Scroll down" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </section>
+        
+        <section id="about" class="about section">
+            <div class="container">
+                <div class="about-grid">
+                    <!-- Profile Section -->
+                    <div class="profile-section" data-aos="fade-right">
+                        <div class="profile-content">
+                            <div class="profile-image-container">
+                                <img src="images/profile.png" alt="Jaume Vidal's Profile Picture" loading="lazy">
+                                <div class="profile-backdrop"></div>
+                            </div>
+                            <div class="profile-info">
+                                <h3 class="profile-title">Data Engineer</h3>
+                                <div class="profile-subtitle">
+                                    <span>Specialized in Cloud Computing & Data Solutions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bio Section -->
+                    <div class="bio-section" data-aos="fade-left">
+                        <div class="bio-content">
+                            <p class="bio-highlight">Transforming data into actionable insights through cloud-native solutions.</p>
+                            <p>As a Data Engineer, I specialize in designing and implementing scalable data pipelines and cloud architectures. My expertise lies in leveraging cloud services to build robust data solutions that drive business value.</p>
+                        </div>
+                        
+                        <!-- Cloud Expertise -->
+                        <div class="cloud-expertise">
+                            <div class="expertise-card aws">
+                                <i class="fab fa-aws"></i>
+                                <span>AWS</span>
+                            </div>
+                            <div class="expertise-card azure">
+                                <i class="fab fa-microsoft"></i>
+                                <span>Azure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="skills-container">
+                    <h3 class="section-title" data-aos="fade-up">Technical Expertise</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category" data-aos="fade-up">
+                            <div class="category-header">
+                                <i class="fas fa-database"></i>
+                                <h4>Data Engineering</h4>
+                            </div>
+                            <div class="skills-list">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">Apache Spark</span>
+                                <span class="skill-tag">ETL Pipeline</span>
+                                <span class="skill-tag">Data Modeling</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                            <div class="category-header">
+                                <i class="fas fa-cloud"></i>
+                                <h4>Cloud Services</h4>
+                            </div>
+                            <div class="skills-list">
+                                <span class="skill-tag">AWS Lambda</span>
+                                <span class="skill-tag">Azure Functions</span>
+                                <span class="skill-tag">S3/Blob Storage</span>
+                                <span class="skill-tag">Azure Data Factory</span>
+                                <span class="skill-tag">AWS Glue</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                            <div class="category-header">
+                                <i class="fas fa-code"></i>
+                                <h4>Development</h4>
+                            </div>
+                            <div class="skills-list">
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">CI/CD</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">REST APIs</span>
+                                <span class="skill-tag">Terraform</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications Preview -->
+                <div class="certifications-preview">
+                    <h3 class="section-title" data-aos="fade-up">Cloud Certifications</h3>
+                    <div class="cert-cards">
+                        <div class="cert-preview-card aws-cert" data-aos="fade-up">
+                            <img src="images/AWS-Certified-Cloud-Practitioner_badge.png" alt="AWS Cloud Practitioner">
+                            <h4>AWS Certified</h4>
+                            <p>Cloud Practitioner</p>
+                        </div>
+                        <div class="cert-preview-card azure-cert" data-aos="fade-up" data-aos-delay="100">
+                            <img src="images/az-900-badge.png" alt="Azure Fundamentals">
+                            <h4>Microsoft Certified</h4>
+                            <p>Azure Fundamentals</p>
+                        </div>
+                    </div>
+                    <a href="certifications.html" class="view-all-link" data-aos="fade-up">
+                        View All Certifications
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects" class="projects section">
+            <div class="container">
+                <h2 data-aos="fade-up">My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Project 1</h3>
+                        <p>Description of project 1. This is a brief overview of what the project is about.</p>
+                        <a href="#" class="btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Project 2</h3>
+                        <p>Description of project 2. This is a brief overview of what the project is about.</p>
+                        <a href="#" class="btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                        <h3>Project 3</h3>
+                        <p>Description of project 3. This is a brief overview of what the project is about.</p>
+                        <a href="#" class="btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-cta">
+                        <h3>Ready to collaborate?</h3>
+                        <a href="mailto:your.email@example.com" class="cta-link">
+                            <span>your.email@example.com</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="links-column">
+                            <h4>Navigation</h4>
+                            <a href="#home">Home</a>
+                            <a href="#about">About</a>
+                            <a href="#projects">Projects</a>
+                            <a href="certifications.html">Certifications</a>
+                        </div>
+                        <div class="links-column">
+                            <h4>Connect</h4>
+                            <div class="social-links">
+                                <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://bsky.app/profile/yourusername" target="_blank" aria-label="Bluesky">
+                                    <i class="fas fa-cloud"></i>
+                                    <span>Bluesky</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="footer-info">
+                        <span class="highlight">Jaume Vidal</span>
+                        <span class="separator">·</span>
+                        <span class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Valencia, Spain
+                        </span>
+                        <span class="separator">·</span>
+                        <span>2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/scrolling.js"></script>
+    <script type="module" src="js/script.js"></script>
+    <script type="module">
+        import { initNavigation, initMobileMenu, initFloatingNav } from './js/navigation.js';
+        initNavigation();
+        initMobileMenu();
+        initFloatingNav();
+    </script>
+</body>
+</html>

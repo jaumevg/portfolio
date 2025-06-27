@@ -1,0 +1,734 @@
+/* Certifications Page Styles */
+.certifications-hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    background: var(--background-color);
+    overflow: hidden;
+    padding-top: var(--nav-height);
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.cloud-particles {
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(var(--primary-color-rgb), 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(var(--primary-color-rgb), 0.05) 0%, transparent 50%);
+    filter: blur(40px);
+    opacity: 0.6;
+    animation: cloudFloat 20s ease-in-out infinite;
+}
+
+.grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(var(--primary-color-rgb), 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--primary-color-rgb), 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: perspective(1000px) rotateX(60deg) translateY(-100px);
+    transform-origin: top;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.cloud-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(var(--primary-color-rgb), 0.1);
+    border-radius: 100px;
+    margin-bottom: 2rem;
+}
+
+.cloud-badge i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.cloud-badge span {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(120deg, var(--text-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 600px;
+}
+
+.cloud-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.provider-card {
+    background: rgba(var(--background-color-rgb), 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--primary-color-rgb), 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.provider-card:hover {
+    transform: translateY(-5px);
+    border-color: currentColor;
+    box-shadow: 0 10px 30px rgba(var(--primary-color-rgb), 0.1);
+}
+
+.provider-card.aws {
+    color: #FF9900;
+}
+
+.provider-card.azure {
+    color: #008AD7;
+}
+
+.provider-card.azure .provider-icon img {
+    max-width: 2.5rem;
+    max-height: 2.5rem;
+    object-fit: contain;
+}
+
+.provider-icon {
+    font-size: 2.5rem;
+}
+
+.provider-info {
+    color: var(--text-color);
+}
+
+.cert-count {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-display);
+}
+
+.provider-name {
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.expertise-areas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.expertise-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(var(--background-color-rgb), 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--primary-color-rgb), 0.1);
+    border-radius: 100px;
+    transition: all 0.3s ease;
+}
+
+.expertise-tag:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    background: rgba(var(--primary-color-rgb), 0.1);
+}
+
+.expertise-tag i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.expertise-tag span {
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.cloud-visual {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certification-total {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: float 6s ease-in-out infinite;
+}
+
+.total-number {
+    font-size: 8rem;
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(120deg, var(--primary-color), var(--text-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: var(--font-display);
+    display: block;
+}
+
+.total-label {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    opacity: 0.9;
+    display: block;
+    margin-top: 1rem;
+}
+
+@keyframes cloudFloat {
+    0%, 100% {
+        transform: translate(0);
+    }
+    50% {
+        transform: translate(-2%, 2%);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+    
+    .total-number {
+        font-size: 6rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .cloud-stats {
+        max-width: 600px;
+    }
+
+    .certification-total {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .certifications-hero {
+        padding: 4rem 0;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .cloud-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .expertise-areas {
+        gap: 0.75rem;
+    }
+
+    .total-number {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .cloud-badge {
+        padding: 0.5rem 1rem;
+    }
+
+    .expertise-tag {
+        padding: 0.5rem 1rem;
+    }
+
+    .total-number {
+        font-size: 4rem;
+    }
+
+    .total-label {
+        font-size: 1rem;
+    }
+}
+
+/* Certifications Grid and Cards */
+.cert-section {
+    padding: 90px 0;
+    background: var(--section-background);
+    min-height: 60vh;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 8rem;
+}
+
+.cert-card {
+    background: rgba(18, 18, 18, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.cert-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-family: var(--font-display);
+    min-height: 3.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cert-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.cert-card img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.5rem;
+    border-radius: 50%;
+    transform: translateZ(0);
+    -webkit-font-smoothing: subpixel-antialiased;
+    transition: transform 0.2s ease-out;
+}
+
+.cert-card:hover img {
+    transform: translateZ(0) scale(1.1);
+}
+
+.cert-level {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    display: inline-block;
+    background: rgba(255, 23, 68, 0.1);
+    color: var(--primary-color);
+}
+
+/* AWS specific cert level */
+#aws .cert-level {
+    background: rgba(255, 153, 0, 0.1);
+    color: #FF9900;
+}
+
+/* Azure specific cert level */
+#azure .cert-level {
+    background: rgba(0, 138, 215, 0.1);
+    color: #008AD7;
+}
+
+.cert-date {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.cert-verify {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+.cert-verify i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.cert-verify:hover i {
+    transform: translate(2px, -2px);
+}
+
+/* AWS Verify Button */
+#aws .cert-verify {
+    color: #FF9900;
+    border-color: rgba(255, 153, 0, 0.3);
+}
+
+#aws .cert-verify:hover {
+    background: rgba(255, 153, 0, 0.1);
+    border-color: #FF9900;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 153, 0, 0.15);
+}
+
+/* Azure Verify Button */
+#azure .cert-verify {
+    color: #008AD7;
+    border-color: rgba(0, 138, 215, 0.3);
+}
+
+#azure .cert-verify:hover {
+    background: rgba(0, 138, 215, 0.1);
+    border-color: #008AD7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 138, 215, 0.15);
+}
+
+/* Vendor Header Styles */
+.vendor-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.vendor-header .vendor-logo {
+    height: 130px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(1) drop-shadow(0 0 15px rgba(var(--primary-color-rgb), 0.15));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vendor-header:hover .vendor-logo {
+    filter: brightness(1.05) drop-shadow(0 0 25px rgba(var(--primary-color-rgb), 0.25));
+    transform: scale(1.1) translateY(-5px);
+}
+
+.vendor-header h2 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-family: var(--font-display);
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+.vendor-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    transition: all 0.4s ease;
+}
+
+.vendor-header:hover h2::after {
+    width: 140px;
+    filter: brightness(1.2);
+}
+
+/* AWS specific styles */
+#aws .vendor-header h2::after {
+    background: #FF9900;
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.6);
+}
+
+#aws .vendor-logo {
+    filter: brightness(1) drop-shadow(0 0 15px rgba(255, 153, 0, 0.2));
+}
+
+#aws .vendor-header:hover .vendor-logo {
+    filter: brightness(1.05) drop-shadow(0 0 25px rgba(255, 153, 0, 0.3));
+}
+
+#aws .cert-card {
+    border: 1px solid rgba(255, 153, 0, 0.1);
+}
+
+#aws .cert-card:hover {
+    border-color: #FF9900;
+    box-shadow: 0 5px 15px rgba(255, 153, 0, 0.1);
+}
+
+#aws .cert-verify {
+    color: #FF9900;
+    border-color: rgba(255, 153, 0, 0.3);
+}
+
+#aws .cert-verify:hover {
+    background: rgba(255, 153, 0, 0.1);
+    border-color: #FF9900;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 153, 0, 0.15);
+}
+
+/* Azure specific styles */
+#azure .vendor-header h2::after {
+    background: #008AD7;
+    box-shadow: 0 0 10px rgba(0, 138, 215, 0.6);
+}
+
+#azure .vendor-logo {
+    filter: brightness(1) drop-shadow(0 0 15px rgba(0, 138, 215, 0.2));
+}
+
+#azure .vendor-header:hover .vendor-logo {
+    filter: brightness(1.05) drop-shadow(0 0 25px rgba(0, 138, 215, 0.3));
+}
+
+#azure .cert-card {
+    border: 1px solid rgba(0, 138, 215, 0.1);
+}
+
+#azure .cert-card:hover {
+    border-color: #008AD7;
+    box-shadow: 0 5px 15px rgba(0, 138, 215, 0.1);
+}
+
+#azure .cert-verify {
+    color: #008AD7;
+    border-color: rgba(0, 138, 215, 0.3);
+}
+
+#azure .cert-verify:hover {
+    background: rgba(0, 138, 215, 0.1);
+    border-color: #008AD7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 138, 215, 0.15);
+}
+
+/* Section Background Glows */
+#aws.cert-section {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at center, rgba(255, 153, 0, 0.05) 0%, transparent 70%),
+                var(--background-color);
+}
+
+#aws.cert-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 153, 0, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+#azure.cert-section {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at center, rgba(0, 138, 215, 0.05) 0%, transparent 70%),
+                var(--background-color);
+}
+
+#azure.cert-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 138, 215, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cert-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Override section styles for certifications page */
+.certifications-page section {
+    margin: 0;
+    padding: 4rem 0;
+}
+
+.certifications-page section:nth-child(even) {
+    background: var(--background-color);
+}
+
+/* Remove borders between sections */
+.certifications-page section {
+    border-bottom: none;
+}
+
+/* Featured Certifications in About Section */
+.featured-certs {
+    margin: 2rem 0;
+}
+
+.featured-certs h3 {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    font-family: var(--font-display);
+}
+
+.cert-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.cert-preview .cert-card {
+    padding: 1.5rem;
+    text-align: center;
+    background: var(--card-background);
+    border-radius: 8px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 992px) {
+    .cert-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .vendor-header {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .vendor-header .vendor-logo {
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .certifications-hero {
+        height: 35vh;
+        min-height: 250px;
+        padding: 3rem 0 1.5rem;
+    }
+
+    .certifications-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .certifications-hero .subtitle {
+        font-size: 1rem;
+    }
+
+    .vendor-header h2 {
+        font-size: 2rem;
+    }
+
+    .cert-card {
+        padding: 1.5rem;
+    }
+
+    .cert-card img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cert-card h3 {
+        font-size: 1.2rem;
+        min-height: 3.6rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cert-verify {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .vendor-header h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #aws.cert-section::before,
+    #azure.cert-section::before {
+        width: 300vw;
+        height: 300vw;
+        bottom: -100%;
+    }
+}
