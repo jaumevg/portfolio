@@ -30,33 +30,15 @@
     margin-bottom: 2rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 23, 68, 0.1);
+    border: 1px solid transparent;
     max-width: 100%;
     position: relative;
     overflow: hidden;
 }
 
-.experience-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: #FF1744;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1;
-}
-
 .experience-card:hover {
     box-shadow: 0 4px 8px rgba(255, 23, 68, 0.15);
     border-color: rgba(255, 23, 68, 0.3);
-}
-
-.experience-card:hover::before {
-    transform: scaleX(1);
 }
 
 .experience-header {
