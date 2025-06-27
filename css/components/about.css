@@ -331,46 +331,64 @@
     transform: translateX(4px);
 }
 
+/* Estilos para la vista previa de certificaciones en la página principal */
+.certifications-preview .cert-card {
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+/* Efecto hover para AWS (naranja) */
+.certifications-preview .cert-card[style*="rgba(255, 23, 68, 0.1)"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-color: #FF9900 !important; /* Naranja AWS */
+}
+
+/* Efecto hover para Azure (azul) */
+.certifications-preview .cert-card[style*="rgba(0, 120, 212, 0.1)"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-color: #0078D4 !important; /* Azul Azure */
+}
+
 /* CTA Button Styles */
 .cta-container {
     display: flex;
     justify-content: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .cta-button {
     display: inline-flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
     padding: 1rem 2rem;
-    background: var(--card-background);
-    border: 1px solid var(--primary-color);
-    border-radius: 12px;
+    background: rgba(255, 23, 68, 0.05);
     color: var(--primary-color);
+    border: 1px solid rgba(255, 23, 68, 0.2);
+    border-radius: 8px;
+    font-family: var(--font-display);
     font-weight: 500;
+    font-size: 1.1rem;
     text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    transform: translateZ(0);
 }
 
 .cta-button:hover {
-    background: var(--primary-color);
-    color: #fff;
-    transform: translateY(-2px);
-}
-
-.cta-text {
-    font-size: 1.1rem;
+    background: rgba(255, 23, 68, 0.1);
+    border-color: rgba(255, 23, 68, 0.3);
+    box-shadow: 0 2px 8px rgba(255, 23, 68, 0.1);
+    transform: translateY(-2px) translateZ(0);
 }
 
 .cta-icon {
-    display: inline-flex;
-    align-items: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .cta-button:hover .cta-icon {
-    transform: translateX(5px);
+    transform: translateX(4px);
 }
 
 @media (max-width: 768px) {
@@ -382,8 +400,6 @@
         font-size: 1rem;
     }
 }
-
-/* End CTA Button Styles */
 
 /* Responsive Design */
 @media (max-width: 1024px) {
