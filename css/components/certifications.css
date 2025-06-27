@@ -1,49 +1,62 @@
-/* Certifications Page Styles */
+/* Modern Hero Section */
 .certifications-hero {
     position: relative;
-    min-height: 85vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    background: var(--background-color);
+    background: #0a0a14;
     overflow: hidden;
-    padding-top: var(--nav-height);
+    padding: calc(var(--nav-height) + 2rem) 0 4rem;
+    isolation: isolate;
 }
 
 .hero-background {
     position: absolute;
     inset: 0;
-    overflow: hidden;
+    z-index: -1;
+    background: radial-gradient(circle at 20% 20%, rgba(255, 23, 68, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(0, 138, 215, 0.08) 0%, transparent 40%);
+    opacity: 0.8;
 }
 
 .cloud-particles {
     position: absolute;
     inset: 0;
     background: 
-        radial-gradient(circle at 20% 20%, rgba(var(--primary-color-rgb), 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(var(--primary-color-rgb), 0.05) 0%, transparent 50%);
-    filter: blur(40px);
-    opacity: 0.6;
-    animation: cloudFloat 20s ease-in-out infinite;
+        radial-gradient(circle at 10% 20%, rgba(255, 23, 68, 0.05) 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(0, 138, 215, 0.05) 0%, transparent 30%);
+    filter: blur(60px);
+    opacity: 0.8;
+    animation: float 15s ease-in-out infinite;
 }
 
 .grid-overlay {
     position: absolute;
     inset: 0;
     background-image: 
-        linear-gradient(rgba(var(--primary-color-rgb), 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(var(--primary-color-rgb), 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    transform: perspective(1000px) rotateX(60deg) translateY(-100px);
-    transform-origin: top;
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    opacity: 0.3;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(0, -20px); }
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.1fr 1fr;
     gap: 4rem;
     align-items: center;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .cloud-badge {
@@ -95,21 +108,36 @@ h1 {
 }
 
 .provider-card {
-    background: rgba(var(--background-color-rgb), 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(var(--primary-color-rgb), 0.1);
-    border-radius: 20px;
-    padding: 2rem;
-    transition: all 0.3s ease;
+    background: rgba(18, 18, 24, 0.8);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.75rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.provider-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .provider-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     border-color: currentColor;
-    box-shadow: 0 10px 30px rgba(var(--primary-color-rgb), 0.1);
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+}
+
+.provider-card:hover::before {
+    opacity: 1;
 }
 
 .provider-card.aws {
@@ -127,7 +155,10 @@ h1 {
 }
 
 .provider-icon {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
 }
 
 .provider-info {
@@ -197,44 +228,51 @@ h1 {
     text-align: center;
     position: relative;
     z-index: 2;
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite;
+    background: rgba(18, 18, 24, 0.6);
+    backdrop-filter: blur(12px);
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+    max-width: 80%;
+    margin: 0 auto;
 }
 
 .total-number {
-    font-size: 8rem;
+    font-size: 7rem;
     font-weight: 800;
     line-height: 1;
-    background: linear-gradient(120deg, var(--primary-color), var(--text-color));
+    background: linear-gradient(135deg, #fff, #ff6b8b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-family: var(--font-display);
     display: block;
+    text-shadow: 0 4px 20px rgba(255, 23, 68, 0.3);
 }
 
 .total-label {
-    font-size: 1.2rem;
-    color: var(--text-color);
+    font-size: 1.25rem;
+    color: #fff;
     opacity: 0.9;
     display: block;
-    margin-top: 1rem;
-}
-
-@keyframes cloudFloat {
-    0%, 100% {
-        transform: translate(0);
-    }
-    50% {
-        transform: translate(-2%, 2%);
-    }
+    margin-top: 0.5rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
 
 @keyframes float {
     0%, 100% {
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
     }
     50% {
-        transform: translateY(-20px);
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.25);
     }
 }
 
