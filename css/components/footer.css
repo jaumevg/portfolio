@@ -142,12 +142,53 @@
     display: none;
 }
 
-.cta-link i {
-    transition: transform 0.3s ease;
+/* Estilos específicos para el enlace de correo */
+.email-link {
+    padding: 0.8rem 1.8rem;
+    overflow: hidden;
+    position: relative;
 }
 
-.cta-link:hover i {
-    transform: translateX(8px);
+.envelope-icon {
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    width: 1.1em;
+    text-align: center;
+}
+
+/* Animación de cambio de ícono */
+.email-link .envelope-icon i {
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Ícono de sobre cerrado por defecto */
+.email-link .envelope-icon .fa-envelope {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+/* Ícono de sobre abierto (inicialmente oculto) */
+.email-link .envelope-icon .fa-envelope-open {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.8);
+    color: currentColor;
+}
+
+/* Al hacer hover, intercambiamos los íconos */
+.email-link:hover .envelope-icon .fa-envelope {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.8);
+}
+
+.email-link:hover .envelope-icon .fa-envelope-open {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+    color: currentColor;
 }
 
 /* Footer Links */

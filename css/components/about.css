@@ -261,117 +261,6 @@
     color: #008AD7;
 }
 
-/* Skills Section */
-.skills-container {
-    margin-top: 4rem;
-    text-align: center;
-    background: rgba(20, 20, 30, 0.7);
-    backdrop-filter: blur(12px) saturate(200%);
-    -webkit-backdrop-filter: blur(12px) saturate(200%);
-    border-radius: 12px;
-    padding: 3rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.skills-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.4);
-    border-color: rgba(255, 23, 68, 0.3);
-}
-
-.skills-container h3.section-title,
-.certifications-preview h3.section-title {
-    font-size: 2rem;
-    margin-bottom: 2.5rem;
-    color: #fff;
-    text-align: center;
-    display: inline-block;
-    position: relative;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    background: linear-gradient(135deg, #ff6b7c, #ff3e4d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 2px 8px rgba(255, 23, 68, 0.2);
-}
-
-.skills-container h3.section-title::after,
-.certifications-preview h3.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 4px;
-    background: var(--primary-color);
-    border-radius: 4px;
-    opacity: 0.9;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin: 2rem auto 0;
-    max-width: 1200px;
-}
-
-.skill-category {
-    background: var(--card-background);
-    border-radius: 16px;
-    padding: 2rem;
-    transition: transform 0.3s ease;
-}
-
-.skill-category:hover {
-    transform: translateY(-5px);
-}
-
-.category-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.category-header h4 {
-    color: var(--text-color);
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin: 0;
-}
-
-.category-header i {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-}
-
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
-
-.skill-tag {
-    padding: 0.5rem 1rem;
-    background: rgba(var(--primary-color-rgb), 0.1);
-    color: var(--primary-color);
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.skill-tag:hover {
-    background: rgba(var(--primary-color-rgb), 0.2);
-    transform: translateY(-2px);
-}
-
 /* Certifications Preview */
 .certifications-preview {
     margin-top: 4rem;
@@ -387,16 +276,51 @@
 }
 
 .cert-preview-card {
-    background: var(--card-background);
-    border-radius: 16px;
+    background: rgba(30, 30, 45, 0.6);
+    border-radius: 12px;
     padding: 2rem;
     width: 250px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px) saturate(200%);
+    -webkit-backdrop-filter: blur(12px) saturate(200%);
+    position: relative;
+    overflow: hidden;
+}
+
+.cert-preview-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 23, 68, 0.3), rgba(0, 138, 215, 0.15));
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: -1;
 }
 
 .cert-preview-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    background: rgba(40, 40, 60, 0.8);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 23, 68, 0.3);
+}
+
+.cert-preview-card:hover::before {
+    opacity: 1;
 }
 
 .cert-preview-card img {
