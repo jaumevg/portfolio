@@ -196,6 +196,7 @@
 
 .project-link:hover {
     opacity: 0.9;
+    font-weight: 500; /* Maintain font weight on hover */
 }
 
 .project-link:hover i {
