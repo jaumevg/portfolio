@@ -338,15 +338,13 @@
 }
 
 /* Efecto hover para AWS (naranja) */
-.certifications-preview .cert-card[style*="rgba(255, 23, 68, 0.1)"]:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+.certifications-preview .cert-card[style*="rgba(255, 153, 0, 0.1)"]:hover {
     border-color: #FF9900 !important; /* Naranja AWS */
+    box-shadow: 0 4px 8px rgba(255, 153, 0, 0.15);
 }
 
 /* Efecto hover para Azure (azul) */
 .certifications-preview .cert-card[style*="rgba(0, 120, 212, 0.1)"]:hover {
-    transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     border-color: #0078D4 !important; /* Azul Azure */
 }
