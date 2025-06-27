@@ -52,19 +52,16 @@
             opacity: 1;
         }
 
-        /* Grid Background */
+        /* Modern Animated Background */
         .grid-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                linear-gradient(rgba(18, 18, 43, 0.9) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(18, 18, 43, 0.9) 1px, transparent 1px);
-            background-size: 40px 40px;
             z-index: -3;
-            opacity: 0.3;
+            background: #050510;
+            overflow: hidden;
         }
 
         .bg-pattern {
@@ -74,10 +71,23 @@
             right: 0;
             bottom: 0;
             z-index: -2;
-            background: var(--alt-section-background, linear-gradient(135deg, #000000, #121212));
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255, 23, 68, 0.05) 0%, transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 0, 0.05) 0%, transparent 25%),
+                linear-gradient(135deg, #050510 0%, #0a0a1a 100%);
+            opacity: 1;
+            animation: gradientPulse 15s ease infinite;
         }
+
+        @keyframes gradientPulse {
+            0%, 100% {
+                background-position: 0% 0%, 100% 100%;
+            }
+            50% {
+                background-position: 10% 20%, 90% 80%;
+            }
+        }
+
 
         .bg-pattern::before {
             content: '';
@@ -87,9 +97,23 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 50% 50%, rgba(5, 217, 232, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 42, 109, 0.05) 0%, transparent 50%);
-            animation: rotate 20s linear infinite;
+                linear-gradient(90deg, 
+                    transparent 0%, 
+                    rgba(255, 23, 68, 0.03) 50%, 
+                    transparent 100%
+                ),
+                linear-gradient(
+                    transparent 0%, 
+                    rgba(255, 23, 68, 0.02) 50%, 
+                    transparent 100%
+                );
+            animation: shine 8s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(15deg); }
+            100% { transform: translateX(100%) rotate(15deg); }
         }
 
         .bg-dots {
@@ -99,9 +123,15 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-            opacity: 0.5;
+                radial-gradient(circle, rgba(255, 23, 68, 0.08) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.3;
+            animation: dotsMove 20s linear infinite;
+        }
+
+        @keyframes dotsMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 40px 40px; }
         }
 
         .container {
@@ -138,9 +168,9 @@
         }
 
         .container:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px -15px rgba(5, 217, 232, 0.2);
-            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(255, 23, 68, 0.3);
+            border-color: var(--primary-color);
         }
 
         .icon {
@@ -288,17 +318,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             z-index: -1;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .btn:hover {
             color: #fff;
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
             border-color: transparent;
+            background: rgba(255, 23, 68, 0.3);
         }
 
         .btn:hover::before {
