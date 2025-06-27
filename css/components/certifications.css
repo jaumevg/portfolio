@@ -50,14 +50,11 @@
 .hero-content {
     position: relative;
     z-index: 2;
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    max-width: 1400px;
+    max-width: 1000px;
     width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
+    text-align: center;
 }
 
 .cloud-badge {
@@ -97,7 +94,7 @@ h1 {
     color: var(--text-color);
     opacity: 0.9;
     line-height: 1.6;
-    margin-bottom: 3rem;
+    margin: 1.5rem auto 3rem;
     max-width: 600px;
 }
 
@@ -105,21 +102,25 @@ h1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    margin-bottom: 3rem;
+    margin: 2rem auto 3rem;
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
 }
 
 .provider-card {
-    background: rgba(18, 18, 24, 0.8);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 1.75rem 2rem;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background: linear-gradient(145deg, rgba(30, 30, 40, 0.8), rgba(10, 10, 15, 0.9));
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     align-items: center;
-    gap: 1.75rem;
+    gap: 1.5rem;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
 .provider-card::before {
@@ -132,9 +133,9 @@ h1 {
 }
 
 .provider-card:hover {
-    transform: translateY(-4px);
-    border-color: currentColor;
-    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.25);
 }
 
 .provider-card:hover::before {
@@ -143,10 +144,14 @@ h1 {
 
 .provider-card.aws {
     color: #FF9900;
+    background: linear-gradient(145deg, rgba(40, 25, 5, 0.8), rgba(15, 10, 5, 0.9));
+    border-left: 3px solid #FF9900;
 }
 
 .provider-card.azure {
     color: #008AD7;
+    background: linear-gradient(145deg, rgba(0, 30, 60, 0.8), rgba(0, 15, 30, 0.9));
+    border-left: 3px solid #008AD7;
 }
 
 .provider-card.azure .provider-icon img {
@@ -156,14 +161,43 @@ h1 {
 }
 
 .provider-icon {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
     position: relative;
     z-index: 1;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    backdrop-filter: blur(5px);
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.provider-card:hover .provider-icon {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .provider-info {
     color: var(--text-color);
+    flex: 1;
+}
+
+.provider-info .cert-count {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+
+.provider-info .provider-name {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .cert-count {
@@ -216,54 +250,9 @@ h1 {
     font-weight: 500;
 }
 
-.cloud-visual {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.certification-total {
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    background: rgba(18, 18, 24, 0.6);
-    backdrop-filter: blur(12px);
-    padding: 3rem 2rem;
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
-    max-width: 80%;
-    margin: 0 auto;
-}
 
-.total-number {
-    font-size: 7rem;
-    font-weight: 800;
-    line-height: 1;
-    background: linear-gradient(135deg, #fff, #ff6b8b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-family: var(--font-display);
-    display: block;
-    text-shadow: 0 4px 20px rgba(255, 23, 68, 0.3);
-}
 
-.total-label {
-    font-size: 1.25rem;
-    color: #fff;
-    opacity: 0.9;
-    display: block;
-    margin-top: 0.5rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
 
 @keyframes float {
     0%, 100% {
@@ -280,10 +269,6 @@ h1 {
 @media (max-width: 1200px) {
     h1 {
         font-size: 3.5rem;
-    }
-    
-    .total-number {
-        font-size: 6rem;
     }
 }
 
