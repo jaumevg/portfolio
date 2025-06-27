@@ -1,12 +1,13 @@
 /* Modern Hero Section */
 .certifications-hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 65vh;
+    max-height: 800px;
     display: flex;
     align-items: center;
     background: #0a0a14;
     overflow: hidden;
-    padding: calc(var(--nav-height) + 2rem) 0 4rem;
+    padding: calc(var(--nav-height) + 2rem) 0 3rem;
     isolation: isolate;
 }
 
@@ -228,7 +229,6 @@ h1 {
     text-align: center;
     position: relative;
     z-index: 2;
-    animation: float 8s ease-in-out infinite;
     background: rgba(18, 18, 24, 0.6);
     backdrop-filter: blur(12px);
     padding: 3rem 2rem;
