@@ -29,14 +29,37 @@
     padding: 2rem;
     margin-bottom: 2rem;
     box-shadow: var(--card-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease !important;
     border: 1px solid var(--border-color);
     max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    will-change: transform, box-shadow, border-color;
+}
+
+.experience-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease !important;
+    z-index: 1;
+    will-change: transform;
 }
 
 .experience-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-5px) !important;
+    box-shadow: var(--card-shadow-hover) !important;
+    border-color: var(--accent-color) !important;
+}
+
+.experience-card:hover::before {
+    transform: scaleX(1) !important;
 }
 
 .experience-header {

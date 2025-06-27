@@ -2,6 +2,8 @@
     /* Colors */
     --primary-color: #FF1744;  /* Rojo neón */
     --primary-color-rgb: 255, 23, 68;  /* Valores RGB del color primario */
+    --accent-color: #FF1744;  /* Mismo que primary-color para consistencia */
+    --accent-color-rgb: 255, 23, 68;  /* Valores RGB del color de acento */
     --bg-color: #000000;  /* Negro puro */
     --background: #0a0a0a;  /* Negro muy suave para el fondo */
     --background-rgb: 10, 10, 10;  /* Valores RGB del fondo */
