@@ -806,11 +806,11 @@ h1 {
 }
 
 #aws .vendor-logo {
-    filter: brightness(1) drop-shadow(0 0 15px rgba(255, 153, 0, 0.2));
+    filter: brightness(1);
 }
 
 #aws .vendor-header:hover .vendor-logo {
-    filter: brightness(1.05) drop-shadow(0 0 25px rgba(255, 153, 0, 0.3));
+    filter: brightness(1.05);
 }
 
 #aws .cert-card {
@@ -841,11 +841,11 @@ h1 {
 }
 
 #azure .vendor-logo {
-    filter: brightness(1) drop-shadow(0 0 15px rgba(0, 138, 215, 0.2));
+    filter: brightness(1);
 }
 
 #azure .vendor-header:hover .vendor-logo {
-    filter: brightness(1.05) drop-shadow(0 0 25px rgba(0, 138, 215, 0.3));
+    filter: brightness(1.05);
 }
 
 #azure .cert-card {
@@ -873,7 +873,7 @@ h1 {
 #aws.cert-section {
     position: relative;
     overflow: hidden;
-    background: radial-gradient(circle at center, rgba(255, 153, 0, 0.05) 0%, transparent 70%),
+    background: radial-gradient(circle at center, rgba(255, 153, 0, 0.1) 0%, transparent 80%),
                 var(--background-color);
 }
 
@@ -884,7 +884,7 @@ h1 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 153, 0, 0.1) 0%, transparent 100%);
+    background: linear-gradient(135deg, rgba(255, 153, 0, 0.12) 0%, rgba(255, 153, 0, 0.03) 100%);
     pointer-events: none;
     z-index: 0;
 }
@@ -892,7 +892,8 @@ h1 {
 #azure.cert-section {
     position: relative;
     overflow: hidden;
-    background: var(--background-color);
+    background: radial-gradient(circle at center, rgba(0, 138, 215, 0.1) 0%, transparent 80%),
+                var(--background-color);
 }
 
 #azure.cert-section::before {
@@ -902,7 +903,7 @@ h1 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 138, 215, 0.1) 0%, transparent 100%);
+    background: linear-gradient(135deg, rgba(0, 138, 215, 0.12) 0%, rgba(0, 138, 215, 0.03) 100%);
     pointer-events: none;
     z-index: 0;
 }
