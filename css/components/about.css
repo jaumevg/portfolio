@@ -1,7 +1,7 @@
 /* About Section */
 .about {
     padding: 8rem 0;
-    background: #0a0a14;
+    background: #080810;
     position: relative;
     color: rgba(255, 255, 255, 0.9);
     overflow: hidden;
@@ -37,7 +37,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     margin-bottom: 4rem;
-    background: rgba(20, 20, 30, 0.7);
+    background: rgba(15, 15, 25, 0.8);
     backdrop-filter: blur(12px) saturate(200%);
     -webkit-backdrop-filter: blur(12px) saturate(200%);
     border-radius: 12px;
@@ -189,7 +189,7 @@
     flex: 1;
     padding: 2rem 1.5rem;
     border-radius: 12px;
-    background: rgba(30, 30, 45, 0.6);
+    background: rgba(25, 25, 40, 0.7);
     backdrop-filter: blur(12px) saturate(200%);
     -webkit-backdrop-filter: blur(12px) saturate(200%);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -221,7 +221,7 @@
         linear-gradient(#fff 0 0) content-box, 
         linear-gradient(#fff 0 0);
     mask-composite: exclude;
-    opacity: 0;
+    opacity: 0.0;
     transition: opacity 0.3s ease;
     pointer-events: none;
     z-index: -1;
@@ -278,7 +278,7 @@
 }
 
 .cert-preview-card {
-    background: rgba(30, 30, 45, 0.6);
+    background: rgba(25, 25, 40, 0.7);
     border-radius: 12px;
     padding: 2rem;
     width: 250px;

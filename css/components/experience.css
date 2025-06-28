@@ -24,24 +24,33 @@
 }
 
 .experience-card {
-    background: rgba(15, 15, 25, 0.8);
+    background: rgba(20, 20, 35, 0.9);
     border-radius: 12px;
     padding: 2rem;
     margin-bottom: 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(255, 255, 255, 0.05);
     max-width: 100%;
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    /* Eliminamos cualquier pseudo-elemento que pueda estar causando el efecto diagonal */
+    background-image: none !important;
+}
+
+/* Aseguramos que no haya pseudo-elementos con gradientes */
+.experience-card::before,
+.experience-card::after {
+    content: none !important;
 }
 
 .experience-card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     transform: translateY(-3px);
-    border-color: rgba(255, 23, 68, 0.3);
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(25, 25, 40, 0.95);
 }
 
 .experience-header {
