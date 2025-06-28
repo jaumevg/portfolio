@@ -14,7 +14,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(120deg, rgba(80, 10, 25, 0.452) 0%, rgba(73, 17, 110, 0.329) 100%);
+    background: linear-gradient(120deg, rgba(80, 10, 25, 0.274) 0%, rgba(73, 17, 110, 0.274) 100%);
     z-index: 1;
     opacity: 1;
     animation: gradientShift 10s ease infinite alternate;
@@ -106,24 +106,13 @@
     text-align: center;
 }
 
-.profile-title {
-    color: #fff;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    position: relative;
-    display: inline-block;
-    font-family: 'Outfit', sans-serif;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
 .profile-subtitle {
-    font-size: 1.25rem;
-    color: #E0E0E0;
+    font-size: 1.3rem;
+    color: var(--text-color);
     font-weight: 400;
-    line-height: 1.75;
+    line-height: 1.6;
     max-width: 650px;
-    margin: 0 auto;
+    margin: 0 auto 1.5rem;
     font-family: 'Outfit', sans-serif;
     letter-spacing: 0.2px;
 }

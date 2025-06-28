@@ -225,7 +225,7 @@
                             <a href="index.html#home">Home</a>
                             <a href="index.html#about">About</a>
                             <a href="index.html#projects">Projects</a>
-                            <a href="#" class="active">Certifications</a>
+                            <a href="#top" class="active scroll-top">Certifications</a>
                         </div>
                         <div class="links-column">
                             <h4>Connect</h4>
@@ -281,11 +281,14 @@
         });
     </script>
     <script>
-        document.querySelector('.scroll-top').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        // Aplicar a todos los elementos con clase scroll-top
+        document.querySelectorAll('.scroll-top').forEach(function(element) {
+            element.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
