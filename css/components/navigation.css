@@ -218,14 +218,15 @@ body.certifications-page .nav-links a.scroll-top.active {
     opacity: 1 !important;
 }
 
+/* Mantener la flecha pero hacerla transparente para conservar el espacio */
 body.certifications-page .nav-links a[href*="certifications"]::after,
 body.certifications-page .nav-links a[href="#top"]::after,
 body.certifications-page .nav-links a.scroll-top::after,
 body.certifications-page .nav-links a[href*="certifications"].active::after,
 body.certifications-page .nav-links a[href="#top"].active::after,
 body.certifications-page .nav-links a.scroll-top.active::after {
-    display: none !important;
-    content: none !important;
+    visibility: hidden; /* Ocultar pero mantener el espacio */
+    opacity: 0; /* Hacerla transparente */
 }
 
 /* Scroll Behavior */
