@@ -207,6 +207,27 @@ nav a:hover {
     backdrop-filter: blur(0);
 }
 
+/* Asegurar que el enlace activo en certificaciones mantenga su estilo */
+body.certifications-page .nav-links a[href*="certifications"],
+body.certifications-page .nav-links a[href="#top"],
+body.certifications-page .nav-links a.scroll-top,
+body.certifications-page .nav-links a[href*="certifications"].active,
+body.certifications-page .nav-links a[href="#top"].active,
+body.certifications-page .nav-links a.scroll-top.active {
+    color: var(--primary-color) !important;
+    opacity: 1 !important;
+}
+
+body.certifications-page .nav-links a[href*="certifications"]::after,
+body.certifications-page .nav-links a[href="#top"]::after,
+body.certifications-page .nav-links a.scroll-top::after,
+body.certifications-page .nav-links a[href*="certifications"].active::after,
+body.certifications-page .nav-links a[href="#top"].active::after,
+body.certifications-page .nav-links a.scroll-top.active::after {
+    display: none !important;
+    content: none !important;
+}
+
 /* Scroll Behavior */
 @keyframes hideNavbar {
     from { transform: translateY(0); }
