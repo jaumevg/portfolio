@@ -14,10 +14,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(120deg, rgba(80, 10, 25, 0.3) 0%, rgba(40, 10, 60, 0.3) 100%);
+    background: linear-gradient(120deg, rgba(80, 10, 25, 0.452) 0%, rgba(73, 17, 110, 0.329) 100%);
     z-index: 1;
     opacity: 1;
-    animation: gradientShift 15s ease infinite alternate;
+    animation: gradientShift 10s ease infinite alternate;
     background-size: 200% 200%;
     pointer-events: none;
 }
