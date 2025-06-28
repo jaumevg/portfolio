@@ -4,7 +4,7 @@
     background: linear-gradient(135deg, #0f0f1a 0%, #141422 100%);
     position: relative;
     overflow: hidden;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(200, 200, 220, 0.9);
     overflow: hidden;
 }
 
@@ -514,4 +514,37 @@
     .expertise-card {
         padding: 1rem;
     }
+}
+
+/* Estilos para el botón de descarga */
+.download-btn .cta-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+    margin-left: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.download-btn:hover .cta-icon {
+    animation: downloadPulse 1s infinite;
+    color: var(--primary-color);
+}
+
+@keyframes downloadPulse {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(3px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Ajustes para el botón de descarga en hover */
+.download-btn:hover {
+    transform: translateY(-2px);
+}
+
+.download-btn:active {
+    transform: translateY(0);
 }
