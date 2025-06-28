@@ -24,20 +24,23 @@
 }
 
 .experience-card {
-    background: var(--card-bg);
+    background: rgba(15, 15, 25, 0.8);
     border-radius: 12px;
     padding: 2rem;
     margin-bottom: 2rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 23, 68, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     max-width: 100%;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
 }
 
 .experience-card:hover {
-    box-shadow: 0 4px 8px rgba(255, 23, 68, 0.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
     border-color: rgba(255, 23, 68, 0.3);
 }
 
@@ -219,24 +222,26 @@
     }
 }
 
-.experience-card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(
-        circle,
-        rgba(var(--accent-color-rgb), 0.1) 0%,
-        transparent 70%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    mix-blend-mode: screen;
+/* Legibility Enhancements */
+.experience-card p, .experience-card li {
+    color: #e0e0f0;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    letter-spacing: 0.3px;
+    font-weight: 300;
+}
+.experience-card h4, .experience-card h5, .experience-card h6 {
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
 }
 
-.experience-card:hover::after {
-    opacity: 1;
+/* Mejora de contraste para textos importantes */
+.experience-company, 
+.experience-position,
+.experience-date {
+    color: #f0f0ff !important;
+    font-weight: 400;
 }
+/* Se ha eliminado el resplandor rojo al hacer hover */
