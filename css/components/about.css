@@ -152,6 +152,15 @@
     margin-bottom: 2rem;
 }
 
+/* Legibility Enhancements for bio paragraph */
+.bio-content p:not(.bio-highlight) {
+    color: #e0e0f0; /* Same soft white as experience section */
+    line-height: 1.8;
+    font-size: 1.05rem;
+    letter-spacing: 0.3px;
+    font-weight: 300;
+}
+
 .bio-highlight {
     font-size: 1.5rem;
     font-weight: 500;
