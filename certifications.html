@@ -3,207 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certifications - Jaume Vidal</title>
+    <title>Certifications — Jaume Vidal</title>
+    <meta name="description" content="Cloud certifications by Jaume Vidal: AWS Certified Developer Associate, AWS Cloud Practitioner, Azure Fundamentals and more.">
+    <meta property="og:title" content="Certifications — Jaume Vidal">
+    <meta property="og:description" content="AWS and Azure cloud certifications by Jaume Vidal, Cloud Data Engineer.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#050508">
+
+    <!-- Design System -->
     <link rel="stylesheet" href="css/base/theme.css">
     <link rel="stylesheet" href="css/base/reset.css">
     <link rel="stylesheet" href="css/base/animations.css">
     <link rel="stylesheet" href="css/base/base.css">
-    <link rel="stylesheet" href="css/components/buttons.css">
+
+    <!-- Components -->
     <link rel="stylesheet" href="css/components/navigation.css">
     <link rel="stylesheet" href="css/components/certifications.css">
     <link rel="stylesheet" href="css/components/footer.css">
     <link rel="stylesheet" href="css/components/scrolling.css">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;700&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 </head>
 <body class="certifications-page">
+    <!-- Scroll Progress Bar -->
     <div class="scroll-progress"></div>
+
+    <!-- ── Navigation ──────────────────────────────────────── -->
     <nav>
-        <div class="nav-links">
+        <a class="nav-logo" href="index.html">JV</a>
+        <div class="nav-links" id="nav-links">
             <ul>
                 <li><a href="index.html#home">Home</a></li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#projects">Projects</a></li>
-                <li><a href="#top" class="scroll-top active" data-section="certifications">Certifications</a></li>
+                <li><a href="certifications.html" class="active">Certifications</a></li>
             </ul>
         </div>
-        <button class="menu-toggle" aria-label="Toggle Menu">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
         </button>
     </nav>
-    
+    <div class="nav-overlay" id="nav-overlay"></div>
+
     <main>
-        <section class="certifications-hero section">
-            <div class="hero-background">
-                <div class="cloud-particles"></div>
-                <div class="grid-overlay"></div>
-            </div>
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-left" data-aos="fade-up">
-                        <h1>Certi<span style="font-feature-settings: 'liga' 0;">fi</span>cations</h1>
-                        <p class="subtitle">Certi<span style="font-feature-settings: 'liga' 0;">fi</span>ed Cloud Architect & Developer</p>
-                        
-                        <div class="cloud-stats" data-aos="fade-up" data-aos-delay="200">
-                            <a href="#aws" class="provider-card-link aws">
-                                <div class="provider-card aws">
-                                    <div class="provider-icon">
-                                        <i class="fab fa-aws"></i>
-                                    </div>
-                                    <div class="provider-info">
-                                        <span class="cert-count">2</span>
-                                        <span class="provider-name">AWS Certifications</span>
-                                    </div>
-                                </div>
-                            </a>
-                            
+        <!-- ── Certifications Hero ────────────────────────────── -->
+        <section class="cert-hero" id="top">
+            <!-- Atmósfera de fondo -->
+            <div class="cert-hero-bg"></div>
 
-                            <a href="#azure" class="provider-card-link azure">
-                                <div class="provider-card azure">
-                                    <div class="provider-icon">
-                                        <img src="images/Microsoft_Azure.svg" alt="Microsoft Azure Logo">
-                                    </div>
-                                    <div class="provider-info">
-                                        <span class="cert-count">3</span>
-                                        <span class="provider-name">Azure Certifications</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="aws" class="cert-section section">
             <div class="container">
-                <div class="vendor-header" data-aos="fade-up">
-                    <img src="images/aws.png" alt="AWS Logo" class="vendor-logo" style="filter: invert(53%) sepia(99%) saturate(1559%) hue-rotate(2deg) brightness(101%) contrast(105%); width: 200px; height: auto; margin-right: 15px;">
-                    <h2>AWS Certifications</h2>
-                </div>
-                <div class="cert-grid">
-                    <div class="cert-card" data-aos="fade-up">
-                        <div class="cert-content">
-                            <img src="images/aws-developer-associate.png" alt="AWS Certified Developer Associate">
-                            <h3>AWS Certi<span style="font-feature-settings: 'liga' 0;">fi</span>ed Developer - Associate</h3>
-                            <p class="cert-level">Associate</p>
-                            <div class="cert-date-container">
-                                <div class="cert-date">
-                                    <div class="cert-date-item">
-                                        <i class="far fa-calendar-alt"></i>
-                                        <span class="cert-date-label">Issued:</span>
-                                        <span class="cert-date-value">Feb 2025</span>
-                                    </div>
-                                    <div class="valid-until">
-                                        <span>VALID UNTIL FEB 2028</span>
-                                    </div>
-                                </div>
+                <div class="cert-hero-content reveal">
+                    <!-- Label mono -->
+                    <span class="cert-hero-label">
+                        <i class="fas fa-shield-halved"></i>
+                        Cloud Credentials
+                    </span>
+
+                    <h1 class="cert-hero-title">Certifications</h1>
+
+                    <p class="cert-hero-subtitle">
+                        Certified Cloud Architect &amp; Developer across AWS and Microsoft Azure platforms.
+                    </p>
+
+                    <!-- Provider cards — navegación rápida -->
+                    <div class="provider-grid">
+                        <a href="#aws" class="provider-card aws reveal reveal-delay-1">
+                            <div class="provider-icon">
+                                <i class="fab fa-aws"></i>
                             </div>
-                        </div>
-                        <a href="https://www.credly.com/badges/52fc2596-e9fe-453f-ba3d-377e72a8d792" target="_blank" class="cert-verify">Verify <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    
-                    <div class="cert-card" data-aos="fade-up">
-                        <div class="cert-content">
-                            <img src="images/AWS-Certified-Cloud-Practitioner_badge.png" alt="AWS Certified Cloud Practitioner">
-                            <h3>AWS Certi<span style="font-feature-settings: 'liga' 0;">fi</span>ed Cloud Practitioner</h3>
-                            <p class="cert-level">Foundational</p>
-                            <div class="cert-date-container">
-                                <div class="cert-date">
-                                    <div class="cert-date-item">
-                                        <i class="far fa-calendar-alt"></i>
-                                        <span class="cert-date-label">Issued:</span>
-                                        <span class="cert-date-value">May 2023</span>
-                                    </div>
-                                    <div class="valid-until">
-                                        <span>VALID UNTIL FEB 2028</span>
-                                    </div>
-                                </div>
+                            <div class="provider-info">
+                                <span class="provider-count">2</span>
+                                <span class="provider-name">AWS Certifications</span>
                             </div>
-                        </div>
-                        <a href="https://www.credly.com/badges/e4805691-2e05-4035-bab2-ee86b75ef1fa" target="_blank" class="cert-verify">Verify <i class="fas fa-external-link-alt"></i></a>
+                            <i class="fas fa-arrow-down provider-arrow"></i>
+                        </a>
+
+                        <a href="#azure" class="provider-card azure reveal reveal-delay-2">
+                            <div class="provider-icon">
+                                <img src="images/Microsoft_Azure.svg" alt="Microsoft Azure">
+                            </div>
+                            <div class="provider-info">
+                                <span class="provider-count">3</span>
+                                <span class="provider-name">Azure Certifications</span>
+                            </div>
+                            <i class="fas fa-arrow-down provider-arrow"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="azure" class="cert-section section">
+        <!-- ── AWS Certifications ─────────────────────────────── -->
+        <section id="aws" class="cert-section">
             <div class="container">
-                <div class="vendor-header" data-aos="fade-up">
-                    <img src="images/Microsoft_Azure.svg" alt="Microsoft Azure Logo" class="vendor-logo">
-                    <h2>Azure Certifications</h2>
+                <!-- Vendor Header -->
+                <div class="vendor-header reveal">
+                    <div class="vendor-logo-wrap aws-logo">
+                        <img src="images/aws.png" alt="Amazon Web Services" class="vendor-logo">
+                    </div>
+                    <div class="vendor-title">
+                        <h2>AWS Certifications</h2>
+                        <p class="vendor-subtitle">Amazon Web Services · Associate &amp; Foundational</p>
+                    </div>
                 </div>
+
+                <!-- Cert Grid -->
                 <div class="cert-grid">
-                    <div class="cert-card" data-aos="fade-up">
-                        <div class="cert-content">
-                            <img src="images/dp-900-badge.png" alt="Azure Data Fundamentals">
-                            <h3>Microsoft&nbsp;<span style="white-space: nowrap;">Certi<span style="font-feature-settings: 'liga' 0;">fi</span>ed:</span> Azure Data Fundamentals</h3>
-                            <p class="cert-level">Fundamentals</p>
-                            <div class="cert-date-container">
-                                <div class="cert-date">
-                                    <div class="cert-date-item">
-                                        <i class="far fa-calendar-alt"></i>
-                                        <span class="cert-date-label">Issued:</span>
-                                        <span class="cert-date-value">Oct 2022</span>
-                                    </div>
-                                    <div class="no-expiry">
-                                        <span>ACTIVE</span>
-                                    </div>
+                    <!-- AWS Developer Associate -->
+                    <div class="cert-card reveal">
+                        <div class="cert-badge-wrap">
+                            <img src="images/aws-developer-associate.png" alt="AWS Certified Developer Associate badge">
+                        </div>
+                        <div class="cert-body">
+                            <h3>AWS Certified Developer</h3>
+                            <span class="cert-level level-associate">Associate</span>
+                            <div class="cert-meta">
+                                <div class="cert-meta-item">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span class="cert-meta-label">Issued</span>
+                                    <span class="cert-meta-value">Feb 2025</span>
                                 </div>
+                                <span class="cert-validity valid">
+                                    <span class="validity-dot"></span>
+                                    Valid until Feb 2028
+                                </span>
                             </div>
                         </div>
-                        <a href="https://www.credly.com/badges/7fa54159-8c7a-495d-ad22-4235053e1853" target="_blank" class="cert-verify">Verify <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://www.credly.com/badges/52fc2596-e9fe-453f-ba3d-377e72a8d792"
+                           target="_blank" rel="noopener" class="cert-verify">
+                            Verify on Credly
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
-                    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="cert-content">
-                            <img src="images/ai-900-badge.png" alt="Azure AI Fundamentals">
-                            <h3>Microsoft&nbsp;<span style="white-space: nowrap;">Certi<span style="font-feature-settings: 'liga' 0;">fi</span>ed:</span> Azure AI Fundamentals</h3>
-                            <p class="cert-level">Fundamentals</p>
-                            <div class="cert-date-container">
-                                <div class="cert-date">
-                                    <div class="cert-date-item">
-                                        <i class="far fa-calendar-alt"></i>
-                                        <span class="cert-date-label">Issued:</span>
-                                        <span class="cert-date-value">Nov 2021</span>
-                                    </div>
-                                    <div class="no-expiry">
-                                        <span>ACTIVE</span>
-                                    </div>
+
+                    <!-- AWS Cloud Practitioner -->
+                    <div class="cert-card reveal reveal-delay-1">
+                        <div class="cert-badge-wrap">
+                            <img src="images/AWS-Certified-Cloud-Practitioner_badge.png" alt="AWS Certified Cloud Practitioner badge">
+                        </div>
+                        <div class="cert-body">
+                            <h3>AWS Cloud Practitioner</h3>
+                            <span class="cert-level level-foundational">Foundational</span>
+                            <div class="cert-meta">
+                                <div class="cert-meta-item">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span class="cert-meta-label">Issued</span>
+                                    <span class="cert-meta-value">May 2023</span>
                                 </div>
+                                <span class="cert-validity valid">
+                                    <span class="validity-dot"></span>
+                                    Valid until Feb 2028
+                                </span>
                             </div>
                         </div>
-                        <a href="https://www.credly.com/badges/d92cb85d-c553-405b-84aa-5a5e680f4111" target="_blank" class="cert-verify">Verify <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://www.credly.com/badges/e4805691-2e05-4035-bab2-ee86b75ef1fa"
+                           target="_blank" rel="noopener" class="cert-verify">
+                            Verify on Credly
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
-                    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="cert-content">
-                            <img src="images/az-900-badge.png" alt="Azure Fundamentals">
-                            <h3>Microsoft&nbsp;<span style="white-space: nowrap;">Certi<span style="font-feature-settings: 'liga' 0;">fi</span>ed:</span> Azure Fundamentals</h3>
-                            <p class="cert-level">Fundamentals</p>
-                            <div class="cert-date-container">
-                                <div class="cert-date">
-                                    <div class="cert-date-item">
-                                        <i class="far fa-calendar-alt"></i>
-                                        <span class="cert-date-label">Issued:</span>
-                                        <span class="cert-date-value">Sep 2021</span>
-                                    </div>
-                                    <div class="no-expiry">
-                                        <span>ACTIVE</span>
-                                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Azure Certifications ───────────────────────────── -->
+        <section id="azure" class="cert-section cert-section--alt">
+            <div class="container">
+                <!-- Vendor Header -->
+                <div class="vendor-header reveal">
+                    <div class="vendor-logo-wrap azure-logo">
+                        <img src="images/Microsoft_Azure.svg" alt="Microsoft Azure" class="vendor-logo">
+                    </div>
+                    <div class="vendor-title">
+                        <h2>Azure Certifications</h2>
+                        <p class="vendor-subtitle">Microsoft Azure · Fundamentals Track</p>
+                    </div>
+                </div>
+
+                <!-- Cert Grid -->
+                <div class="cert-grid">
+                    <!-- DP-900 -->
+                    <div class="cert-card cert-card--azure reveal">
+                        <div class="cert-badge-wrap">
+                            <img src="images/dp-900-badge.png" alt="Azure Data Fundamentals badge">
+                        </div>
+                        <div class="cert-body">
+                            <h3>Azure Data Fundamentals</h3>
+                            <span class="cert-level level-fundamentals">DP-900</span>
+                            <div class="cert-meta">
+                                <div class="cert-meta-item">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span class="cert-meta-label">Issued</span>
+                                    <span class="cert-meta-value">Oct 2022</span>
                                 </div>
+                                <span class="cert-validity active">
+                                    <span class="validity-dot"></span>
+                                    Active · No expiry
+                                </span>
                             </div>
                         </div>
-                        <a href="https://www.credly.com/badges/e01b51ac-740d-409b-b372-b5088c907d11" target="_blank" class="cert-verify">Verify <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://www.credly.com/badges/7fa54159-8c7a-495d-ad22-4235053e1853"
+                           target="_blank" rel="noopener" class="cert-verify cert-verify--azure">
+                            Verify on Credly
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+
+                    <!-- AI-900 -->
+                    <div class="cert-card cert-card--azure reveal reveal-delay-1">
+                        <div class="cert-badge-wrap">
+                            <img src="images/ai-900-badge.png" alt="Azure AI Fundamentals badge">
+                        </div>
+                        <div class="cert-body">
+                            <h3>Azure AI Fundamentals</h3>
+                            <span class="cert-level level-fundamentals">AI-900</span>
+                            <div class="cert-meta">
+                                <div class="cert-meta-item">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span class="cert-meta-label">Issued</span>
+                                    <span class="cert-meta-value">Nov 2021</span>
+                                </div>
+                                <span class="cert-validity active">
+                                    <span class="validity-dot"></span>
+                                    Active · No expiry
+                                </span>
+                            </div>
+                        </div>
+                        <a href="https://www.credly.com/badges/d92cb85d-c553-405b-84aa-5a5e680f4111"
+                           target="_blank" rel="noopener" class="cert-verify cert-verify--azure">
+                            Verify on Credly
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+
+                    <!-- AZ-900 -->
+                    <div class="cert-card cert-card--azure reveal reveal-delay-2">
+                        <div class="cert-badge-wrap">
+                            <img src="images/az-900-badge.png" alt="Azure Fundamentals badge">
+                        </div>
+                        <div class="cert-body">
+                            <h3>Azure Fundamentals</h3>
+                            <span class="cert-level level-fundamentals">AZ-900</span>
+                            <div class="cert-meta">
+                                <div class="cert-meta-item">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span class="cert-meta-label">Issued</span>
+                                    <span class="cert-meta-value">Sep 2021</span>
+                                </div>
+                                <span class="cert-validity active">
+                                    <span class="validity-dot"></span>
+                                    Active · No expiry
+                                </span>
+                            </div>
+                        </div>
+                        <a href="https://www.credly.com/badges/e01b51ac-740d-409b-b372-b5088c907d11"
+                           target="_blank" rel="noopener" class="cert-verify cert-verify--azure">
+                            Verify on Credly
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- ── Footer ─────────────────────────────────────────────── -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -218,22 +287,22 @@
                             </span>
                         </a>
                     </div>
-                    
+
                     <div class="footer-links">
                         <div class="links-column">
-                            <h4>Navigation</h4>
+                            <h4>Navigate</h4>
                             <a href="index.html#home">Home</a>
                             <a href="index.html#about">About</a>
                             <a href="index.html#projects">Projects</a>
-                            <a href="#top" class="active scroll-top">Certifications</a>
+                            <a href="certifications.html">Certifications</a>
                         </div>
                         <div class="links-column">
                             <h4>Connect</h4>
-                            <a href="https://github.com/jaumevg" target="_blank" aria-label="GitHub">
+                            <a href="https://github.com/jaumevg" target="_blank" rel="noopener" aria-label="GitHub">
                                 <i class="fab fa-github"></i>
                                 <span>GitHub</span>
                             </a>
-                            <a href="https://www.linkedin.com/in/jaume-vidal-gonzalez/" target="_blank" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/in/jaume-vidal-gonzalez/" target="_blank" rel="noopener" aria-label="LinkedIn">
                                 <i class="fab fa-linkedin"></i>
                                 <span>LinkedIn</span>
                             </a>
@@ -250,46 +319,68 @@
                             Castelló, Spain
                         </span>
                         <span class="separator">·</span>
-                        <span>2025</span>
+                        <span id="footer-year">2025</span>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/script.js"></script>
+    <!-- Scripts -->
     <script src="js/scrolling.js"></script>
-    <script src="js/url-updater.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-    </script>
     <script type="module">
-        import { initNavigation, initMobileMenu, initFloatingNav } from './js/navigation.js';
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            initNavigation();
-            initMobileMenu();
-            initFloatingNav();
-        });
+        import { initFloatingNav } from './js/navigation.js';
+        initFloatingNav();
     </script>
     <script>
-        // Aplicar a todos los elementos con clase scroll-top
-        document.querySelectorAll('.scroll-top').forEach(function(element) {
-            element.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+        // ── Año dinámico ─────────────────────────────────────────
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // ── Scroll Progress ──────────────────────────────────────
+        const progressBar = document.querySelector('.scroll-progress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            progressBar.style.width = (scrollTop / scrollHeight * 100) + '%';
+        }, { passive: true });
+
+        // ── Intersection Observer — Reveal ───────────────────────
+        const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
             });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+        revealEls.forEach(el => revealObserver.observe(el));
+
+        // ── Mobile Menu (Drawer) ─────────────────────────────────
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks   = document.getElementById('nav-links');
+        const navOverlay = document.getElementById('nav-overlay');
+
+        function closeMobileMenu() {
+            menuToggle.classList.remove('is-open');
+            navLinks.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        menuToggle?.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('is-open', isOpen);
+            navOverlay.classList.toggle('active', isOpen);
+            document.body.classList.toggle('menu-open', isOpen);
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        navOverlay?.addEventListener('click', closeMobileMenu);
+        navLinks?.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
         });
     </script>
 </body>

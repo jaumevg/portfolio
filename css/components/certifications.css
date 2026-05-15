@@ -1,1052 +1,560 @@
-/* Modern Hero Section */
-.certifications-hero {
+/* ============================================================
+   CERTIFICATIONS — Hero + Provider cards + Cert cards
+   Mismo design system que el resto del portfolio (tricolor)
+   ============================================================ */
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.cert-hero {
     position: relative;
     min-height: 65vh;
-    max-height: 800px;
     display: flex;
     align-items: center;
-    background: #0a0a14;
+    justify-content: center;
+    background: var(--bg-void);
     overflow: hidden;
-    padding: calc(var(--nav-height) + 2rem) 0 3rem;
+    padding: calc(var(--nav-height) + 3rem) 0 4rem;
     isolation: isolate;
 }
 
-.hero-background {
+/* Atmósfera tricolor de fondo */
+.cert-hero-bg {
     position: absolute;
     inset: 0;
-    z-index: -1;
-    background: radial-gradient(circle at 20% 20%, rgba(255, 23, 68, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(0, 138, 215, 0.08) 0%, transparent 40%);
-    opacity: 0.8;
+    background:
+        radial-gradient(ellipse at 15% 20%, rgba(255, 23, 68, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 80%, rgba(0, 212, 255, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(123, 47, 255, 0.05) 0%, transparent 60%);
+    z-index: 0;
+    pointer-events: none;
 }
 
-.cloud-particles {
+/* Grid sutil igual que el hero principal */
+.cert-hero::before {
+    content: '';
     position: absolute;
     inset: 0;
-    background: 
-        radial-gradient(circle at 10% 20%, rgba(255, 23, 68, 0.05) 0%, transparent 30%),
-        radial-gradient(circle at 90% 80%, rgba(0, 138, 215, 0.05) 0%, transparent 30%);
-    filter: blur(60px);
-    opacity: 0.8;
-    animation: float 15s ease-in-out infinite;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 80% 80% at center, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at center, black 40%, transparent 100%);
 }
 
-.grid-overlay {
-    position: absolute;
-    inset: 0;
-    background-image: 
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-    opacity: 0.3;
-}
-
-@keyframes float {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(0, -20px); }
-}
-
-.hero-content {
+.cert-hero-content {
     position: relative;
     z-index: 2;
-    max-width: 1000px;
-    width: 100%;
+    text-align: center;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 2rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
 }
 
-.cloud-badge {
+/* ── Hero Label (estilo idéntico al greeting del hero) ────── */
+.cert-hero-label {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1.25rem;
-    background: rgba(var(--primary-color-rgb), 0.1);
-    border-radius: 100px;
-    margin-bottom: 2rem;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent-cyan);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-shadow: var(--neon-glow-cyan);
 }
 
-.cloud-badge i {
-    color: var(--primary-color);
-    font-size: 1.2rem;
+.cert-hero-label::before,
+.cert-hero-label::after {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: var(--accent-cyan);
+    vertical-align: middle;
+    opacity: 0.6;
+    box-shadow: 0 0 6px var(--accent-cyan);
 }
 
-.cloud-badge span {
-    color: var(--primary-color);
-    font-weight: 600;
+.cert-hero-label::before { margin-right: 8px; }
+.cert-hero-label::after  { margin-left:  8px; }
+
+.cert-hero-label i {
     font-size: 0.9rem;
+    color: var(--accent-cyan);
 }
 
-h1 {
-    font-size: 4rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(120deg, var(--text-color), var(--primary-color));
+/* ── Hero Title ───────────────────────────────────────────── */
+.cert-hero-title {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 700;
+    font-family: var(--font-display);
+    background: var(--gradient-name);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    line-height: 1.1;
+    margin: 0;
+    text-align: center;
+    animation: nameGlow 3s ease-in-out infinite;
 }
 
-.subtitle {
-    font-size: 1.2rem;
-    color: var(--text-color);
-    opacity: 0.9;
-    line-height: 1.6;
-    margin: 1.5rem auto 3rem;
-    max-width: 600px;
+/* ── Hero Subtitle ────────────────────────────────────────── */
+.cert-hero-subtitle {
+    font-family: var(--font-mono);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: var(--text-dim);
+    max-width: 550px;
+    line-height: 1.7;
+    margin: 0;
+    letter-spacing: 0.04em;
 }
 
-.cloud-stats {
+/* ── Provider Grid (tarjetas de navegación) ───────────────── */
+.provider-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    margin: 2rem auto 3rem;
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 680px;
 }
 
 .provider-card {
-    background: linear-gradient(145deg, rgba(25, 25, 35, 0.7), rgba(15, 15, 25, 0.8));
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 1.75rem 2rem;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     align-items: center;
-    gap: 1.75rem;
+    gap: 1.25rem;
+    padding: 1.5rem 1.75rem;
+    border-radius: var(--border-radius-card);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    text-decoration: none;
+    transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2);
-    transform: translateZ(0);
-    will-change: transform, box-shadow;
 }
 
-.provider-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-}
-
-.provider-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
+/* Barra de acento izquierda por proveedor */
+.provider-card.aws   { border-left: 3px solid rgba(255, 153, 0, 0.5); }
+.provider-card.azure { border-left: 3px solid rgba(0, 120, 212, 0.5); }
 
 .provider-card:hover {
-    transform: translateY(-5px) scale(1.01);
-    border-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
-    z-index: 2;
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
 }
 
-.provider-card:hover::before {
-    opacity: 1;
+.provider-card.aws:hover {
+    border-color: rgba(255, 153, 0, 0.4);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 153, 0, 0.08);
 }
 
-.provider-card:hover::before {
-    opacity: 1;
+.provider-card.azure:hover {
+    border-color: rgba(0, 120, 212, 0.4);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 120, 212, 0.08);
 }
 
-.provider-card.aws {
+/* Icono del proveedor */
+.provider-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.provider-card.aws .provider-icon {
+    background: rgba(255, 153, 0, 0.1);
+    border: 1px solid rgba(255, 153, 0, 0.2);
+}
+
+.provider-card.aws .provider-icon i {
+    font-size: 1.6rem;
     color: #FF9900;
-    background: linear-gradient(145deg, rgba(40, 25, 5, 0.7), rgba(20, 12, 5, 0.8));
-    border-left: 2px solid rgba(255, 153, 0, 0.3);
 }
 
-.provider-card.azure {
-    color: #008AD7;
-    background: linear-gradient(145deg, rgba(0, 30, 60, 0.7), rgba(0, 15, 30, 0.8));
-    border-left: 2px solid rgba(0, 138, 215, 0.3);
-}
-
-.provider-card.aws::before {
-    background: linear-gradient(135deg, rgba(255, 153, 0, 0.03) 0%, transparent 100%);
-}
-
-.provider-card.azure::before {
-    background: linear-gradient(135deg, rgba(0, 138, 215, 0.03) 0%, transparent 100%);
+.provider-card.azure .provider-icon {
+    background: rgba(0, 120, 212, 0.1);
+    border: 1px solid rgba(0, 120, 212, 0.2);
 }
 
 .provider-card.azure .provider-icon img {
-    max-width: 2.5rem;
-    max-height: 2.5rem;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
 }
 
-.provider-icon {
-    font-size: 2.5rem;
-    position: relative;
-    z-index: 1;
-    width: 70px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: none;
-    padding: 0.5rem;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
+.provider-card:hover .provider-icon { transform: scale(1.08); }
 
-.provider-card:hover .provider-icon {
-    transform: scale(1.1) translateY(-2px);
-}
-
+/* Info del proveedor */
 .provider-info {
-    color: var(--text-color);
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
 }
 
-.provider-info .cert-count {
-    font-size: 2.25rem;
-    font-weight: 800;
-    margin-bottom: 0.25rem;
-    line-height: 1.1;
-    background: linear-gradient(120deg, var(--text-color), var(--primary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -0.5px;
-}
-
-.provider-info .provider-name {
-    font-size: 0.95rem;
-    opacity: 0.9;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    color: var(--text-color);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.provider-card:hover .provider-name {
-    opacity: 1;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-}
-
-.cert-count {
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1;
-    display: block;
-    margin-bottom: 0.5rem;
+.provider-count {
     font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text-primary);
+    display: block;
 }
 
 .provider-name {
-    font-weight: 500;
-    opacity: 0.8;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    letter-spacing: 1px;
 }
 
-.expertise-areas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 3rem;
+.provider-arrow {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
 }
 
-.expertise-tag {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1.5rem;
-    background: rgba(var(--background-color-rgb), 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(var(--primary-color-rgb), 0.1);
-    border-radius: 100px;
-    transition: all 0.3s ease;
-}
+.provider-card:hover .provider-arrow { transform: translateY(3px); }
 
-.expertise-tag:hover {
-    transform: translateY(-2px);
-    border-color: var(--primary-color);
-    background: rgba(var(--primary-color-rgb), 0.1);
-}
-
-.expertise-tag i {
-    color: var(--primary-color);
-    font-size: 1.1rem;
-}
-
-.expertise-tag span {
-    color: var(--text-color);
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-
-
-
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
-    }
-    50% {
-        transform: translateY(-15px) scale(1.02);
-        box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.25);
-    }
-}
-
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-    h1 {
-        font-size: 3.5rem;
-    }
-}
-
-@media (max-width: 992px) {
-    .hero-content {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-    }
-
-    .cloud-stats {
-        max-width: 600px;
-    }
-
-    .certification-total {
-        margin-top: 2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .certifications-hero {
-        padding: 4rem 0;
-    }
-
-    h1 {
-        font-size: 3rem;
-    }
-
-    .cloud-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .expertise-areas {
-        gap: 0.75rem;
-    }
-
-    .total-number {
-        font-size: 5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    .cloud-badge {
-        padding: 0.5rem 1rem;
-    }
-
-    .expertise-tag {
-        padding: 0.5rem 1rem;
-    }
-
-    .total-number {
-        font-size: 4rem;
-    }
-
-    .total-label {
-        font-size: 1rem;
-    }
-}
-
-/* Certifications Grid and Cards */
+/* ── Cert Sections ────────────────────────────────────────── */
 .cert-section {
-    padding: 90px 0;
-    background: var(--section-background);
-    min-height: 60vh;
+    padding: 6rem 0;
+    background: transparent;
 }
 
-.cert-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-    margin-bottom: 8rem;
+.cert-section--alt {
+    background: rgba(13, 13, 24, 0.4);
 }
 
-.cert-card {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 16px;
-    padding: 2rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+/* ── Vendor Header ────────────────────────────────────────── */
+.vendor-header {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    height: 100%;
-    justify-content: space-between;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    position: relative;
-    overflow: hidden;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-subtle);
 }
 
-.cert-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-}
-
-.cert-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
-    z-index: 1;
-    pointer-events: none;
-    border-radius: 16px;
-}
-
-.cert-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    border-color: rgba(255, 255, 255, 0.15);
-}
-
-.cert-card h3 {
-    font-size: 1.3rem;
-    margin: 0 0 0.5rem 0;
-    padding: 0 1rem;
-    color: var(--text-color);
-    font-family: var(--font-display);
-    min-height: 3.9rem;
+.vendor-logo-wrap {
+    width: 70px;
+    height: 70px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    line-height: 1.4;
-    word-break: break-word;
-    hyphens: auto;
+    flex-shrink: 0;
+    padding: 12px;
+    transition: var(--transition);
 }
 
-.cert-content {
+.aws-logo {
+    background: rgba(255, 153, 0, 0.08);
+    border: 1px solid rgba(255, 153, 0, 0.2);
+}
+
+.azure-logo {
+    background: rgba(0, 120, 212, 0.08);
+    border: 1px solid rgba(0, 120, 212, 0.2);
+}
+
+.vendor-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Filtro naranja para el logo AWS (blanco/negro) */
+.aws-logo .vendor-logo {
+    filter: invert(63%) sepia(96%) saturate(1000%) hue-rotate(5deg) brightness(105%);
+}
+
+.vendor-title h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: var(--font-display);
+    color: var(--text-primary);
+    margin: 0 0 0.25rem;
+    text-align: left;
+}
+
+/* Override del ::after de h2 del base.css — no queremos línea aquí */
+.vendor-title h2::after { display: none; }
+
+.vendor-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* ── Cert Grid ────────────────────────────────────────────── */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* ── Cert Card ────────────────────────────────────────────── */
+.cert-card {
+    background: var(--glass-bg);
+    border-radius: var(--border-radius-card);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-grow: 1;
-    justify-content: space-between;
-    position: relative;
-    z-index: 2;
-    width: 100%;
-}
-
-.cert-card img {
-    width: 120px;
-    height: 120px;
-    margin: 0 0 2rem 0;
-    border-radius: 0;
-    transform: translateZ(0);
-    -webkit-font-smoothing: subpixel-antialiased;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    background: transparent;
-    padding: 0;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
-}
-
-.cert-card:hover img {
-    transform: translateZ(0) scale(1.1);
-    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.25));
-}
-
-.cert-level {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin: 0.5rem 0;
-    padding: 0.35rem 1rem;
-    border-radius: 100px;
-    display: inline-block;
-    background: rgba(255, 23, 68, 0.1);
-    color: var(--primary-color);
-    text-transform: uppercase;
+    gap: 1.25rem;
+    text-align: center;
+    transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
-    z-index: 1;
 }
 
-.cert-level::before {
+/* Línea superior de acento (AWS = naranja, Azure = azul) */
+.cert-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: currentColor;
-    opacity: 0.1;
-    z-index: -1;
-    border-radius: 100px;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    border-radius: var(--border-radius-card) var(--border-radius-card) 0 0;
 }
 
-/* AWS specific cert level */
-#aws .cert-level {
+/* Por defecto AWS */
+.cert-card::before {
+    background: linear-gradient(90deg, rgba(255, 153, 0, 0.6), transparent);
+}
+
+.cert-card--azure::before {
+    background: linear-gradient(90deg, rgba(0, 120, 212, 0.6), transparent);
+}
+
+.cert-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.cert-card:hover:not(.cert-card--azure) { border-color: rgba(255, 153, 0, 0.25); }
+.cert-card--azure:hover                 { border-color: rgba(0, 120, 212, 0.25); }
+
+/* ── Badge de la certificación ────────────────────────────── */
+.cert-badge-wrap {
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cert-badge-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.3));
+    transition: filter 0.35s ease;
+}
+
+.cert-card:hover .cert-badge-wrap {
+    transform: scale(1.08);
+}
+
+.cert-card:hover .cert-badge-wrap img {
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
+}
+
+/* ── Cert Body ────────────────────────────────────────────── */
+.cert-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    flex: 1;
+}
+
+.cert-body h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-family: var(--font-display);
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* ── Cert Level Badge ─────────────────────────────────────── */
+.cert-level {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.level-associate {
     background: rgba(255, 153, 0, 0.1);
+    border: 1px solid rgba(255, 153, 0, 0.3);
     color: #FF9900;
 }
 
-/* Azure specific cert level */
-#azure .cert-level {
-    background: rgba(0, 138, 215, 0.1);
-    color: #008AD7;
+.level-foundational {
+    background: rgba(255, 23, 68, 0.08);
+    border: 1px solid var(--primary-border);
+    color: var(--primary);
 }
 
-.cert-date-container {
+.level-fundamentals {
+    background: rgba(0, 120, 212, 0.1);
+    border: 1px solid rgba(0, 120, 212, 0.3);
+    color: #4DA3E8;
+}
+
+/* ── Cert Meta (fecha + validez) ──────────────────────────── */
+.cert-meta {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    width: 100%;
-    margin: 0.75rem 0 1.5rem;
-    font-family: var(--font-body);
-    font-size: 1.1em;
-}
-
-.cert-date {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    color: var(--text-color);
-    font-size: 0.8rem;
-    padding: 0.5rem 0;
-    position: relative;
+    gap: 0.5rem;
+    width: 100%;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-subtle);
+    margin-top: auto;
 }
 
-.cert-date::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-}
-
-.cert-date-item {
+.cert-meta-item {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    position: relative;
-    padding: 0.25rem 0.5rem;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-dim);
 }
 
-.cert-date-item:hover {
-    background: rgba(255, 255, 255, 0.03);
+.cert-meta-item i {
+    font-size: 0.8rem;
+    color: var(--text-muted);
 }
 
-.cert-date-item i {
-    font-size: 0.9em;
-    opacity: 0.8;
-    width: 16px;
-    text-align: center;
-}
+.cert-meta-label { color: var(--text-muted); }
+.cert-meta-value { color: var(--text-primary); font-weight: 500; }
 
-.cert-date-label {
-    font-weight: 500;
-    margin-right: 0.25rem;
-    opacity: 0.7;
-}
-
-.cert-date-value {
-    font-weight: 500;
-    font-family: var(--font-body);
-    font-size: 1.05em;
-    letter-spacing: 0.01em;
-    color: var(--text-color);
-    line-height: 1.4;
-}
-
-/* Estilos específicos para AWS */
-#aws .cert-date-item i {
-    color: #FF9900;
-}
-
-/* Estilos específicos para Azure */
-#azure .cert-date-item i {
-    color: #008AD7;
-}
-
-/* Indicador de validez */
-.valid-until {
-    position: relative;
-    padding-left: 1.5rem;
-    display: flex;
-    align-items: center;
-}
-
-/* Estilo para certificaciones sin vencimiento */
-.no-expiry {
+/* Validity badge */
+.cert-validity {
     display: inline-flex;
     align-items: center;
-    background: rgba(74, 222, 128, 0.1);
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+.cert-validity.valid {
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid var(--cyan-border);
+    color: var(--accent-cyan);
+}
+
+.cert-validity.active {
+    background: rgba(74, 222, 128, 0.08);
+    border: 1px solid rgba(74, 222, 128, 0.25);
     color: #4ade80;
-    font-size: 0.85em;
-    font-weight: 500;
-    padding: 0.25em 0.75em;
-    border-radius: 12px;
-    letter-spacing: 0.02em;
-    margin-top: 0.25em;
 }
 
-.no-expiry::before {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 6px;
+.validity-dot {
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
-    background: #4ade80;
-    margin-right: 6px;
-}
-
-.cert-date-label {
-    font-weight: 500;
-    margin-right: 0.5rem;
-    color: var(--text-color);
-    font-size: 1.05em;
-    opacity: 0.9;
-    letter-spacing: 0.01em;
-}
-
-.valid-until {
-    display: inline-flex;
-    align-items: center;
-    background: rgba(74, 222, 128, 0.1);
-    color: #4ade80;
-    font-size: 0.85em;
-    font-weight: 500;
-    padding: 0.25em 0.75em;
-    border-radius: 12px;
-    letter-spacing: 0.02em;
-    margin-top: 0.25em;
-}
-
-.valid-until::before {
-    content: '';
     display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #4ade80;
-    margin-right: 6px;
+    flex-shrink: 0;
 }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
-    }
-}
+.cert-validity.valid  .validity-dot { background: var(--accent-cyan); box-shadow: 0 0 6px var(--accent-cyan); animation: pulseDot 2s ease infinite; }
+.cert-validity.active .validity-dot { background: #4ade80; box-shadow: 0 0 6px #4ade80; animation: pulseDot 2s ease infinite; }
 
+/* ── Verify Button ────────────────────────────────────────── */
 .cert-verify {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 0.75rem;
-    padding: 0.6rem 1.25rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+    padding: 0.55rem 1.25rem;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition-smooth);
+    /* AWS por defecto */
+    color: #FF9900;
+    background: rgba(255, 153, 0, 0.08);
+    border: 1px solid rgba(255, 153, 0, 0.3);
 }
 
-.cert-verify::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: currentColor;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-}
-
-.cert-verify:hover::before {
-    opacity: 0.1;
+.cert-verify:hover {
+    background: rgba(255, 153, 0, 0.15);
+    border-color: rgba(255, 153, 0, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 153, 0, 0.15);
 }
 
 .cert-verify i {
-    font-size: 0.8rem;
-    transition: transform 0.3s ease;
+    font-size: 0.75rem;
+    transition: transform 0.25s ease;
 }
 
-.cert-verify:hover i {
-    transform: translate(2px, -2px);
+.cert-verify:hover i { transform: translate(2px, -2px); }
+
+/* Azure Verify */
+.cert-verify--azure {
+    color: #4DA3E8;
+    background: rgba(0, 120, 212, 0.08);
+    border: 1px solid rgba(0, 120, 212, 0.3);
 }
 
-/* AWS Verify Button */
-#aws .cert-verify {
-    color: #FF9900;
-    border-color: rgba(255, 153, 0, 0.3);
+.cert-verify--azure:hover {
+    background: rgba(0, 120, 212, 0.15);
+    border-color: rgba(0, 120, 212, 0.6);
+    box-shadow: 0 6px 20px rgba(0, 120, 212, 0.15);
 }
 
-#aws .cert-verify:hover {
-    background: rgba(255, 153, 0, 0.1);
-    border-color: #FF9900;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 153, 0, 0.15);
-}
-
-/* Azure Verify Button */
-#azure .cert-verify {
-    color: #008AD7;
-    border-color: rgba(0, 138, 215, 0.3);
-}
-
-#azure .cert-verify:hover {
-    background: rgba(0, 138, 215, 0.1);
-    border-color: #008AD7;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 138, 215, 0.15);
-}
-
-/* Vendor Header Styles */
-.vendor-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 4rem;
-    padding: 0;
-    position: relative;
-    text-align: center;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.vendor-header .vendor-logo {
-    height: 130px;
-    width: auto;
-    object-fit: contain;
-    filter: brightness(1) drop-shadow(0 0 15px rgba(var(--primary-color-rgb), 0.15));
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.vendor-header:hover .vendor-logo {
-    filter: brightness(1.05) drop-shadow(0 0 25px rgba(var(--primary-color-rgb), 0.25));
-    transform: scale(1.1) translateY(-5px);
-}
-
-.vendor-header h2 {
-    margin: 0;
-    font-size: 2.5rem;
-    color: var(--text-color);
-    font-family: var(--font-display);
-    font-weight: 600;
-    position: relative;
-    display: inline-block;
-    letter-spacing: 1px;
-}
-
-.vendor-header h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    transition: all 0.4s ease;
-}
-
-.vendor-header:hover h2::after {
-    width: 140px;
-    filter: brightness(1.2);
-}
-
-/* AWS specific styles */
-#aws .vendor-header h2::after {
-    background: #FF9900;
-    box-shadow: 0 0 10px rgba(255, 153, 0, 0.6);
-}
-
-#aws .vendor-logo {
-    filter: brightness(1);
-}
-
-#aws .vendor-header:hover .vendor-logo {
-    filter: brightness(1.05);
-}
-
-#aws .cert-card {
-    border: 1px solid rgba(255, 153, 0, 0.1);
-}
-
-#aws .cert-card:hover {
-    border-color: #FF9900;
-    box-shadow: 0 5px 15px rgba(255, 153, 0, 0.1);
-}
-
-#aws .cert-verify {
-    color: #FF9900;
-    border-color: rgba(255, 153, 0, 0.3);
-}
-
-#aws .cert-verify:hover {
-    background: rgba(255, 153, 0, 0.1);
-    border-color: #FF9900;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 153, 0, 0.15);
-}
-
-/* Azure specific styles */
-#azure .vendor-header h2::after {
-    background: #008AD7;
-    box-shadow: 0 0 10px rgba(0, 138, 215, 0.6);
-}
-
-#azure .vendor-logo {
-    filter: brightness(1);
-}
-
-#azure .vendor-header:hover .vendor-logo {
-    filter: brightness(1.05);
-}
-
-#azure .cert-card {
-    border: 1px solid rgba(0, 138, 215, 0.1);
-}
-
-#azure .cert-card:hover {
-    border-color: #008AD7;
-    box-shadow: 0 5px 15px rgba(0, 138, 215, 0.1);
-}
-
-#azure .cert-verify {
-    color: #008AD7;
-    border-color: rgba(0, 138, 215, 0.3);
-}
-
-#azure .cert-verify:hover {
-    background: rgba(0, 138, 215, 0.1);
-    border-color: #008AD7;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 138, 215, 0.15);
-}
-
-/* Section Background Glows */
-#aws.cert-section {
-    position: relative;
-    overflow: hidden;
-    background: radial-gradient(circle at center, rgba(255, 153, 0, 0.1) 0%, transparent 80%),
-                var(--background-color);
-}
-
-#aws.cert-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 153, 0, 0.12) 0%, rgba(255, 153, 0, 0.03) 100%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-#azure.cert-section {
-    position: relative;
-    overflow: hidden;
-    background: radial-gradient(circle at center, rgba(0, 138, 215, 0.1) 0%, transparent 80%),
-                var(--background-color);
-}
-
-#azure.cert-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 138, 215, 0.12) 0%, rgba(0, 138, 215, 0.03) 100%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Asegurando que las tarjetas de Azure sean idénticas a las de AWS */
-#azure .cert-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 2rem;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-#azure .cert-card h3 {
-    font-size: 1.3rem;
-    margin: 0 0 0.5rem 0;
-    padding: 0 1rem;
-    color: var(--text-color);
-    font-family: var(--font-display);
-    min-height: 3.9rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    line-height: 1.4;
-    white-space: nowrap;
-}
-
-#azure .cert-card h3 span {
-    white-space: nowrap;
-    display: inline-block;
-}
-
-.cert-section .container {
-    position: relative;
-    z-index: 1;
-}
-
-/* Override section styles for certifications page */
-.certifications-page section {
-    margin: 0;
-    padding: 4rem 0;
-}
-
-.certifications-page section:nth-child(even) {
-    background: var(--background-color);
-}
-
-/* Remove borders between sections */
-.certifications-page section {
-    border-bottom: none;
-}
-
-/* Featured Certifications in About Section */
-.featured-certs {
-    margin: 2rem 0;
-}
-
-.featured-certs h3 {
-    margin-bottom: 1.5rem;
-    color: var(--text-color);
-    font-family: var(--font-display);
-}
-
-.cert-preview {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
-
-.cert-preview .cert-card {
-    padding: 1.5rem;
-    text-align: center;
-    background: var(--card-background);
-    border-radius: 8px;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 992px) {
-    .cert-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-
-    .vendor-header {
-        flex-direction: column;
-        gap: 2rem;
-        text-align: center;
-    }
-
-    .vendor-header .vendor-logo {
-        height: 100px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .certifications-hero {
-        height: 35vh;
-        min-height: 250px;
-        padding: 3rem 0 1.5rem;
-    }
-
-    .certifications-hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .certifications-hero .subtitle {
-        font-size: 1rem;
-    }
-
-    .vendor-header h2 {
-        font-size: 2rem;
-    }
-
-    .cert-card {
-        padding: 1.5rem;
-    }
-
-    .cert-card img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .cert-card h3 {
-        font-size: 1.2rem;
-        min-height: 3.6rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .cert-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .cert-verify {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .vendor-header h2 {
-        font-size: 1.8rem;
-    }
-}
-
+/* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 768px) {
-    #aws.cert-section::before,
-    #azure.cert-section::before {
-        width: 300vw;
-        height: 300vw;
-        bottom: -100%;
-    }
+    .cert-hero { min-height: 55vh; padding: calc(var(--nav-height) + 2rem) 0 3rem; }
+
+    .provider-grid { grid-template-columns: 1fr; max-width: 400px; }
+
+    .vendor-header { flex-direction: column; text-align: center; gap: 1rem; }
+
+    .vendor-title h2 { text-align: center; font-size: 1.6rem; }
+
+    .cert-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .cert-hero-label::before,
+    .cert-hero-label::after { width: 15px; }
+
+    .cert-card { padding: 1.5rem; }
+
+    .cert-badge-wrap { width: 90px; height: 90px; }
 }
