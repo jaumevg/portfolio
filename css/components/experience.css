@@ -178,8 +178,8 @@
     color: var(--text-dim);
     line-height: 1.8;
     margin-bottom: 1rem;
-    font-size: 1rem;
-    font-weight: 300;
+    font-size: 1.1rem;
+    font-weight: 400;
 }
 
 .experience-details ul {
@@ -195,8 +195,8 @@
     padding-left: 1.5rem;
     position: relative;
     line-height: 1.7;
-    font-size: 0.97rem;
-    font-weight: 300;
+    font-size: 1.05rem;
+    font-weight: 400;
 }
 
 .experience-details li::before {

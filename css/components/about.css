@@ -127,8 +127,8 @@
 .bio-content p:not(.bio-highlight) {
     color: var(--text-dim);
     line-height: 1.9;
-    font-size: 1.02rem;
-    font-weight: 300;
+    font-size: 1.12rem;
+    font-weight: 400;
 }
 
 /* CTA Buttons */

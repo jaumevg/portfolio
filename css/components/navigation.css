@@ -186,7 +186,7 @@ body.certifications-page .nav-links a[href="#top"]::after {
         position: fixed;
         inset: 0;
         background: rgba(5, 5, 8, 0.7);
-        z-index: calc(var(--z-nav) + 1);
+        z-index: calc(var(--z-nav) - 1);
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease;
