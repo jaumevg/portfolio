@@ -488,20 +488,29 @@
 
 /* ── Cert Data Grid (Vercel Style) ────────────────────────── */
 .cert-data-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
     gap: 1rem;
     width: 100%;
     padding-top: 1rem;
     margin-top: auto;
     border-top: 1px solid var(--border-subtle);
-    text-align: left;
 }
 
 .data-col {
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
+}
+
+.data-col:first-child {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.data-col:last-child {
+    align-items: flex-end;
+    text-align: right;
 }
 
 .data-label {
