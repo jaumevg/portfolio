@@ -44,10 +44,10 @@
 .experience-card::before {
     content: '';
     position: absolute;
-    /* Card border box is at 60px, padding box at 61px (due to 1px border). Line center is at 25px. 
-       Dot center needs to be at 25px. Dot radius is 7px (14px total width).
-       Left edge relative to padding box = 25px - 61px - 7px = -43px. */
-    left: -43px;
+    /* Target center is 25px. Card padding box is at 61px. 
+       25px - 61px = -36px. Place left edge exactly on line center, then center with transform. */
+    left: -36px;
+    transform: translateX(-50%);
     top: 2rem;
     width: 14px;
     height: 14px;
@@ -271,8 +271,9 @@
     }
 
     .experience-card::before {
-        /* Line is at 16px (17px center). Card at 50px (51px padding box). Dot center = 17 - 51 - 7 = -41px. */
-        left: -41px;
+        /* Target center is 17px. Card padding box is at 51px.
+           17px - 51px = -34px. */
+        left: -34px;
     }
 
     .experience-header {
