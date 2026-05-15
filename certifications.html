@@ -51,47 +51,40 @@
     <div class="nav-overlay" id="nav-overlay"></div>
 
     <main>
-        <!-- ── Certifications Hero ────────────────────────────── -->
+        <!-- ── Hero ──────────────────────────────────────────── -->
         <section class="cert-hero" id="top">
-            <!-- Atmósfera de fondo -->
             <div class="cert-hero-bg"></div>
-
             <div class="container">
                 <div class="cert-hero-content reveal">
-                    <!-- Label mono -->
                     <span class="cert-hero-label">
                         <i class="fas fa-shield-halved"></i>
                         Cloud Credentials
                     </span>
-
                     <h1 class="cert-hero-title">Certifications</h1>
-
                     <p class="cert-hero-subtitle">
-                        Certified Cloud Architect &amp; Developer across AWS and Microsoft Azure platforms.
+                        Certified Cloud Architect &amp; Developer across AWS and Microsoft Azure.
                     </p>
-
-                    <!-- Provider cards — navegación rápida -->
+                    <!-- Provider quick-nav -->
                     <div class="provider-grid">
-                        <a href="#aws" class="provider-card aws reveal reveal-delay-1">
+                        <a href="#aws" class="provider-card provider-aws reveal reveal-delay-1">
                             <div class="provider-icon">
                                 <i class="fab fa-aws"></i>
                             </div>
                             <div class="provider-info">
                                 <span class="provider-count">2</span>
-                                <span class="provider-name">AWS Certifications</span>
+                                <span class="provider-name">AWS Certs</span>
                             </div>
-                            <i class="fas fa-arrow-down provider-arrow"></i>
+                            <i class="fas fa-chevron-down provider-arrow"></i>
                         </a>
-
-                        <a href="#azure" class="provider-card azure reveal reveal-delay-2">
+                        <a href="#azure" class="provider-card provider-azure reveal reveal-delay-2">
                             <div class="provider-icon">
                                 <img src="images/Microsoft_Azure.svg" alt="Microsoft Azure">
                             </div>
                             <div class="provider-info">
                                 <span class="provider-count">3</span>
-                                <span class="provider-name">Azure Certifications</span>
+                                <span class="provider-name">Azure Certs</span>
                             </div>
-                            <i class="fas fa-arrow-down provider-arrow"></i>
+                            <i class="fas fa-chevron-down provider-arrow"></i>
                         </a>
                     </div>
                 </div>
@@ -99,72 +92,68 @@
         </section>
 
         <!-- ── AWS Certifications ─────────────────────────────── -->
-        <section id="aws" class="cert-section">
+        <section id="aws" class="cert-section cert-section--aws">
             <div class="container">
                 <!-- Vendor Header -->
-                <div class="vendor-header reveal">
-                    <div class="vendor-logo-wrap aws-logo">
-                        <img src="images/aws.png" alt="Amazon Web Services" class="vendor-logo">
-                    </div>
-                    <div class="vendor-title">
-                        <h2>AWS Certifications</h2>
-                        <p class="vendor-subtitle">Amazon Web Services · Associate &amp; Foundational</p>
-                    </div>
+                <div class="vendor-header vendor-header--aws reveal">
+                    <img src="images/aws.png" alt="Amazon Web Services" class="vendor-logo vendor-logo--aws">
+                    <h2 class="vendor-title">AWS Certifications</h2>
+                    <p class="vendor-subtitle">Amazon Web Services · 2 Active Credentials</p>
                 </div>
 
                 <!-- Cert Grid -->
                 <div class="cert-grid">
                     <!-- AWS Developer Associate -->
-                    <div class="cert-card reveal">
+                    <div class="cert-card cert-card--aws reveal">
                         <div class="cert-badge-wrap">
-                            <img src="images/aws-developer-associate.png" alt="AWS Certified Developer Associate badge">
+                            <img src="images/aws-developer-associate.png" alt="AWS Certified Developer Associate">
                         </div>
                         <div class="cert-body">
+                            <span class="cert-code cert-code--aws">DVA-C02</span>
                             <h3>AWS Certified Developer</h3>
-                            <span class="cert-level level-associate">Associate</span>
+                            <span class="cert-tier cert-tier--aws">Associate</span>
                             <div class="cert-meta">
-                                <div class="cert-meta-item">
+                                <div class="cert-meta-row">
                                     <i class="far fa-calendar-alt"></i>
                                     <span class="cert-meta-label">Issued</span>
                                     <span class="cert-meta-value">Feb 2025</span>
                                 </div>
-                                <span class="cert-validity valid">
+                                <span class="cert-validity cert-validity--aws">
                                     <span class="validity-dot"></span>
                                     Valid until Feb 2028
                                 </span>
                             </div>
                         </div>
                         <a href="https://www.credly.com/badges/52fc2596-e9fe-453f-ba3d-377e72a8d792"
-                           target="_blank" rel="noopener" class="cert-verify">
-                            Verify on Credly
-                            <i class="fas fa-external-link-alt"></i>
+                           target="_blank" rel="noopener" class="cert-verify cert-verify--aws">
+                            Verify on Credly <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
 
                     <!-- AWS Cloud Practitioner -->
-                    <div class="cert-card reveal reveal-delay-1">
+                    <div class="cert-card cert-card--aws reveal reveal-delay-1">
                         <div class="cert-badge-wrap">
-                            <img src="images/AWS-Certified-Cloud-Practitioner_badge.png" alt="AWS Certified Cloud Practitioner badge">
+                            <img src="images/AWS-Certified-Cloud-Practitioner_badge.png" alt="AWS Certified Cloud Practitioner">
                         </div>
                         <div class="cert-body">
+                            <span class="cert-code cert-code--aws">CLF-C02</span>
                             <h3>AWS Cloud Practitioner</h3>
-                            <span class="cert-level level-foundational">Foundational</span>
+                            <span class="cert-tier cert-tier--aws-found">Foundational</span>
                             <div class="cert-meta">
-                                <div class="cert-meta-item">
+                                <div class="cert-meta-row">
                                     <i class="far fa-calendar-alt"></i>
                                     <span class="cert-meta-label">Issued</span>
                                     <span class="cert-meta-value">May 2023</span>
                                 </div>
-                                <span class="cert-validity valid">
+                                <span class="cert-validity cert-validity--aws">
                                     <span class="validity-dot"></span>
                                     Valid until Feb 2028
                                 </span>
                             </div>
                         </div>
                         <a href="https://www.credly.com/badges/e4805691-2e05-4035-bab2-ee86b75ef1fa"
-                           target="_blank" rel="noopener" class="cert-verify">
-                            Verify on Credly
-                            <i class="fas fa-external-link-alt"></i>
+                           target="_blank" rel="noopener" class="cert-verify cert-verify--aws">
+                            Verify on Credly <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
                 </div>
@@ -172,17 +161,13 @@
         </section>
 
         <!-- ── Azure Certifications ───────────────────────────── -->
-        <section id="azure" class="cert-section cert-section--alt">
+        <section id="azure" class="cert-section cert-section--azure">
             <div class="container">
                 <!-- Vendor Header -->
-                <div class="vendor-header reveal">
-                    <div class="vendor-logo-wrap azure-logo">
-                        <img src="images/Microsoft_Azure.svg" alt="Microsoft Azure" class="vendor-logo">
-                    </div>
-                    <div class="vendor-title">
-                        <h2>Azure Certifications</h2>
-                        <p class="vendor-subtitle">Microsoft Azure · Fundamentals Track</p>
-                    </div>
+                <div class="vendor-header vendor-header--azure reveal">
+                    <img src="images/Microsoft_Azure.svg" alt="Microsoft Azure" class="vendor-logo vendor-logo--azure">
+                    <h2 class="vendor-title">Azure Certifications</h2>
+                    <p class="vendor-subtitle">Microsoft Azure · 3 Active Credentials</p>
                 </div>
 
                 <!-- Cert Grid -->
@@ -190,18 +175,19 @@
                     <!-- DP-900 -->
                     <div class="cert-card cert-card--azure reveal">
                         <div class="cert-badge-wrap">
-                            <img src="images/dp-900-badge.png" alt="Azure Data Fundamentals badge">
+                            <img src="images/dp-900-badge.png" alt="Azure Data Fundamentals DP-900">
                         </div>
                         <div class="cert-body">
+                            <span class="cert-code cert-code--azure">DP-900</span>
                             <h3>Azure Data Fundamentals</h3>
-                            <span class="cert-level level-fundamentals">DP-900</span>
+                            <span class="cert-tier cert-tier--azure">Fundamentals</span>
                             <div class="cert-meta">
-                                <div class="cert-meta-item">
+                                <div class="cert-meta-row">
                                     <i class="far fa-calendar-alt"></i>
                                     <span class="cert-meta-label">Issued</span>
                                     <span class="cert-meta-value">Oct 2022</span>
                                 </div>
-                                <span class="cert-validity active">
+                                <span class="cert-validity cert-validity--azure">
                                     <span class="validity-dot"></span>
                                     Active · No expiry
                                 </span>
@@ -209,26 +195,26 @@
                         </div>
                         <a href="https://www.credly.com/badges/7fa54159-8c7a-495d-ad22-4235053e1853"
                            target="_blank" rel="noopener" class="cert-verify cert-verify--azure">
-                            Verify on Credly
-                            <i class="fas fa-external-link-alt"></i>
+                            Verify on Credly <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
 
                     <!-- AI-900 -->
                     <div class="cert-card cert-card--azure reveal reveal-delay-1">
                         <div class="cert-badge-wrap">
-                            <img src="images/ai-900-badge.png" alt="Azure AI Fundamentals badge">
+                            <img src="images/ai-900-badge.png" alt="Azure AI Fundamentals AI-900">
                         </div>
                         <div class="cert-body">
+                            <span class="cert-code cert-code--azure">AI-900</span>
                             <h3>Azure AI Fundamentals</h3>
-                            <span class="cert-level level-fundamentals">AI-900</span>
+                            <span class="cert-tier cert-tier--azure">Fundamentals</span>
                             <div class="cert-meta">
-                                <div class="cert-meta-item">
+                                <div class="cert-meta-row">
                                     <i class="far fa-calendar-alt"></i>
                                     <span class="cert-meta-label">Issued</span>
                                     <span class="cert-meta-value">Nov 2021</span>
                                 </div>
-                                <span class="cert-validity active">
+                                <span class="cert-validity cert-validity--azure">
                                     <span class="validity-dot"></span>
                                     Active · No expiry
                                 </span>
@@ -236,26 +222,26 @@
                         </div>
                         <a href="https://www.credly.com/badges/d92cb85d-c553-405b-84aa-5a5e680f4111"
                            target="_blank" rel="noopener" class="cert-verify cert-verify--azure">
-                            Verify on Credly
-                            <i class="fas fa-external-link-alt"></i>
+                            Verify on Credly <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
 
                     <!-- AZ-900 -->
                     <div class="cert-card cert-card--azure reveal reveal-delay-2">
                         <div class="cert-badge-wrap">
-                            <img src="images/az-900-badge.png" alt="Azure Fundamentals badge">
+                            <img src="images/az-900-badge.png" alt="Azure Fundamentals AZ-900">
                         </div>
                         <div class="cert-body">
+                            <span class="cert-code cert-code--azure">AZ-900</span>
                             <h3>Azure Fundamentals</h3>
-                            <span class="cert-level level-fundamentals">AZ-900</span>
+                            <span class="cert-tier cert-tier--azure">Fundamentals</span>
                             <div class="cert-meta">
-                                <div class="cert-meta-item">
+                                <div class="cert-meta-row">
                                     <i class="far fa-calendar-alt"></i>
                                     <span class="cert-meta-label">Issued</span>
                                     <span class="cert-meta-value">Sep 2021</span>
                                 </div>
-                                <span class="cert-validity active">
+                                <span class="cert-validity cert-validity--azure">
                                     <span class="validity-dot"></span>
                                     Active · No expiry
                                 </span>
@@ -263,8 +249,7 @@
                         </div>
                         <a href="https://www.credly.com/badges/e01b51ac-740d-409b-b372-b5088c907d11"
                            target="_blank" rel="noopener" class="cert-verify cert-verify--azure">
-                            Verify on Credly
-                            <i class="fas fa-external-link-alt"></i>
+                            Verify on Credly <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
                 </div>
@@ -287,7 +272,6 @@
                             </span>
                         </a>
                     </div>
-
                     <div class="footer-links">
                         <div class="links-column">
                             <h4>Navigate</h4>
@@ -309,7 +293,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="footer-bottom">
                     <div class="footer-info">
                         <span class="highlight">Jaume Vidal</span>
@@ -354,10 +337,9 @@
                 }
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-
         revealEls.forEach(el => revealObserver.observe(el));
 
-        // ── Mobile Menu (Drawer) ─────────────────────────────────
+        // ── Mobile Menu ──────────────────────────────────────────
         const menuToggle = document.getElementById('menu-toggle');
         const navLinks   = document.getElementById('nav-links');
         const navOverlay = document.getElementById('nav-overlay');
@@ -379,9 +361,7 @@
         });
 
         navOverlay?.addEventListener('click', closeMobileMenu);
-        navLinks?.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
-        });
+        navLinks?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
     </script>
 </body>
 </html>

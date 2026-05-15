@@ -1,12 +1,34 @@
 /* ============================================================
-   CERTIFICATIONS — Hero + Provider cards + Cert cards
-   Mismo design system que el resto del portfolio (tricolor)
+   CERTIFICATIONS — Diseño premium con color coding por proveedor
+   AWS: naranja · Azure: azul Microsoft
    ============================================================ */
 
-/* ── Hero ─────────────────────────────────────────────────── */
+/* ── Variables de color por proveedor ─────────────────────── */
+:root {
+    --aws-color:       #FF9900;
+    --aws-glow:        rgba(255, 153, 0, 0.4);
+    --aws-subtle:      rgba(255, 153, 0, 0.08);
+    --aws-border:      rgba(255, 153, 0, 0.25);
+    --aws-found:       #E8872B;        /* Tono algo más cálido para Foundational */
+    --aws-found-bg:    rgba(232, 135, 43, 0.08);
+    --aws-found-border:rgba(232, 135, 43, 0.25);
+
+    --azure-color:     #0078D4;
+    --azure-light:     #4DA3E8;        /* Versión más brillante para dark bg */
+    --azure-glow:      rgba(0, 120, 212, 0.4);
+    --azure-subtle:    rgba(0, 120, 212, 0.08);
+    --azure-border:    rgba(0, 120, 212, 0.25);
+    --azure-active:    #4ade80;        /* Verde para "No expiry" */
+    --azure-active-bg: rgba(74, 222, 128, 0.08);
+    --azure-active-border: rgba(74, 222, 128, 0.25);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
 .cert-hero {
     position: relative;
-    min-height: 65vh;
+    min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,14 +43,14 @@
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse at 15% 20%, rgba(255, 23, 68, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 85% 80%, rgba(0, 212, 255, 0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(123, 47, 255, 0.05) 0%, transparent 60%);
+        radial-gradient(ellipse at 15% 20%, rgba(255, 23, 68, 0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 75%, rgba(0, 212, 255, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(123, 47, 255, 0.04) 0%, transparent 60%);
     z-index: 0;
     pointer-events: none;
 }
 
-/* Grid sutil igual que el hero principal */
+/* Grid sutil de fondo */
 .cert-hero::before {
     content: '';
     position: absolute;
@@ -47,7 +69,7 @@
     position: relative;
     z-index: 2;
     text-align: center;
-    max-width: 900px;
+    max-width: 860px;
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
@@ -56,13 +78,13 @@
     gap: 1.5rem;
 }
 
-/* ── Hero Label (estilo idéntico al greeting del hero) ────── */
+/* Label — idéntico al greeting del hero principal */
 .cert-hero-label {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--accent-cyan);
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -73,7 +95,7 @@
 .cert-hero-label::after {
     content: '';
     display: inline-block;
-    width: 30px;
+    width: 28px;
     height: 1px;
     background: var(--accent-cyan);
     vertical-align: middle;
@@ -84,12 +106,9 @@
 .cert-hero-label::before { margin-right: 8px; }
 .cert-hero-label::after  { margin-left:  8px; }
 
-.cert-hero-label i {
-    font-size: 0.9rem;
-    color: var(--accent-cyan);
-}
+.cert-hero-label i { font-size: 0.9rem; }
 
-/* ── Hero Title ───────────────────────────────────────────── */
+/* Título */
 .cert-hero-title {
     font-size: clamp(2.5rem, 7vw, 4.5rem);
     font-weight: 700;
@@ -100,36 +119,35 @@
     background-clip: text;
     line-height: 1.1;
     margin: 0;
-    text-align: center;
     animation: nameGlow 3s ease-in-out infinite;
 }
 
-/* ── Hero Subtitle ────────────────────────────────────────── */
+/* Subtítulo */
 .cert-hero-subtitle {
     font-family: var(--font-mono);
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-size: clamp(0.85rem, 2vw, 1.05rem);
     color: var(--text-dim);
-    max-width: 550px;
+    max-width: 520px;
     line-height: 1.7;
-    margin: 0;
     letter-spacing: 0.04em;
+    margin: 0;
 }
 
-/* ── Provider Grid (tarjetas de navegación) ───────────────── */
+/* ── Provider Quick-Nav ───────────────────────────────────── */
 .provider-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 1rem;
+    gap: 1.25rem;
+    margin-top: 0.5rem;
     width: 100%;
-    max-width: 680px;
+    max-width: 620px;
 }
 
 .provider-card {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
-    padding: 1.5rem 1.75rem;
+    gap: 1.1rem;
+    padding: 1.25rem 1.5rem;
     border-radius: var(--border-radius-card);
     border: 1px solid var(--glass-border);
     background: var(--glass-bg);
@@ -141,29 +159,26 @@
     overflow: hidden;
 }
 
-/* Barra de acento izquierda por proveedor */
-.provider-card.aws   { border-left: 3px solid rgba(255, 153, 0, 0.5); }
-.provider-card.azure { border-left: 3px solid rgba(0, 120, 212, 0.5); }
-
-.provider-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+/* Línea superior coloreada */
+.provider-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
 }
 
-.provider-card.aws:hover {
-    border-color: rgba(255, 153, 0, 0.4);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 153, 0, 0.08);
-}
+.provider-aws::before  { background: linear-gradient(90deg, var(--aws-color), transparent); }
+.provider-azure::before { background: linear-gradient(90deg, var(--azure-light), transparent); }
 
-.provider-card.azure:hover {
-    border-color: rgba(0, 120, 212, 0.4);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 120, 212, 0.08);
-}
+.provider-card:hover { transform: translateY(-4px); }
+
+.provider-aws:hover   { border-color: var(--aws-border);   box-shadow: 0 16px 40px rgba(0,0,0,.3), 0 0 20px rgba(255,153,0,.07); }
+.provider-azure:hover { border-color: var(--azure-border); box-shadow: 0 16px 40px rgba(0,0,0,.3), 0 0 20px rgba(0,120,212,.07); }
 
 /* Icono del proveedor */
 .provider-icon {
-    width: 52px;
-    height: 52px;
+    width: 46px;
+    height: 46px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -172,40 +187,24 @@
     transition: transform 0.3s ease;
 }
 
-.provider-card.aws .provider-icon {
-    background: rgba(255, 153, 0, 0.1);
-    border: 1px solid rgba(255, 153, 0, 0.2);
-}
+.provider-aws  .provider-icon { background: var(--aws-subtle);   border: 1px solid var(--aws-border);   }
+.provider-azure .provider-icon { background: var(--azure-subtle); border: 1px solid var(--azure-border); }
 
-.provider-card.aws .provider-icon i {
-    font-size: 1.6rem;
-    color: #FF9900;
-}
+.provider-aws .provider-icon i    { font-size: 1.5rem; color: var(--aws-color); }
+.provider-azure .provider-icon img { width: 24px; height: 24px; object-fit: contain; }
 
-.provider-card.azure .provider-icon {
-    background: rgba(0, 120, 212, 0.1);
-    border: 1px solid rgba(0, 120, 212, 0.2);
-}
+.provider-card:hover .provider-icon { transform: scale(1.1); }
 
-.provider-card.azure .provider-icon img {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
-}
-
-.provider-card:hover .provider-icon { transform: scale(1.08); }
-
-/* Info del proveedor */
 .provider-info {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.15rem;
+    gap: 0.1rem;
 }
 
 .provider-count {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     line-height: 1;
     color: var(--text-primary);
@@ -214,90 +213,145 @@
 
 .provider-name {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--text-dim);
+    font-size: 0.75rem;
+    color: var(--text-muted);
     letter-spacing: 1px;
 }
 
 .provider-arrow {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
     transition: transform 0.3s ease;
 }
 
 .provider-card:hover .provider-arrow { transform: translateY(3px); }
 
-/* ── Cert Sections ────────────────────────────────────────── */
+/* ============================================================
+   CERT SECTIONS — diferenciadas por atmósfera de color
+   ============================================================ */
 .cert-section {
-    padding: 6rem 0;
-    background: transparent;
+    padding: 7rem 0;
+    position: relative;
+    overflow: hidden;
 }
 
-.cert-section--alt {
-    background: rgba(13, 13, 24, 0.4);
+/* AWS: fondo con tinte naranja muy sutil */
+.cert-section--aws {
+    background: var(--bg-void);
 }
 
-/* ── Vendor Header ────────────────────────────────────────── */
+.cert-section--aws::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 0% 50%, rgba(255, 153, 0, 0.06) 0%, transparent 55%),
+        radial-gradient(ellipse at 100% 50%, rgba(255, 153, 0, 0.04) 0%, transparent 45%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Azure: fondo con tinte azul muy sutil */
+.cert-section--azure {
+    background: var(--bg-deep);
+}
+
+.cert-section--azure::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 0% 50%, rgba(0, 120, 212, 0.07) 0%, transparent 55%),
+        radial-gradient(ellipse at 100% 50%, rgba(0, 120, 212, 0.04) 0%, transparent 45%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cert-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Vendor Header — centrado, logo libre ─────────────────── */
 .vendor-header {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border-subtle);
+    text-align: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    padding-bottom: 3rem;
+    position: relative;
 }
 
-.vendor-logo-wrap {
-    width: 70px;
-    height: 70px;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    padding: 12px;
-    transition: var(--transition);
+/* Separador inferior con color de proveedor */
+.vendor-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
 }
 
-.aws-logo {
-    background: rgba(255, 153, 0, 0.08);
-    border: 1px solid rgba(255, 153, 0, 0.2);
+.vendor-header--aws::after {
+    background: linear-gradient(90deg, transparent, var(--aws-color), transparent);
+    box-shadow: 0 0 12px rgba(255, 153, 0, 0.4);
 }
 
-.azure-logo {
-    background: rgba(0, 120, 212, 0.08);
-    border: 1px solid rgba(0, 120, 212, 0.2);
+.vendor-header--azure::after {
+    background: linear-gradient(90deg, transparent, var(--azure-light), transparent);
+    box-shadow: 0 0 12px rgba(0, 120, 212, 0.4);
 }
 
+/* Logo libre — sin caja, con aura de color */
 .vendor-logo {
-    width: 100%;
-    height: 100%;
+    height: 80px;
+    width: auto;
     object-fit: contain;
+    transition: var(--transition-smooth);
 }
 
-/* Filtro naranja para el logo AWS (blanco/negro) */
-.aws-logo .vendor-logo {
-    filter: invert(63%) sepia(96%) saturate(1000%) hue-rotate(5deg) brightness(105%);
+.vendor-logo--aws {
+    /* Filtro para dar tono naranja AWS al logo blanco/gris */
+    filter: invert(63%) sepia(96%) saturate(1000%) hue-rotate(5deg) brightness(105%)
+            drop-shadow(0 0 20px rgba(255, 153, 0, 0.5));
 }
 
-.vendor-title h2 {
-    font-size: 2rem;
+.vendor-logo--azure {
+    filter: drop-shadow(0 0 20px rgba(0, 120, 212, 0.5));
+}
+
+.vendor-header:hover .vendor-logo { transform: scale(1.04) translateY(-3px); }
+
+.vendor-header--aws:hover .vendor-logo--aws {
+    filter: invert(63%) sepia(96%) saturate(1200%) hue-rotate(5deg) brightness(115%)
+            drop-shadow(0 0 30px rgba(255, 153, 0, 0.7));
+}
+
+.vendor-header--azure:hover .vendor-logo--azure {
+    filter: drop-shadow(0 0 30px rgba(0, 120, 212, 0.7));
+}
+
+.vendor-title {
+    font-size: 2.2rem;
     font-weight: 600;
     font-family: var(--font-display);
     color: var(--text-primary);
-    margin: 0 0 0.25rem;
-    text-align: left;
+    margin: 0;
 }
 
-/* Override del ::after de h2 del base.css — no queremos línea aquí */
-.vendor-title h2::after { display: none; }
+/* Sobreescribir ::after de h2 del base — no queremos línea aquí */
+.vendor-title.vendor-title::after { display: none; }
 
 .vendor-subtitle {
     font-family: var(--font-mono);
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     color: var(--text-muted);
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     margin: 0;
+    text-transform: uppercase;
 }
 
 /* ── Cert Grid ────────────────────────────────────────────── */
@@ -305,6 +359,13 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+    justify-items: center;
+}
+
+/* Centrar la grid de 2 tarjetas AWS */
+.cert-section--aws .cert-grid {
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 /* ── Cert Card ────────────────────────────────────────────── */
@@ -312,20 +373,21 @@
     background: var(--glass-bg);
     border-radius: var(--border-radius-card);
     border: 1px solid var(--glass-border);
-    backdrop-filter: blur(12px) saturate(160%);
-    -webkit-backdrop-filter: blur(12px) saturate(160%);
-    padding: 2rem;
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    padding: 2rem 1.75rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1rem;
     text-align: center;
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
-/* Línea superior de acento (AWS = naranja, Azure = azul) */
+/* Línea superior de 2px coloreada por proveedor */
 .cert-card::before {
     content: '';
     position: absolute;
@@ -334,24 +396,22 @@
     border-radius: var(--border-radius-card) var(--border-radius-card) 0 0;
 }
 
-/* Por defecto AWS */
-.cert-card::before {
-    background: linear-gradient(90deg, rgba(255, 153, 0, 0.6), transparent);
+.cert-card--aws::before {
+    background: linear-gradient(90deg, var(--aws-color), rgba(255, 153, 0, 0.2), transparent);
+    box-shadow: 0 0 12px rgba(255, 153, 0, 0.4);
 }
 
 .cert-card--azure::before {
-    background: linear-gradient(90deg, rgba(0, 120, 212, 0.6), transparent);
+    background: linear-gradient(90deg, var(--azure-light), rgba(0, 120, 212, 0.2), transparent);
+    box-shadow: 0 0 12px rgba(0, 120, 212, 0.4);
 }
 
-.cert-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-}
+.cert-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.4); }
 
-.cert-card:hover:not(.cert-card--azure) { border-color: rgba(255, 153, 0, 0.25); }
-.cert-card--azure:hover                 { border-color: rgba(0, 120, 212, 0.25); }
+.cert-card--aws:hover   { border-color: var(--aws-border);   }
+.cert-card--azure:hover { border-color: var(--azure-border); }
 
-/* ── Badge de la certificación ────────────────────────────── */
+/* ── Badge de la cert ─────────────────────────────────────── */
 .cert-badge-wrap {
     width: 110px;
     height: 110px;
@@ -366,30 +426,50 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 4px 14px rgba(0,0,0,.35));
     transition: filter 0.35s ease;
 }
 
-.cert-card:hover .cert-badge-wrap {
-    transform: scale(1.08);
-}
-
-.cert-card:hover .cert-badge-wrap img {
-    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
-}
+.cert-card:hover .cert-badge-wrap { transform: scale(1.08); }
+.cert-card:hover .cert-badge-wrap img { filter: drop-shadow(0 8px 22px rgba(0,0,0,.45)); }
 
 /* ── Cert Body ────────────────────────────────────────────── */
 .cert-body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
     width: 100%;
     flex: 1;
 }
 
+/* Exam code — identificador técnico arriba del nombre */
+.cert-code {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 0.2rem 0.7rem;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.cert-code--aws {
+    background: var(--aws-subtle);
+    border: 1px solid var(--aws-border);
+    color: var(--aws-color);
+}
+
+.cert-code--azure {
+    background: var(--azure-subtle);
+    border: 1px solid var(--azure-border);
+    color: var(--azure-light);
+}
+
+/* Nombre de la cert */
 .cert-body h3 {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 600;
     font-family: var(--font-display);
     color: var(--text-primary);
@@ -397,37 +477,39 @@
     line-height: 1.3;
 }
 
-/* ── Cert Level Badge ─────────────────────────────────────── */
-.cert-level {
+/* Tier badge — categoría de nivel */
+.cert-tier {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 400;
+    font-size: 0.7rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 0.3rem 0.9rem;
+    padding: 0.25rem 0.8rem;
     border-radius: 20px;
     display: inline-block;
 }
 
-.level-associate {
-    background: rgba(255, 153, 0, 0.1);
-    border: 1px solid rgba(255, 153, 0, 0.3);
-    color: #FF9900;
+/* AWS Associate */
+.cert-tier--aws {
+    background: var(--aws-subtle);
+    border: 1px solid var(--aws-border);
+    color: var(--aws-color);
 }
 
-.level-foundational {
-    background: rgba(255, 23, 68, 0.08);
-    border: 1px solid var(--primary-border);
-    color: var(--primary);
+/* AWS Foundational (tono ligeramente más cálido para diferenciarlo) */
+.cert-tier--aws-found {
+    background: var(--aws-found-bg);
+    border: 1px solid var(--aws-found-border);
+    color: var(--aws-found);
 }
 
-.level-fundamentals {
-    background: rgba(0, 120, 212, 0.1);
-    border: 1px solid rgba(0, 120, 212, 0.3);
-    color: #4DA3E8;
+/* Azure Fundamentals */
+.cert-tier--azure {
+    background: var(--azure-subtle);
+    border: 1px solid var(--azure-border);
+    color: var(--azure-light);
 }
 
-/* ── Cert Meta (fecha + validez) ──────────────────────────── */
+/* ── Cert Meta ────────────────────────────────────────────── */
 .cert-meta {
     display: flex;
     flex-direction: column;
@@ -439,45 +521,43 @@
     margin-top: auto;
 }
 
-.cert-meta-item {
+.cert-meta-row {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--text-dim);
 }
 
-.cert-meta-item i {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
+.cert-meta-row i        { font-size: 0.8rem; color: var(--text-muted); }
+.cert-meta-label        { color: var(--text-muted); }
+.cert-meta-value        { color: var(--text-primary); font-weight: 500; }
 
-.cert-meta-label { color: var(--text-muted); }
-.cert-meta-value { color: var(--text-primary); font-weight: 500; }
-
-/* Validity badge */
+/* Validity badges — color del proveedor */
 .cert-validity {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.45rem;
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     letter-spacing: 1px;
-    padding: 0.25rem 0.75rem;
+    padding: 0.22rem 0.7rem;
     border-radius: 20px;
 }
 
-.cert-validity.valid {
-    background: rgba(0, 212, 255, 0.08);
-    border: 1px solid var(--cyan-border);
-    color: var(--accent-cyan);
+/* AWS: fecha de expiración → naranja */
+.cert-validity--aws {
+    background: var(--aws-subtle);
+    border: 1px solid var(--aws-border);
+    color: var(--aws-color);
 }
 
-.cert-validity.active {
-    background: rgba(74, 222, 128, 0.08);
-    border: 1px solid rgba(74, 222, 128, 0.25);
-    color: #4ade80;
+/* Azure: sin expiración → verde */
+.cert-validity--azure {
+    background: var(--azure-active-bg);
+    border: 1px solid var(--azure-active-border);
+    color: var(--azure-active);
 }
 
 .validity-dot {
@@ -486,10 +566,11 @@
     border-radius: 50%;
     display: inline-block;
     flex-shrink: 0;
+    animation: pulseDot 2s ease infinite;
 }
 
-.cert-validity.valid  .validity-dot { background: var(--accent-cyan); box-shadow: 0 0 6px var(--accent-cyan); animation: pulseDot 2s ease infinite; }
-.cert-validity.active .validity-dot { background: #4ade80; box-shadow: 0 0 6px #4ade80; animation: pulseDot 2s ease infinite; }
+.cert-validity--aws   .validity-dot { background: var(--aws-color);   box-shadow: 0 0 6px var(--aws-color); }
+.cert-validity--azure .validity-dot { background: var(--azure-active); box-shadow: 0 0 6px var(--azure-active); }
 
 /* ── Verify Button ────────────────────────────────────────── */
 .cert-verify {
@@ -497,55 +578,59 @@
     align-items: center;
     gap: 0.5rem;
     font-family: var(--font-mono);
-    font-size: 0.8rem;
-    letter-spacing: 1px;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 0.55rem 1.25rem;
+    padding: 0.55rem 1.2rem;
     border-radius: var(--border-radius-sm);
     transition: var(--transition-smooth);
-    /* AWS por defecto */
-    color: #FF9900;
-    background: rgba(255, 153, 0, 0.08);
-    border: 1px solid rgba(255, 153, 0, 0.3);
-}
-
-.cert-verify:hover {
-    background: rgba(255, 153, 0, 0.15);
-    border-color: rgba(255, 153, 0, 0.6);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 153, 0, 0.15);
 }
 
 .cert-verify i {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     transition: transform 0.25s ease;
 }
 
 .cert-verify:hover i { transform: translate(2px, -2px); }
 
-/* Azure Verify */
+/* AWS */
+.cert-verify--aws {
+    color: var(--aws-color);
+    background: var(--aws-subtle);
+    border: 1px solid var(--aws-border);
+}
+
+.cert-verify--aws:hover {
+    background: rgba(255, 153, 0, 0.15);
+    border-color: rgba(255, 153, 0, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 153, 0, 0.15);
+}
+
+/* Azure */
 .cert-verify--azure {
-    color: #4DA3E8;
-    background: rgba(0, 120, 212, 0.08);
-    border: 1px solid rgba(0, 120, 212, 0.3);
+    color: var(--azure-light);
+    background: var(--azure-subtle);
+    border: 1px solid var(--azure-border);
 }
 
 .cert-verify--azure:hover {
     background: rgba(0, 120, 212, 0.15);
-    border-color: rgba(0, 120, 212, 0.6);
+    border-color: rgba(0, 120, 212, 0.5);
+    transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 120, 212, 0.15);
 }
 
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 768px) {
-    .cert-hero { min-height: 55vh; padding: calc(var(--nav-height) + 2rem) 0 3rem; }
+    .cert-hero { min-height: 50vh; padding: calc(var(--nav-height) + 2rem) 0 3rem; }
 
-    .provider-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .provider-grid { grid-template-columns: 1fr; max-width: 380px; }
 
-    .vendor-header { flex-direction: column; text-align: center; gap: 1rem; }
+    .cert-section { padding: 4rem 0; }
 
-    .vendor-title h2 { text-align: center; font-size: 1.6rem; }
+    .cert-section--aws .cert-grid { max-width: 100%; }
 
     .cert-grid { grid-template-columns: 1fr; }
 }
@@ -554,7 +639,9 @@
     .cert-hero-label::before,
     .cert-hero-label::after { width: 15px; }
 
-    .cert-card { padding: 1.5rem; }
+    .vendor-logo { height: 60px; }
+
+    .cert-card { padding: 1.5rem 1.25rem; }
 
     .cert-badge-wrap { width: 90px; height: 90px; }
 }
