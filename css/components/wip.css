@@ -1,0 +1,181 @@
+/* ============================================================
+   WORK IN PROGRESS PAGE
+   Cyberpunk Tech-Zen styling
+   ============================================================ */
+
+.wip-page {
+    background: var(--bg-void);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    padding: 2rem;
+}
+
+/* Background atmosphere */
+.wip-page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 50%, rgba(255, 23, 68, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(123, 47, 255, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Grid pattern */
+.wip-page::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse 70% 70% at center, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at center, black 40%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.wip-container {
+    position: relative;
+    z-index: 10;
+    max-width: 500px;
+    width: 100%;
+}
+
+.wip-content {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-card);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    padding: 3.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top accent line */
+.wip-content::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-red), var(--accent-violet), transparent);
+    box-shadow: 0 0 15px var(--accent-red);
+}
+
+.wip-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 23, 68, 0.08);
+    border: 1px solid rgba(255, 23, 68, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    position: relative;
+    box-shadow: 0 0 20px rgba(255, 23, 68, 0.15);
+}
+
+.wip-icon i {
+    font-size: 2rem;
+    color: var(--accent-red);
+    animation: hammerHit 2s ease-in-out infinite;
+}
+
+@keyframes hammerHit {
+    0%, 100% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+}
+
+.wip-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+    margin-bottom: 1rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid var(--cyan-border);
+    border-radius: 20px;
+}
+
+.wip-label i {
+    font-size: 0.7rem;
+}
+
+.wip-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 1rem;
+    line-height: 1.2;
+    background: var(--gradient-name);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.wip-desc {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin: 0 0 2.5rem;
+    max-width: 90%;
+}
+
+.wip-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--primary);
+    background: var(--primary-subtle);
+    border: 1px solid var(--primary-border);
+    padding: 0.7rem 1.8rem;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition-smooth);
+}
+
+.wip-btn:hover {
+    background: rgba(255, 23, 68, 0.15);
+    border-color: rgba(255, 23, 68, 0.5);
+    box-shadow: 0 5px 15px rgba(255, 23, 68, 0.2);
+    transform: translateY(-2px);
+}
+
+.wip-btn i {
+    transition: transform 0.3s ease;
+}
+
+.wip-btn:hover i {
+    transform: translateX(-4px);
+}
+
+@media (max-width: 480px) {
+    .wip-content { padding: 2.5rem 1.5rem; }
+    .wip-title { font-size: 2rem; }
+    .wip-desc { font-size: 0.95rem; }
+}
