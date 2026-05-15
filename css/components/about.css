@@ -1,260 +1,188 @@
-/* About Section */
+/* ============================================================
+   ABOUT — Rotating border foto, bio, certifications preview
+   ============================================================ */
+
 .about {
-    padding: 8rem 0;
-    background: #080810;
+    padding: 6rem 0;
+    background: transparent;
     position: relative;
-    color: rgba(255, 255, 255, 0.9);
     overflow: hidden;
-}
-
-.about::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(120deg, rgba(80, 10, 25, 0.274) 0%, rgba(73, 17, 110, 0.274) 100%);
-    z-index: 1;
-    opacity: 1;
-    animation: gradientShift 10s ease infinite alternate;
-    background-size: 200% 200%;
-    pointer-events: none;
-}
-
-.about .section-content {
-    position: relative;
-    z-index: 2;
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.4fr;
     gap: 4rem;
     margin-bottom: 4rem;
-    background: rgba(20, 20, 30, 0.7);
-    backdrop-filter: blur(12px) saturate(200%);
-    -webkit-backdrop-filter: blur(12px) saturate(200%);
-    border-radius: 12px;
-    padding: 3rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    align-items: center;
 }
 
-.about-grid:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.4);
-    border-color: rgba(255, 23, 68, 0.3);
-}
-
-/* Profile Section */
+/* ── Profile Section ──────────────────────────────────────── */
 .profile-section {
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .profile-content {
     position: relative;
     z-index: 2;
+    text-align: center;
+}
+
+/* Rotating gradient border en la foto */
+@property --border-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
 }
 
 .profile-image-container {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     margin: 0 auto 2rem;
     border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    border: 3px solid rgba(255, 255, 255, 0.05);
 }
 
-.profile-image-container:hover {
-    transform: scale(1.02);
-    box-shadow: 0 15px 40px rgba(255, 23, 68, 0.2);
-    border-color: rgba(255, 23, 68, 0.3);
+/* Anillo exterior animado */
+.profile-image-container::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: conic-gradient(
+        from var(--border-angle),
+        var(--primary) 0%,
+        var(--accent-violet) 33%,
+        var(--accent-cyan) 66%,
+        var(--primary) 100%
+    );
+    animation: rotateBorder 4s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotateBorder {
+    from { --border-angle: 0deg; }
+    to   { --border-angle: 360deg; }
+}
+
+/* Relleno para crear el grosor del anillo */
+.profile-image-container::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    z-index: 0;
 }
 
 .profile-image-container img {
-    width: 100%;
-    height: 100%;
+    position: relative;
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+    top: 4px;
+    left: 4px;
+    border-radius: 50%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    z-index: 1;
+    transition: transform 0.4s ease;
 }
 
 .profile-image-container:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
-.profile-backdrop {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        45deg,
-        rgba(var(--primary-color-rgb), 0.2),
-        rgba(var(--secondary-color-rgb), 0.2)
-    );
-}
-
-.profile-info {
-    margin-top: 1.5rem;
-    text-align: center;
-}
+.profile-info { margin-top: 1.5rem; }
 
 .profile-subtitle {
-    font-size: 1.3rem;
-    color: #e0e0f0; /* Matching bio-content paragraph color */
-    font-weight: 300; /* Lighter weight to match */
-    line-height: 1.8; /* Increased line height for better readability */
-    max-width: 650px;
-    margin: 0 auto 1.5rem;
-    font-family: 'Outfit', sans-serif;
-    letter-spacing: 0.3px; /* Slightly increased letter spacing */
-    opacity: 0.9; /* Slight transparency for depth */
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--accent-cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
 }
 
-.profile-subtitle span {
-    font-weight: 500;
-}
-
-.gradient-text {
-    background: linear-gradient(
-        45deg,
-        var(--primary-color),
-        var(--secondary-color)
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.profile-tagline {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-
-/* Bio Section */
+/* ── Bio Section ──────────────────────────────────────────── */
 .bio-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.bio-content {
-    margin-bottom: 2rem;
+.bio-content { margin-bottom: 2rem; }
+
+.bio-highlight {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    background: var(--gradient-name);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-/* Legibility Enhancements for bio paragraph */
 .bio-content p:not(.bio-highlight) {
-    color: #e0e0f0; /* Same soft white as experience section */
-    line-height: 1.8;
-    font-size: 1.05rem;
-    letter-spacing: 0.3px;
+    color: var(--text-dim);
+    line-height: 1.9;
+    font-size: 1.02rem;
     font-weight: 300;
 }
 
-.bio-highlight {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    line-height: 1.4;
+/* CTA Buttons */
+.cta-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2.5rem;
 }
 
-.cloud-expertise {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.expertise-card {
-    flex: 1;
-    padding: 2rem 1.5rem;
-    border-radius: 12px;
-    background: rgba(25, 25, 40, 0.7);
-    backdrop-filter: blur(12px) saturate(200%);
-    -webkit-backdrop-filter: blur(12px) saturate(200%);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    display: flex;
-    flex-direction: column;
+.cta-button {
+    display: inline-flex;
     align-items: center;
-    gap: 1rem;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+    gap: 0.6rem;
+    padding: 0.75rem 1.8rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: var(--primary-subtle);
+    border: 1px solid var(--primary-border);
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    transition: var(--transition-smooth);
 }
 
-.expertise-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 12px;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(255, 23, 68, 0.3), rgba(0, 138, 215, 0.15));
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    z-index: -1;
+.cta-button:hover {
+    background: rgba(255, 23, 68, 0.15);
+    border-color: var(--primary);
+    box-shadow: var(--neon-glow-red);
+    transform: translateY(-2px);
+    color: #fff;
 }
 
-.expertise-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    background: rgba(40, 40, 60, 0.7);
-    border-color: rgba(255, 23, 68, 0.3);
-}
+.cta-button:active { transform: translateY(0); }
 
-.expertise-card:hover::before {
-    opacity: 1;
-}
+.download-btn .cta-icon { transition: transform 0.3s ease; }
+.download-btn:hover .cta-icon { animation: downloadPulse 0.8s ease infinite; }
 
-.expertise-card i,
-.expertise-card img {
+/* ── Section Title override for About subsections ─────────── */
+#about .section-title {
     font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
+    margin: 3rem auto 2rem;
+    text-align: center;
+    display: block;
+    width: 100%;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.expertise-card img {
-    width: 2rem;
-    height: 2rem;
-    object-fit: contain;
-}
-
-.expertise-card span {
-    font-weight: 500;
-}
-
-.expertise-card.aws i {
-    color: #FF9900;
-}
-
-.expertise-card.azure i {
-    color: #008AD7;
-}
-
-/* Certifications Preview */
+/* ── Certifications Preview ───────────────────────────────── */
 .certifications-preview {
     margin-top: 4rem;
     text-align: center;
@@ -263,270 +191,61 @@
 .cert-cards {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    margin: 2rem auto 0;
-    max-width: 800px;
+    gap: 1.5rem;
+    margin: 2rem auto;
+    max-width: 700px;
+    flex-wrap: wrap;
 }
 
-.cert-preview-card {
-    background: rgba(25, 25, 40, 0.7);
-    border-radius: 12px;
-    padding: 2rem;
-    width: 250px;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px) saturate(200%);
-    -webkit-backdrop-filter: blur(12px) saturate(200%);
-    position: relative;
-    overflow: hidden;
+/* Override inline styles en cert cards */
+.cert-card {
+    flex: 0 0 280px;
+    max-width: 100%;
+    background: var(--glass-bg) !important;
+    border-radius: var(--border-radius-card) !important;
+    padding: 1.5rem !important;
+    border: 1px solid var(--glass-border) !important;
+    backdrop-filter: var(--glass-blur);
+    transition: var(--transition-smooth);
 }
 
-.cert-preview-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 12px;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(255, 23, 68, 0.3), rgba(0, 138, 215, 0.15));
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    z-index: -1;
+.cert-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-border) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
-.cert-preview-card:hover {
-    transform: translateY(-8px);
-    background: rgba(40, 40, 60, 0.8);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 23, 68, 0.3);
+/* AWS card hover */
+.cert-card:nth-child(1):hover {
+    border-color: rgba(255, 153, 0, 0.35) !important;
+    box-shadow: 0 12px 40px rgba(255, 153, 0, 0.1);
 }
 
-.cert-preview-card:hover::before {
-    opacity: 1;
+/* Azure card hover */
+.cert-card:nth-child(2):hover {
+    border-color: rgba(0, 120, 212, 0.35) !important;
+    box-shadow: 0 12px 40px rgba(0, 120, 212, 0.1);
 }
 
-.cert-preview-card img {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 1rem;
-}
-
-.cert-preview-card h4 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
-
-.cert-preview-card p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-.view-all-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--primary-color);
-    font-weight: 500;
-    text-decoration: none;
-    transition: gap 0.3s ease;
-    margin-top: 2rem;
-    padding: 0.5rem 1rem;
-}
-
-.view-all-link:hover {
-    gap: 1rem;
-}
-
-.view-all-link i {
-    font-size: 0.9rem;
-    transition: transform 0.3s ease;
-}
-
-.view-all-link:hover i {
-    transform: translateX(4px);
-}
-
-/* Estilos para la vista previa de certificaciones en la página principal */
-.certifications-preview .cert-card {
-    transition: all 0.3s ease;
-    transform: translateY(0);
-}
-
-/* Ajuste para el logo de AWS en la vista previa */
-.certifications-preview .cert-card[style*="rgba(255, 153, 0, 0.1)"] img[alt="AWS Logo"] {
-    filter: brightness(0) saturate(100%) invert(63%) sepia(91%) saturate(1238%) hue-rotate(1deg) brightness(101%) contrast(106%);
-}
-
-/* Efecto hover para AWS (naranja) */
-.certifications-preview .cert-card[style*="rgba(255, 153, 0, 0.1)"]:hover {
-    border-color: #FF9900 !important; /* Naranja AWS */
-    box-shadow: 0 4px 8px rgba(255, 153, 0, 0.15);
-}
-
-/* Efecto hover para Azure (azul) */
-.certifications-preview .cert-card[style*="rgba(0, 120, 212, 0.1)"]:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    border-color: #0078D4 !important; /* Azul Azure */
-}
-
-/* CTA Button Styles */
-.cta-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 1rem 2rem;
-    background: rgba(255, 23, 68, 0.05);
-    color: var(--primary-color);
-    border: 1px solid rgba(255, 23, 68, 0.2);
-    border-radius: 8px;
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: 1.1rem;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    transform: translateZ(0);
-}
-
-.cta-button:hover {
-    background: rgba(255, 23, 68, 0.1);
-    border-color: rgba(255, 23, 68, 0.3);
-    box-shadow: 0 2px 8px rgba(255, 23, 68, 0.1);
-    transform: translateY(-2px) translateZ(0);
-}
-
-.cta-icon {
-    transition: transform 0.2s ease;
-}
-
-.cta-button:hover .cta-icon {
-    transform: translateX(4px);
-}
-
-@media (max-width: 768px) {
-    .cta-button {
-        padding: 0.875rem 1.75rem;
-    }
-    
-    .cta-text {
-        font-size: 1rem;
-    }
-}
-
-/* Responsive Design */
+/* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 1024px) {
     .about-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
+        text-align: center;
     }
 
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 800px;
-    }
+    .cta-container { justify-content: center; }
 }
 
 @media (max-width: 768px) {
-    .section-title {
-        font-size: 2.3rem;
-    }
+    .profile-image-container { width: 220px; height: 220px; }
 
-    .profile-title {
-        font-size: 2rem;
-    }
+    .bio-highlight { font-size: 1.2rem; }
 
-    .profile-subtitle {
-        padding-left: 2rem;
-    }
-
-    .profile-subtitle::before {
-        width: 1.5rem;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-    }
-
-    .cert-cards {
-        flex-direction: column;
-        align-items: center;
-        max-width: 300px;
-    }
-
-    .profile-image-container {
-        width: 250px;
-        height: 250px;
-        border-radius: 50%;
-    }
-
-    .gradient-text {
-        font-size: 2rem;
-    }
+    .cert-cards { flex-direction: column; align-items: center; }
 }
 
 @media (max-width: 480px) {
-    .profile-image-container {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-    }
-
-    .cloud-expertise {
-        flex-direction: column;
-    }
-
-    .expertise-card {
-        padding: 1rem;
-    }
-}
-
-/* Estilos para el botón de descarga */
-.download-btn .cta-icon {
-    transition: transform 0.3s ease, color 0.3s ease;
-    margin-left: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.download-btn:hover .cta-icon {
-    animation: downloadPulse 1s infinite;
-    color: var(--primary-color);
-}
-
-@keyframes downloadPulse {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(3px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-/* Ajustes para el botón de descarga en hover */
-.download-btn:hover {
-    transform: translateY(-2px);
-}
-
-.download-btn:active {
-    transform: translateY(0);
+    .profile-image-container { width: 180px; height: 180px; }
 }

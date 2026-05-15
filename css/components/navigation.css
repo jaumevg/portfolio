@@ -1,57 +1,72 @@
-@import '../base/variables.css';
+/* ============================================================
+   NAVIGATION — Glass nav + Logo JV. + Mobile Drawer
+   ============================================================ */
 
-/* Navigation with theme-specific colors */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: var(--nav-height);
-    background: var(--nav-background);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(5, 5, 8, 0.85);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     z-index: var(--z-nav);
-    transition: transform 0.3s ease-in-out, backdrop-filter 0.3s ease;
-    background: rgba(var(--background-color-rgb), 0.8);
-}
-
-nav .container {
+    transition: transform 0.3s ease-in-out, background 0.3s ease;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: var(--container-padding);
+    justify-content: space-between;
+    padding: 0 2rem;
+    box-sizing: border-box;
 }
 
-.logo {
-    position: absolute;
-    left: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
+/* ── Logo JV. ─────────────────────────────────────────────── */
+.nav-logo {
     font-family: var(--font-mono);
     font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--text-color);
+    font-size: 1.4rem;
+    color: var(--text-primary);
     text-decoration: none;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 2;
+    text-shadow: var(--neon-glow-red);
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
 }
 
+.nav-logo:hover {
+    color: var(--text-primary);
+    text-shadow: var(--neon-glow-violet);
+}
+
+/* Punto neon después del logo */
+.nav-logo::after {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: var(--primary);
+    border-radius: 50%;
+    margin-left: 2px;
+    vertical-align: super;
+    box-shadow: 0 0 6px var(--primary), 0 0 12px var(--primary);
+    animation: pulseDot 2s ease infinite;
+}
+
+/* ── Nav Links ────────────────────────────────────────────── */
 .nav-links {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .nav-links ul {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -60,127 +75,179 @@ nav .container {
 .nav-links a {
     font-family: var(--font-mono);
     font-weight: 400;
-    font-size: 1rem;
-    color: var(--text-color);
+    font-size: 0.9rem;
+    color: var(--text-dim);
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 0.5rem 0;
+    letter-spacing: 2px;
+    padding: 0.4rem 0;
     position: relative;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
-.nav-links a[href$=".html"]:not(.logo),
-.nav-links a.scroll-top {
-    opacity: 0.85;
-}
-
-.nav-links a[href$=".html"]:not(.logo)::after,
-.nav-links a.scroll-top::after {
-    content: "→";
-    margin-left: 0.3rem;
-    font-size: 0.9em;
-    display: inline-block;
-    transition: transform 0.3s ease;
-    visibility: visible;
-    width: 1em;
-}
-
-.nav-links a[href$=".html"].active::after,
-.nav-links a.scroll-top.active::after {
-    visibility: hidden;
-}
-
-.nav-links a[href$=".html"]:not(.logo):hover::after,
-.nav-links a.scroll-top:hover::after {
-    transform: translateX(3px);
-}
-
-.nav-links a[href$=".html"]:not(.logo).active,
-.nav-links a.scroll-top.active {
-    opacity: 1;
-}
-
-.nav-links .cert-link {
-    color: var(--primary-color);
-    opacity: 0.9;
-}
-
-.nav-links .cert-link i {
-    font-size: 0.9rem;
-}
-
-.nav-links .cert-link:hover,
-.nav-links .cert-link.active {
-    opacity: 1;
-    transform: translateY(-1px);
-}
-
-nav a:hover {
-    color: var(--primary-color);
-}
-
-/* Active state for navigation links */
-.nav-links a.active {
-    color: var(--primary-color);
-}
-
-/* Mobile menu button */
-.menu-toggle {
+/* Línea inferior animada en hover */
+.nav-links a::before {
+    content: '';
     position: absolute;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gradient-tricolor);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
+.nav-links a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Active state */
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.nav-links a.active::before {
+    transform: scaleX(1);
+    background: var(--primary);
+    box-shadow: 0 0 8px var(--primary);
+}
+
+/* Certifications link — small accent */
+.nav-links a[href="certifications.html"],
+.nav-links .cert-link {
+    color: var(--text-dim);
+}
+
+/* Arrow indicator para links externos */
+.nav-links a[href$=".html"]:not(.nav-logo)::after {
+    content: "↗";
+    font-size: 0.75em;
+    opacity: 0.6;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-links a[href$=".html"]:not(.nav-logo):hover::after {
+    transform: translate(2px, -2px);
+    opacity: 1;
+}
+
+/* Ocultar arrow en active (ya tiene la línea) */
+.nav-links a[href$=".html"].active::after {
+    display: none;
+}
+
+/* ── Navbar hidden (scroll down) ──────────────────────────── */
+.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+/* ── Certifications page active state ─────────────────────── */
+body.certifications-page .nav-links a[href*="certifications"],
+body.certifications-page .nav-links a[href="#top"],
+body.certifications-page .nav-links a.scroll-top {
+    color: var(--primary) !important;
+}
+
+body.certifications-page .nav-links a[href*="certifications"]::after,
+body.certifications-page .nav-links a[href="#top"]::after {
+    display: none;
+}
+
+/* ── Mobile Menu Button ───────────────────────────────────── */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
     background: none;
     border: none;
-    padding: 0;
     cursor: pointer;
-    display: none;
+    padding: 0;
+    position: relative;
+    z-index: calc(var(--z-nav) + 10);
+    flex-shrink: 0;
 }
 
 .menu-toggle span {
     display: block;
-    width: 100%;
+    width: 22px;
     height: 2px;
-    background: var(--text-color);
-    position: absolute;
-    transition: all 0.3s ease;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
 }
 
-.menu-toggle span:first-child {
-    top: 0;
+/* Animated X when open */
+.menu-toggle.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+    background: var(--primary);
 }
 
-.menu-toggle span:nth-child(2) {
-    top: 50%;
-    transform: translateY(-50%);
+.menu-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
 }
 
-.menu-toggle span:last-child {
-    bottom: 0;
+.menu-toggle.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+    background: var(--primary);
 }
 
-/* Mobile Navigation */
+/* ── Mobile Navigation (Drawer lateral) ───────────────────── */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block;
+        display: flex;
     }
 
+    /* Overlay */
+    .nav-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 5, 8, 0.7);
+        z-index: calc(var(--z-nav) + 1);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        backdrop-filter: blur(4px);
+    }
+
+    .nav-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    /* Drawer */
     .nav-links {
         position: fixed;
         top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: var(--background-color);
-        padding: 5rem 2rem;
+        right: 0;
+        left: auto;
         transform: translateX(100%);
-        transition: transform 0.3s ease;
+        width: min(300px, 80vw);
+        height: 100vh;
+        background: rgba(10, 10, 20, 0.98);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border-left: 1px solid rgba(255, 23, 68, 0.15);
+        padding: calc(var(--nav-height) + 2rem) 2rem 2rem;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         overflow-y: auto;
+        z-index: calc(var(--z-nav) + 2);
+        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
     }
 
     .nav-links.active {
@@ -189,53 +256,34 @@ nav a:hover {
 
     .nav-links ul {
         flex-direction: column;
-        gap: 2rem;
-        text-align: center;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid var(--border-subtle);
     }
 
     .nav-links a {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        color: var(--text-dim);
+        padding: 1.1rem 0.5rem;
+        width: 100%;
+        letter-spacing: 2px;
+    }
+
+    .nav-links a:hover {
+        color: var(--text-primary);
+        padding-left: 1rem;
+    }
+
+    .nav-links a::before {
+        bottom: 0;
+        height: 1px;
     }
 
     body.menu-open {
         overflow: hidden;
     }
-}
-
-.navbar-hidden {
-    transform: translateY(-100%);
-    backdrop-filter: blur(0);
-}
-
-/* Asegurar que el enlace activo en certificaciones mantenga su estilo */
-body.certifications-page .nav-links a[href*="certifications"],
-body.certifications-page .nav-links a[href="#top"],
-body.certifications-page .nav-links a.scroll-top,
-body.certifications-page .nav-links a[href*="certifications"].active,
-body.certifications-page .nav-links a[href="#top"].active,
-body.certifications-page .nav-links a.scroll-top.active {
-    color: var(--primary-color) !important;
-    opacity: 1 !important;
-}
-
-/* Mantener la flecha pero hacerla transparente para conservar el espacio */
-body.certifications-page .nav-links a[href*="certifications"]::after,
-body.certifications-page .nav-links a[href="#top"]::after,
-body.certifications-page .nav-links a.scroll-top::after,
-body.certifications-page .nav-links a[href*="certifications"].active::after,
-body.certifications-page .nav-links a[href="#top"].active::after,
-body.certifications-page .nav-links a.scroll-top.active::after {
-    visibility: hidden; /* Ocultar pero mantener el espacio */
-    opacity: 0; /* Hacerla transparente */
-}
-
-/* Scroll Behavior */
-@keyframes hideNavbar {
-    from { transform: translateY(0); }
-    to { transform: translateY(-100%); }
-}
-
-@keyframes showNavbar {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(0); }
 }

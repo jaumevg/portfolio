@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaume Vidal - Personal Portfolio</title>
+    <title>Jaume Vidal — Cloud Data Engineer</title>
+    <meta name="description" content="Cloud Data Engineer specializing in AWS data pipelines, ETL systems, and analytics platforms. Based in Castelló, Spain.">
+    <meta property="og:title" content="Jaume Vidal — Cloud Data Engineer">
+    <meta property="og:description" content="Cloud Data Engineer specializing in AWS data pipelines, ETL systems, and analytics platforms.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#050508">
+
+    <!-- Design System -->
     <link rel="stylesheet" href="css/base/theme.css">
     <link rel="stylesheet" href="css/base/reset.css">
     <link rel="stylesheet" href="css/base/animations.css">
     <link rel="stylesheet" href="css/base/base.css">
-    <link rel="stylesheet" href="css/components/buttons.css">
+
+    <!-- Components -->
     <link rel="stylesheet" href="css/components/navigation.css">
     <link rel="stylesheet" href="css/components/hero.css">
     <link rel="stylesheet" href="css/components/about.css">
@@ -16,16 +24,21 @@
     <link rel="stylesheet" href="css/components/projects.css">
     <link rel="stylesheet" href="css/components/footer.css">
     <link rel="stylesheet" href="css/components/scrolling.css">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;700&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/components/buttons.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
     <div class="scroll-progress"></div>
+
+    <!-- ── Navigation ──────────────────────────────────────── -->
     <nav>
-        <div class="nav-links">
+        <a class="nav-logo" href="#home">JV</a>
+        <div class="nav-links" id="nav-links">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -33,56 +46,62 @@
                 <li><a href="certifications.html">Certifications</a></li>
             </ul>
         </div>
-        <button class="menu-toggle" aria-label="Toggle Menu">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
         </button>
     </nav>
-    
+    <div class="nav-overlay" id="nav-overlay"></div>
+
     <main>
+        <!-- ── Hero ──────────────────────────────────────────── -->
         <section id="home" class="hero">
             <div class="spotlight"></div>
             <canvas id="particles-canvas"></canvas>
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="greeting">Hi, I'm</span>
+                    <span class="greeting">Hello, I'm</span>
                     <span class="name">Jaume Vidal</span>
                 </h1>
-                <p class="hero-subtitle">
-                    Shaping the future of data in the cloud
+                <p class="hero-subtitle" id="hero-subtitle">
+                    <span id="typing-text"></span><span class="cursor"></span>
                 </p>
                 <div class="hero-cta">
-                    <a href="#about" class="cta-button">About me</a>
+                    <a href="#about" class="cta-button">
+                        <i class="fas fa-terminal"></i>
+                        <span>Explore</span>
+                    </a>
+                    <div class="scroll-indicator">
+                        <span>Scroll</span>
+                        <div class="scroll-indicator-arrow"></div>
+                    </div>
                 </div>
             </div>
         </section>
-        
+
+        <!-- ── About ─────────────────────────────────────────── -->
         <section id="about" class="about section">
             <div class="container">
-                <div class="about-grid">
-                    <!-- Profile Section -->
-                    <div class="profile-section" data-aos="fade-right">
+                <div class="about-grid reveal-left">
+                    <!-- Profile -->
+                    <div class="profile-section">
                         <div class="profile-content">
                             <div class="profile-image-container">
-                                <img src="images/profile.png" alt="Jaume Vidal's Profile Picture" loading="lazy">
-                                <div class="profile-backdrop"></div>
+                                <img src="images/profile.png" alt="Jaume Vidal" loading="lazy">
                             </div>
                             <div class="profile-info">
-                                <div class="profile-subtitle">
-                                    <span>Cloud Data Engineer</span>
-                                </div>
+                                <div class="profile-subtitle">Cloud Data Engineer</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Bio Section -->
-                    <div class="bio-section" data-aos="fade-left">
+                    <!-- Bio -->
+                    <div class="bio-section reveal-right">
                         <div class="bio-content">
                             <p class="bio-highlight">Turning data complexity into clear, actionable insights.</p>
-                            <p>I create cloud data systems that help teams understand and act on their information effectively. My work involves designing robust pipelines, ensuring data reliability, and building analytics solutions that support confident decision-making across organizations.</p>
-                            
-                            <div class="cta-container" style="margin: 3rem 0 0 0.5rem;">
+                            <p>I design and build cloud data systems that help teams understand and act on their information. My work spans robust pipeline architecture, data reliability engineering, and analytics solutions that support confident decision-making at scale.</p>
+                            <div class="cta-container">
                                 <a href="projects/work-in-progress.html" class="cta-button download-btn">
                                     <span>Download CV</span>
                                     <i class="fas fa-download cta-icon"></i>
@@ -93,67 +112,54 @@
                 </div>
 
                 <!-- Professional Journey -->
-                <div class="experience-timeline" data-aos="fade-up">
+                <div class="experience-timeline reveal">
                     <h2 class="section-title">Professional Journey</h2>
 
-                    
                     <!-- Current Position -->
-                    <div class="experience-card" data-aos="fade-up">
+                    <div class="experience-card current reveal">
                         <div class="experience-header">
                             <img src="images/ntt-data.png" alt="NTT DATA Logo" class="company-logo">
                             <div class="experience-title">
-                                <span class="duration">2024 - Present</span>
-                                <h4>Cloud Data Engineer</h4>
-                                <p class="company">NTT DATA (Zurich Insurance)</p>
+                                <span class="duration">2024 – Present</span>
+                                <h4>
+                                    Cloud Data Engineer
+                                    <span class="badge-current">Current</span>
+                                </h4>
+                                <p class="company">NTT DATA · Zurich Insurance</p>
                             </div>
                         </div>
                         <div class="experience-details">
-                            <p>Promoted to Data Engineer role at NTT DATA, working as a technology consultant for Zurich Insurance's data platform.</p>
+                            <p>Promoted to Data Engineer, working as technology consultant for Zurich Insurance's data platform.</p>
                             <ul>
                                 <li>Lead maintenance and development of the client's AWS Data Lake environment</li>
                                 <li>Manage code promotions and deployments ensuring data pipeline stability</li>
                                 <li>Design and implement new ETL processes for the insurance data platform</li>
-                                <li>Research and propose innovative solutions for platform evolution while optimizing existing pipelines</li>
+                                <li>Research and propose innovative solutions for platform evolution</li>
                             </ul>
                             <div class="experience-tech-stack">
                                 <div class="tech-icons">
-                                    <div class="tech-icon">
-                                        <i class="fab fa-aws"></i>
-                                        <span>AWS Cloud</span>
-                                    </div>
-                                    <div class="tech-icon">
-                                        <i class="fab fa-gitlab"></i>
-                                        <span>GitLab CI/CD</span>
-                                    </div>
-                                    <div class="tech-icon">
-                                        <img src="images/python-5.svg" alt="Python">
-                                        <span>Python</span>
-                                    </div>
-                                    <div class="tech-icon">
-                                        <img src="images/apache.svg" alt="Apache">
-                                        <span>NiFi</span>
-                                    </div>
-                                    <div class="tech-icon">
-                                        <img src="images/apache.svg" alt="Apache">
-                                        <span>HBase</span>
-                                    </div>
+                                    <div class="tech-icon"><i class="fab fa-aws"></i><span>AWS Cloud</span></div>
+                                    <div class="tech-icon"><i class="fab fa-gitlab"></i><span>GitLab CI/CD</span></div>
+                                    <div class="tech-icon"><img src="images/python-5.svg" alt="Python"><span>Python</span></div>
+                                    <div class="tech-icon"><img src="images/apache.svg" alt="Apache"><span>NiFi</span></div>
+                                    <div class="tech-icon"><img src="images/apache.svg" alt="Apache"><span>HBase</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Previous Position -->
-                    <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="experience-card reveal reveal-delay-1">
                         <div class="experience-header">
                             <img src="images/ntt-data.png" alt="NTT DATA Logo" class="company-logo">
                             <div class="experience-title">
-                                <span class="duration">2021 - 2024</span>
+                                <span class="duration">2021 – 2024</span>
                                 <h4>Junior Data Engineer</h4>
                                 <p class="company">NTT DATA</p>
                             </div>
                         </div>
                         <div class="experience-details">
-                            <p>Started my journey as Junior Data Engineer at NTT DATA, providing consulting services for Zurich Insurance's AWS data platform.</p>
+                            <p>Started my journey as Junior Data Engineer, providing consulting services for Zurich Insurance's AWS data platform.</p>
                             <ul>
                                 <li>Developed and maintained ETL pipelines for the company Data Lake using Python and Glue</li>
                                 <li>Applied data modeling concepts to structure and organize Data Lake architecture</li>
@@ -162,69 +168,55 @@
                             </ul>
                             <div class="experience-tech-stack">
                                 <div class="tech-icons">
-                                    <div class="tech-icon">
-                                        <img src="images/python-5.svg" alt="Python">
-                                        <span>Python</span>
-                                    </div>
-                                    <div class="tech-icon">
-                                        <i class="fab fa-aws"></i>
-                                        <span>Glue</span>
-                                    </div>
-                                    <div class="tech-icon">
-                                        <i class="fab fa-aws"></i>
-                                        <span>Athena</span>
-                                    </div>
-                                    <div class="tech-icon">
-                                        <img src="images/spark.svg" alt="Spark">
-                                        <span>Spark SQL</span>
-                                    </div>
+                                    <div class="tech-icon"><img src="images/python-5.svg" alt="Python"><span>Python</span></div>
+                                    <div class="tech-icon"><i class="fab fa-aws"></i><span>Glue</span></div>
+                                    <div class="tech-icon"><i class="fab fa-aws"></i><span>Athena</span></div>
+                                    <div class="tech-icon"><img src="images/spark.svg" alt="Spark"><span>Spark SQL</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Certifications Preview -->
-                    <div class="certifications-preview">
-                        <h3 class="section-title" data-aos="fade-up">Cloud Certifications</h3>
-                        <div class="cert-cards" style="display: flex; gap: 1.5rem; margin-bottom: 2rem; justify-content: center; flex-wrap: wrap;">
-                            <!-- AWS Certification -->
-                            <div class="cert-card" data-aos="fade-up" style="flex: 0 0 300px; max-width: 100%; background: var(--card-bg); border-radius: 12px; padding: 1.25rem; transition: all 0.3s ease; border: 1px solid rgba(255, 153, 0, 0.1);">
-                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                                    <div style="background: rgba(255, 153, 0, 0.1); padding: 10px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                                        <img src="images/aws.png" alt="AWS Logo" style="width: 36px; height: 36px; object-fit: contain;">
+                    <div class="certifications-preview reveal">
+                        <h2 class="section-title">Cloud Certifications</h2>
+                        <div class="cert-cards">
+                            <!-- AWS -->
+                            <div class="cert-card">
+                                <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+                                    <div style="background:rgba(255,153,0,0.1);padding:10px;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+                                        <img src="images/aws.png" alt="AWS Logo" style="width:36px;height:36px;object-fit:contain;">
                                     </div>
                                     <div>
-                                        <h4 style="font-size: 1.1rem; margin: 0 0 0.15rem; color: var(--text-color);">AWS Certified</h4>
-                                        <p style="font-size: 0.9rem; margin: 0; color: var(--text-secondary);">Developer Associate</p>
+                                        <h4 style="font-size:1rem;margin:0 0 0.1rem;color:var(--text-primary);">AWS Certified</h4>
+                                        <p style="font-size:0.85rem;margin:0;color:var(--text-dim);">Developer Associate</p>
                                     </div>
                                 </div>
-                                <div style="text-align: center; padding: 0.5rem 0;">
-                                    <img src="images/aws-developer-associate.png" alt="AWS Developer Associate" style="max-width: 120px; height: auto; margin: 0 auto;">
+                                <div style="text-align:center;padding:0.5rem 0;">
+                                    <img src="images/aws-developer-associate.png" alt="AWS Developer Associate" style="max-width:100px;height:auto;margin:0 auto;">
                                 </div>
                             </div>
-                            
-                            <!-- Azure Certification -->
-                            <div class="cert-card" data-aos="fade-up" data-aos-delay="100" style="flex: 0 0 300px; max-width: 100%; background: var(--card-bg); border-radius: 12px; padding: 1.25rem; transition: all 0.3s ease; border: 1px solid rgba(0, 120, 212, 0.1);">
-                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                                    <div style="background: rgba(0, 120, 212, 0.1); padding: 10px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                                        <img src="images/Microsoft_Azure.svg" alt="Azure Logo" style="width: 36px; height: 36px; object-fit: contain;">
+
+                            <!-- Azure -->
+                            <div class="cert-card">
+                                <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+                                    <div style="background:rgba(0,120,212,0.1);padding:10px;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+                                        <img src="images/Microsoft_Azure.svg" alt="Azure Logo" style="width:36px;height:36px;object-fit:contain;">
                                     </div>
                                     <div>
-                                        <h4 style="font-size: 1.1rem; margin: 0 0 0.15rem; color: var(--text-color);">Microsoft Certified</h4>
-                                        <p style="font-size: 0.9rem; margin: 0; color: var(--text-secondary);">Azure Fundamentals</p>
+                                        <h4 style="font-size:1rem;margin:0 0 0.1rem;color:var(--text-primary);">Microsoft Certified</h4>
+                                        <p style="font-size:0.85rem;margin:0;color:var(--text-dim);">Azure Fundamentals</p>
                                     </div>
                                 </div>
-                                <div style="text-align: center; padding: 0.5rem 0;">
-                                    <img src="images/az-900-badge.png" alt="Azure Fundamentals" style="max-width: 120px; height: auto; margin: 0 auto;">
+                                <div style="text-align:center;padding:0.5rem 0;">
+                                    <img src="images/az-900-badge.png" alt="Azure Fundamentals" style="max-width:100px;height:auto;margin:0 auto;">
                                 </div>
                             </div>
                         </div>
-                        <div class="cta-container" data-aos="fade-up" data-aos-delay="200">
+                        <div class="cta-container" style="justify-content:center;margin-top:2rem;">
                             <a href="certifications.html" class="cta-button">
-                                <span class="cta-text">View All Certifications</span>
-                                <span class="cta-icon">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
+                                <span>View All Certifications</span>
+                                <i class="fas fa-arrow-right cta-icon"></i>
                             </a>
                         </div>
                     </div>
@@ -232,49 +224,45 @@
             </div>
         </section>
 
+        <!-- ── Projects ───────────────────────────────────────── -->
         <section id="projects" class="projects section">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
-                    <p class="section-subtitle" data-aos="fade-up">Discovering new approaches to data processing and cloud infrastructure challenges</p>
+                    <h2 class="section-title reveal">Featured Projects</h2>
+                    <p class="section-subtitle reveal">Discovering new approaches to data processing and cloud infrastructure challenges.</p>
                 </div>
-                
+
                 <div class="projects-grid">
-                    <!-- Data Pipeline Project -->
-                    <div class="project-card" data-aos="fade-up">
+                    <!-- Data Pipeline -->
+                    <div class="project-card reveal">
                         <div class="project-content">
                             <div class="project-header">
-                                <div class="project-icon">
-                                    <i class="fas fa-database"></i>
-                                </div>
+                                <div class="project-icon"><i class="fas fa-database"></i></div>
                                 <div class="project-tags">
                                     <span class="tag">AWS</span>
                                     <span class="tag">Data Engineering</span>
                                 </div>
                             </div>
-                            <h3>Real-time Serverless Data Pipeline</h3>
+                            <h3>Real-time Serverless Pipeline</h3>
                             <p>Serverless ETL pipeline processing real-time data using AWS Kinesis, Lambda, and Redshift. Implements data quality checks and automated alerting.</p>
                             <div class="tech-stack">
                                 <span class="tech-item"><i class="fab fa-aws"></i> Kinesis</span>
                                 <span class="tech-item"><i class="fab fa-aws"></i> Lambda</span>
-                                <span class="tech-item"><img src="images/python-5.svg" alt="Python">
-                                <span>Python</span>
+                                <span class="tech-item"><img src="images/python-5.svg" alt="Python"> Python</span>
                             </div>
                         </div>
                         <div class="project-footer">
-                            <a href="projects/work-in-progress.html" class="project-link">
-                                View Project <i class="fas fa-arrow-right"></i>
+                            <a href="#" class="project-link" title="Coming Soon">
+                                In Progress <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
 
-                    <!-- ML Platform Project -->
-                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <!-- ML Platform -->
+                    <div class="project-card reveal reveal-delay-1">
                         <div class="project-content">
                             <div class="project-header">
-                                <div class="project-icon">
-                                    <i class="fas fa-brain"></i>
-                                </div>
+                                <div class="project-icon"><i class="fas fa-brain"></i></div>
                                 <div class="project-tags">
                                     <span class="tag">AWS</span>
                                     <span class="tag">Machine Learning</span>
@@ -289,19 +277,17 @@
                             </div>
                         </div>
                         <div class="project-footer">
-                            <a href="projects/work-in-progress.html" class="project-link">
-                                View Project <i class="fas fa-arrow-right"></i>
+                            <a href="#" class="project-link" title="Coming Soon">
+                                In Progress <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Data Analytics Project -->
-                    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Analytics -->
+                    <div class="project-card reveal reveal-delay-2">
                         <div class="project-content">
                             <div class="project-header">
-                                <div class="project-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
+                                <div class="project-icon"><i class="fas fa-chart-line"></i></div>
                                 <div class="project-tags">
                                     <span class="tag">AWS</span>
                                     <span class="tag">Analytics</span>
@@ -316,8 +302,8 @@
                             </div>
                         </div>
                         <div class="project-footer">
-                            <a href="projects/work-in-progress.html" class="project-link">
-                                View Project <i class="fas fa-arrow-right"></i>
+                            <a href="#" class="project-link" title="Coming Soon">
+                                In Progress <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -325,7 +311,8 @@
             </div>
         </section>
     </main>
-    
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -340,10 +327,10 @@
                             </span>
                         </a>
                     </div>
-                    
+
                     <div class="footer-links">
                         <div class="links-column">
-                            <h4>Navigation</h4>
+                            <h4>Navigate</h4>
                             <a href="#home">Home</a>
                             <a href="#about">About</a>
                             <a href="#projects">Projects</a>
@@ -351,11 +338,11 @@
                         </div>
                         <div class="links-column">
                             <h4>Connect</h4>
-                            <a href="https://github.com/jaumevg" target="_blank" aria-label="GitHub">
+                            <a href="https://github.com/jaumevg" target="_blank" rel="noopener" aria-label="GitHub">
                                 <i class="fab fa-github"></i>
                                 <span>GitHub</span>
                             </a>
-                            <a href="https://www.linkedin.com/in/jaume-vidal-gonzalez/" target="_blank" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/in/jaume-vidal-gonzalez/" target="_blank" rel="noopener" aria-label="LinkedIn">
                                 <i class="fab fa-linkedin"></i>
                                 <span>LinkedIn</span>
                             </a>
@@ -372,26 +359,131 @@
                             Castelló, Spain
                         </span>
                         <span class="separator">·</span>
-                        <span>2025</span>
+                        <span id="footer-year">2025</span>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="js/main.js"></script>
+    <!-- Scripts -->
     <script src="js/particles.js"></script>
     <script src="js/scrolling.js"></script>
-    <script src="js/spotlight.js"></script>
-    <script src="js/url-updater.js"></script>
     <script type="module" src="js/script.js"></script>
     <script type="module">
         import { initNavigation, initMobileMenu, initFloatingNav } from './js/navigation.js';
         initNavigation();
         initMobileMenu();
         initFloatingNav();
+    </script>
+    <script>
+        // ── Año dinámico ─────────────────────────────────────────
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // ── Typing Effect en el hero subtitle ───────────────────
+        const roles = [
+            'Cloud Data Engineer',
+            'AWS Solutions Architect',
+            'Data Pipeline Builder',
+            'Analytics Platform Designer'
+        ];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingEl = document.getElementById('typing-text');
+
+        function typeWriter() {
+            const current = roles[roleIndex];
+            if (isDeleting) {
+                typingEl.textContent = current.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingEl.textContent = current.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let delay = isDeleting ? 50 : 90;
+
+            if (!isDeleting && charIndex === current.length) {
+                delay = 2000; // Pausa al terminar de escribir
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                delay = 400; // Pausa antes de escribir el siguiente
+            }
+
+            setTimeout(typeWriter, delay);
+        }
+
+        // Iniciar después de la animación del hero
+        setTimeout(typeWriter, 1200);
+
+        // ── Scroll Progress ──────────────────────────────────────
+        const progressBar = document.querySelector('.scroll-progress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            progressBar.style.width = (scrollTop / scrollHeight * 100) + '%';
+        }, { passive: true });
+
+        // ── Intersection Observer — Reveal animations ────────────
+        const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+        revealEls.forEach(el => revealObserver.observe(el));
+
+        // ── 3D Tilt en Project Cards ─────────────────────────────
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -6;
+                const rotateY = ((x - centerX) / centerX) * 6;
+                card.style.transform = `translateY(-8px) perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        // ── Mobile Menu (Drawer) ─────────────────────────────────
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks   = document.getElementById('nav-links');
+        const navOverlay = document.getElementById('nav-overlay');
+
+        function closeMobileMenu() {
+            menuToggle.classList.remove('is-open');
+            navLinks.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        menuToggle?.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('is-open', isOpen);
+            navOverlay.classList.toggle('active', isOpen);
+            document.body.classList.toggle('menu-open', isOpen);
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        navOverlay?.addEventListener('click', closeMobileMenu);
+
+        navLinks?.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
     </script>
 </body>
 </html>

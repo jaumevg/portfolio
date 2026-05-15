@@ -1,4 +1,7 @@
-/* Base styles and common elements */
+/* ============================================================
+   BASE STYLES — Layout, fondo, tipografía global
+   ============================================================ */
+
 html, body {
     margin: 0;
     padding: 0;
@@ -7,8 +10,8 @@ html, body {
 }
 
 body {
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--bg-void);
+    color: var(--text-primary);
     font-family: var(--font-body);
     line-height: 1.6;
     min-height: 100vh;
@@ -20,16 +23,19 @@ main {
     position: relative;
 }
 
-/* Container */
+/* ── Container ────────────────────────────────────────────── */
 .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
     box-sizing: border-box;
 }
 
-/* Modern tech pattern overlay */
+/* ── Fondo global: patrón tech tricolor ───────────────────── */
+/* Tres gradientes radiales en esquinas opuestas con los tres acentos,
+   más un grid sutil de líneas. Todo con opacidad muy baja — se percibe
+   como "atmósfera" sin distraer del contenido. */
 body::before {
     content: '';
     position: fixed;
@@ -37,43 +43,57 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-        radial-gradient(circle at 100% 0%, var(--primary-color-transparent) 0%, transparent 50%),
-        radial-gradient(circle at 0% 100%, var(--secondary-color) 0%, transparent 50%),
-        repeating-linear-gradient(
-            45deg,
-            transparent 0,
-            transparent 10px,
-            var(--primary-color-transparent) 10px,
-            var(--primary-color-transparent) 11px
-        );
-    opacity: 0.05;
-    z-index: -1;
+    background:
+        radial-gradient(ellipse at 95% 5%,  rgba(255, 23, 68, 0.07)  0%, transparent 45%),
+        radial-gradient(ellipse at 5%  50%, rgba(123, 47, 255, 0.06) 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 95%, rgba(0, 212, 255, 0.05)  0%, transparent 45%);
+    opacity: 1;
+    z-index: -2;
     pointer-events: none;
 }
 
-/* Section styles */
+/* Grid de líneas diagonal sutil (toque cyberpunk) */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: -1;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 100%);
+}
+
+/* ── Sections ─────────────────────────────────────────────── */
 section {
-    padding: 90px 0 2.5rem 0;
+    padding: 90px 0 5rem 0;
     position: relative;
-    background-color: var(--section-background);
+    background-color: transparent; /* el fondo viene del body */
     margin: 0;
-    scroll-margin-top: 120px;
+    scroll-margin-top: 80px;
 }
 
 section:nth-child(even) {
-    background: var(--alt-section-background);
+    /* Capa alternada muy sutil para separar visualmente */
+    background: rgba(13, 13, 24, 0.4);
 }
 
-/* Headings */
-h1, h2, h3 {
-    color: var(--text-color);
+/* ── Headings ─────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
     font-family: var(--font-display);
+    line-height: 1.2;
 }
 
 h2 {
     font-size: 2.5rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     text-align: center;
     position: relative;
     display: flex;
@@ -83,93 +103,41 @@ h2 {
     gap: 0.5rem;
 }
 
-h2 i {
-    font-size: 0.9em;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
 h2::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: var(--primary-color);
-    box-shadow: var(--neon-glow);
+    width: 80px;
+    height: 2px;
+    background: var(--gradient-tricolor);
+    border-radius: 2px;
+    box-shadow: var(--neon-glow-red);
 }
 
-/* Links and buttons */
+/* ── Links ────────────────────────────────────────────────── */
 a {
-    color: var(--text-color);
+    color: var(--text-primary);
     text-decoration: none;
     transition: var(--transition);
 }
 
-.btn {
-    background: var(--primary-color);
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    font-family: var(--font-mono);
-    cursor: pointer;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
+/* ── Utility ──────────────────────────────────────────────── */
+.text-center { text-align: center; }
 
-.btn:hover {
-    background: var(--secondary-color);
-    transform: translateY(-2px);
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-}
-
-.btn:hover::before {
-    transform: translateX(0);
-}
-
-/* Responsive Design */
+/* ── Responsive ───────────────────────────────────────────── */
 @media screen and (max-width: 1200px) {
-    .container {
-        padding: 0 2rem;
-    }
+    .container { padding: 0 2rem; }
 }
 
 @media screen and (max-width: 768px) {
-    section {
-        padding: 60px 0 2rem 0;
-    }
-    
-    h2 {
-        font-size: 2rem;
-    }
+    section { padding: 70px 0 3rem 0; }
+    h2 { font-size: 2rem; }
 }
 
 @media screen and (max-width: 480px) {
-    .container {
-        padding: 0 1rem;
-    }
-    
-    section {
-        padding: 40px 0 1.5rem 0;
-    }
-    
-    h2 {
-        font-size: 1.8rem;
-    }
+    .container { padding: 0 1rem; }
+    section { padding: 50px 0 2rem 0; }
+    h2 { font-size: 1.8rem; }
 }

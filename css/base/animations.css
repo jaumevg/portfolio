@@ -1,94 +1,138 @@
-/* Typing cursor blink animation */
-@keyframes blink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
+/* ============================================================
+   ANIMATIONS — Keyframes globales y clases utilitarias
+   Reemplaza AOS con Intersection Observer nativo + CSS puro
+   ============================================================ */
+
+/* ── Fade In desde abajo ──────────────────────────────────── */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Bounce animation for scroll indicator */
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    40% {
-        transform: translateX(-50%) translateY(-30px);
-    }
-    60% {
-        transform: translateX(-50%) translateY(-15px);
-    }
+/* ── Fade In desde la izquierda ───────────────────────────── */
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-24px); }
+    to   { opacity: 1; transform: translateX(0); }
 }
 
-/* Float animation for elements */
-@keyframes float {
-    0%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    50% {
-        transform: translateX(-50%) translateY(-20px);
-    }
+/* ── Fade In desde la derecha ─────────────────────────────── */
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(24px); }
+    to   { opacity: 1; transform: translateX(0); }
 }
 
-/* Fade in animation */
+/* ── Fade In puro ─────────────────────────────────────────── */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
-/* Glow pulse animation */
-@keyframes glowPulse {
-    0%, 100% {
-        text-shadow: var(--neon-text-glow);
-    }
-    50% {
-        text-shadow: none;
-    }
+/* ── Glitch Effect (nombre en hero) ──────────────────────── */
+@keyframes glitch {
+    0%   { clip-path: none; transform: translate(0); }
+    2%   { clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%);
+           transform: translate(-3px, 0); color: var(--accent-cyan); }
+    4%   { clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%);
+           transform: translate(3px, 0); color: var(--primary); }
+    6%   { clip-path: none; transform: translate(0); color: inherit; }
+    100% { clip-path: none; transform: translate(0); color: inherit; }
 }
 
-/* Slide in from right */
-@keyframes slideInRight {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(0);
-    }
+@keyframes glitch-shadow {
+    0%   { text-shadow: none; }
+    2%   { text-shadow: -3px 0 var(--accent-cyan), 3px 0 var(--primary); }
+    4%   { text-shadow: 3px 0 var(--accent-violet), -3px 0 var(--primary); }
+    6%   { text-shadow: none; }
+    100% { text-shadow: none; }
 }
 
-/* Slide out to right */
-@keyframes slideOutRight {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(100%);
-    }
+/* ── Name Glow (pulso suave del nombre) ───────────────────── */
+@keyframes nameGlow {
+    0%   { filter: drop-shadow(0 0 8px rgba(255, 23, 68, 0.4)); }
+    50%  { filter: drop-shadow(0 0 20px rgba(255, 23, 68, 0.7))
+                   drop-shadow(0 0 40px rgba(123, 47, 255, 0.2)); }
+    100% { filter: drop-shadow(0 0 8px rgba(255, 23, 68, 0.4)); }
 }
 
-/* Rotate animation */
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* ── Gradient Shift (fondos animados) ─────────────────────── */
+@keyframes gradientShift {
+    0%   { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
 }
 
-/* Scale animation */
-@keyframes scale {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
+/* ── Scan Line (hover en project cards) ───────────────────── */
+@keyframes scanLine {
+    0%   { transform: translateY(-100%); opacity: 0.6; }
+    100% { transform: translateY(400%);  opacity: 0; }
 }
+
+/* ── Rotating Border (foto de perfil) ────────────────────── */
+@keyframes rotateBorder {
+    from { --border-angle: 0deg; }
+    to   { --border-angle: 360deg; }
+}
+
+/* ── Scroll indicator bounce ─────────────────────────────── */
+@keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 0.7; }
+    50%       { transform: translateY(6px); opacity: 1; }
+}
+
+/* ── Download pulse ──────────────────────────────────────── */
+@keyframes downloadPulse {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(4px); }
+    100% { transform: translateY(0); }
+}
+
+/* ── Pulse (badge CURRENT) ────────────────────────────────── */
+@keyframes pulseDot {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4); }
+    50%       { box-shadow: 0 0 0 6px rgba(0, 212, 255, 0); }
+}
+
+/* ── Typing cursor ────────────────────────────────────────── */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+/* ── Intersection Observer: clases de reveal ──────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-24px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(24px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Delays para elementos en serie */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
