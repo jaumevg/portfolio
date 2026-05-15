@@ -443,29 +443,6 @@
     flex: 1;
 }
 
-/* Exam code — identificador técnico arriba del nombre */
-.cert-code {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 0.2rem 0.7rem;
-    border-radius: 4px;
-    display: inline-block;
-}
-
-.cert-code--aws {
-    background: var(--aws-subtle);
-    border: 1px solid var(--aws-border);
-    color: var(--aws-color);
-}
-
-.cert-code--azure {
-    background: var(--azure-subtle);
-    border: 1px solid var(--azure-border);
-    color: var(--azure-light);
-}
 
 /* Nombre de la cert */
 .cert-body h3 {
