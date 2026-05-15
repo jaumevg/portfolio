@@ -61,6 +61,9 @@
 
 /* Card de posición actual — dot cyan */
 .experience-card.current::before {
+    /* The current card has a 3px left border, pushing its padding box 2px further right.
+       We must pull the dot 2px further left: -36px - 2px = -38px */
+    left: -38px;
     border-color: var(--accent-cyan);
     background: var(--accent-cyan);
     box-shadow: var(--neon-glow-cyan);
@@ -274,6 +277,11 @@
         /* Target center is 17px. Card padding box is at 51px.
            17px - 51px = -34px. */
         left: -34px;
+    }
+
+    .experience-card.current::before {
+        /* Account for 3px left border: -34px - 2px = -36px */
+        left: -36px;
     }
 
     .experience-header {
