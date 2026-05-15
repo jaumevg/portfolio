@@ -207,35 +207,6 @@
     transform: translateY(0);
 }
 
-/* ── Scroll Indicator — absoluto en la parte baja del hero ── */
-.scroll-indicator {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    opacity: 0;
-    animation: fadeIn 1s ease-out 1.6s forwards;
-    z-index: 4;
-    pointer-events: none;
-}
-
-.scroll-indicator span {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--text-muted);
-    letter-spacing: 4px;
-    text-transform: uppercase;
-}
-
-.scroll-indicator-arrow {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    animation: scrollBounce 1.5s ease-in-out infinite;
-}
 
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 768px) {
