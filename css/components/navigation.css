@@ -21,39 +21,7 @@ nav {
     box-sizing: border-box;
 }
 
-/* ── Logo JV. ─────────────────────────────────────────────── */
-.nav-logo {
-    font-family: var(--font-mono);
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: var(--text-primary);
-    text-decoration: none;
-    letter-spacing: 3px;
-    position: relative;
-    z-index: 2;
-    text-shadow: var(--neon-glow-red);
-    transition: text-shadow 0.3s ease, color 0.3s ease;
-    flex-shrink: 0;
-}
-
-.nav-logo:hover {
-    color: var(--text-primary);
-    text-shadow: var(--neon-glow-violet);
-}
-
-/* Punto neon después del logo */
-.nav-logo::after {
-    content: '';
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    background: var(--primary);
-    border-radius: 50%;
-    margin-left: 2px;
-    vertical-align: super;
-    box-shadow: 0 0 6px var(--primary), 0 0 12px var(--primary);
-    animation: pulseDot 2s ease infinite;
-}
+/* Logo removed from HTML for cleaner Tech-Zen styling */
 
 /* ── Nav Links ────────────────────────────────────────────── */
 .nav-links {
@@ -113,13 +81,13 @@ nav {
 
 /* Active state */
 .nav-links a.active {
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 .nav-links a.active::before {
     transform: scaleX(1);
-    background: var(--primary);
-    box-shadow: 0 0 8px var(--primary);
+    background: var(--gradient-tricolor);
+    box-shadow: 0 0 10px rgba(123, 47, 255, 0.4);
 }
 
 /* Certifications link — small accent */
@@ -129,19 +97,19 @@ nav {
 }
 
 /* Arrow indicator para links externos */
-.nav-links a[href$=".html"]:not(.nav-logo)::after {
+.nav-links a[href$=".html"]::after {
     content: "↗";
     font-size: 0.75em;
     opacity: 0.6;
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.nav-links a[href$=".html"]:not(.nav-logo):hover::after {
+.nav-links a[href$=".html"]:hover::after {
     transform: translate(2px, -2px);
     opacity: 1;
 }
 
-/* Ocultar arrow en active (ya tiene la línea) */
+/* Ocultar arrow en active (ya tiene la línea tricolor) */
 .nav-links a[href$=".html"].active::after {
     display: none;
 }
@@ -155,7 +123,7 @@ nav {
 body.certifications-page .nav-links a[href*="certifications"],
 body.certifications-page .nav-links a[href="#top"],
 body.certifications-page .nav-links a.scroll-top {
-    color: var(--primary) !important;
+    color: var(--text-primary) !important;
 }
 
 body.certifications-page .nav-links a[href*="certifications"]::after,
