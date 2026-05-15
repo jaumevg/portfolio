@@ -184,7 +184,7 @@
 
 /* ── Certifications Preview ───────────────────────────────── */
 .certifications-preview {
-    margin-top: 2rem;
+    margin-top: 4rem;
     text-align: center;
 }
 
@@ -197,34 +197,110 @@
     flex-wrap: wrap;
 }
 
-/* Override inline styles en cert cards */
-.cert-card {
+/* ── Cert Preview Cards ───────────────────────────────────── */
+.cert-preview-card {
     flex: 0 0 280px;
     max-width: 100%;
-    background: var(--glass-bg) !important;
-    border-radius: var(--border-radius-card) !important;
-    padding: 1.5rem !important;
-    border: 1px solid var(--glass-border) !important;
+    background: var(--glass-bg);
+    border-radius: var(--border-radius-card);
+    padding: 1.5rem;
+    border: 1px solid var(--glass-border);
     backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    text-align: left;
 }
 
-.cert-card:hover {
+.cert-preview-card:hover {
     transform: translateY(-5px);
-    border-color: var(--primary-border) !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* AWS card hover */
-.cert-card:nth-child(1):hover {
-    border-color: rgba(255, 153, 0, 0.35) !important;
-    box-shadow: 0 12px 40px rgba(255, 153, 0, 0.1);
+.cert-preview-card--aws:hover {
+    border-color: rgba(255, 153, 0, 0.5);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 153, 0, 0.15);
 }
 
-/* Azure card hover */
-.cert-card:nth-child(2):hover {
-    border-color: rgba(0, 120, 212, 0.35) !important;
-    box-shadow: 0 12px 40px rgba(0, 120, 212, 0.1);
+.cert-preview-card--azure:hover {
+    border-color: rgba(0, 120, 212, 0.5);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 120, 212, 0.15);
+}
+
+.cert-preview-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cert-preview-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.cert-preview-icon img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.cert-preview-icon--aws {
+    background: rgba(255, 153, 0, 0.08);
+    border: 1px solid rgba(255, 153, 0, 0.2);
+}
+
+.cert-preview-icon--aws img {
+    filter: invert(63%) sepia(96%) saturate(1000%) hue-rotate(5deg) brightness(105%);
+}
+
+.cert-preview-icon--azure {
+    background: rgba(0, 120, 212, 0.08);
+    border: 1px solid rgba(0, 120, 212, 0.2);
+}
+
+.cert-preview-title h4 {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin: 0 0 0.1rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+
+.cert-preview-title p {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    margin: 0;
+    font-family: var(--font-mono);
+}
+
+.cert-preview-badge {
+    text-align: center;
+    padding: 0.5rem 0;
+    transition: transform 0.3s ease;
+}
+
+.cert-preview-badge img {
+    max-width: 100px;
+    height: auto;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    transition: filter 0.3s ease;
+}
+
+.cert-preview-card:hover .cert-preview-icon { transform: scale(1.05); }
+.cert-preview-card:hover .cert-preview-badge { transform: scale(1.05); }
+.cert-preview-card:hover .cert-preview-badge img { filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4)); }
+
+.cert-preview-cta {
+    justify-content: center;
+    margin-top: 2rem;
 }
 
 /* ── Responsive ───────────────────────────────────────────── */

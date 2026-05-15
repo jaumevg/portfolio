@@ -12,10 +12,10 @@
 .experience-timeline::before {
     content: '';
     position: absolute;
-    left: 22px;
+    left: 24px;
     top: 80px;
     bottom: 20px;
-    width: 1px;
+    width: 2px;
     background: linear-gradient(to bottom,
         var(--accent-cyan) 0%,
         var(--accent-violet) 50%,
@@ -31,7 +31,7 @@
     border-radius: var(--border-radius-card);
     padding: 2rem;
     margin-bottom: 2rem;
-    margin-left: 3rem; /* Espacio para la línea y el dot */
+    margin-left: 60px; /* Fixed space for timeline */
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(12px) saturate(160%);
     -webkit-backdrop-filter: blur(12px) saturate(160%);
@@ -44,10 +44,12 @@
 .experience-card::before {
     content: '';
     position: absolute;
-    left: -2.4rem;
+    /* Card is at 60px, Line center at 25px. Dot center needs to be at -35px relative to card.
+       Dot total width is 14px. Left edge = -35px - 7px = -42px. */
+    left: -42px;
     top: 2rem;
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background: var(--bg-surface);
     border: 2px solid var(--primary);
@@ -70,33 +72,16 @@
     border-color: var(--cyan-border);
 }
 
-.experience-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--gradient-tricolor);
-    opacity: 0;
-    border-radius: var(--border-radius-card) var(--border-radius-card) 0 0;
-    transition: opacity 0.3s ease;
-}
-
 .experience-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(255, 23, 68, 0.3);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 1px rgba(255, 23, 68, 0.2);
+    border-color: rgba(255, 23, 68, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 23, 68, 0.15);
     background: var(--bg-elevated);
 }
 
-.experience-card:hover::after {
-    opacity: 1;
-}
-
 .experience-card.current:hover {
-    border-color: var(--cyan-border);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 212, 255, 0.2);
+    border-color: rgba(0, 212, 255, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 212, 255, 0.15);
 }
 
 /* ── Badge CURRENT ─────────────────────────────────────────── */
@@ -280,12 +265,13 @@
     }
 
     .experience-card {
-        margin-left: 2.5rem;
+        margin-left: 50px;
         padding: 1.5rem;
     }
 
     .experience-card::before {
-        left: -2rem;
+        /* Line is at 16px (17px center). Card at 50px. Dot center = 17 - 50 = -33px. Left edge = -33 - 7 = -40px. */
+        left: -40px;
     }
 
     .experience-header {
