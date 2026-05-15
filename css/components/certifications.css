@@ -486,54 +486,48 @@
     color: var(--azure-light);
 }
 
-/* ── Cert Meta ────────────────────────────────────────────── */
-.cert-meta {
+/* ── Cert Data Grid (Vercel Style) ────────────────────────── */
+.cert-data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: 100%;
+    padding-top: 1rem;
+    margin-top: auto;
+    border-top: 1px solid var(--border-subtle);
+    text-align: left;
+}
+
+.data-col {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%;
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--border-subtle);
-    margin-top: auto;
+    gap: 0.35rem;
 }
 
-.cert-meta-row {
+.data-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+}
+
+.data-value {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--text-dim);
-}
-
-.cert-meta-row i        { font-size: 0.8rem; color: var(--text-muted); }
-.cert-meta-label        { color: var(--text-muted); }
-.cert-meta-value        { color: var(--text-primary); font-weight: 500; }
-
-/* Validity badges — color del proveedor */
-.cert-validity {
-    display: inline-flex;
-    align-items: center;
     gap: 0.45rem;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    padding: 0.22rem 0.7rem;
-    border-radius: 20px;
 }
 
-/* AWS: fecha de expiración → naranja */
+/* Text Colors para validez */
 .cert-validity--aws {
-    background: var(--aws-subtle);
-    border: 1px solid var(--aws-border);
     color: var(--aws-color);
 }
 
-/* Azure: sin expiración → verde */
 .cert-validity--azure {
-    background: var(--azure-active-bg);
-    border: 1px solid var(--azure-active-border);
     color: var(--azure-active);
 }
 
